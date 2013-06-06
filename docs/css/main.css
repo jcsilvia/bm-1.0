@@ -1,0 +1,266 @@
+html, body {
+    margin:0;
+    padding:0;
+    height:100%;
+}
+
+body {
+    background-color: darkkhaki;
+
+}
+
+.wrap {
+    min-height: 100%;
+    min-width: 100%
+
+}
+
+.main-content {
+    overflow:auto;
+    padding-bottom:80px;
+    margin: 0 auto;
+    width: 800px;
+    height: 100%;
+    background-color: white;
+    border-color: #000000;
+    border-left-width: 1px;
+    border-right-width: 1px;
+
+    border-left-style: solid;
+    border-right-style: solid;
+    border-top-style: solid;
+    border-top-width: 1px;
+}
+
+.footer {
+    clear:both;
+    width: 800px;
+    height:60px;
+    margin-top:-80px;
+    margin: 0 auto;
+    position: relative;
+    background-color: rgba(45,45,45,100);
+    border-color: #000000;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-radius: 0px 0px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 0px 0px 10px 10px;
+
+}
+
+.footer a:link {text-decoration:none;color:white;}
+.footer a:visited {text-decoration:none;color:white;}
+.footer a:hover {text-decoration:none;color:red;}
+.footer a:active {text-decoration:none;color:white;}
+
+.header {
+    background-color: darkolivegreen;
+    border-radius: 10px 10px 0px 0px; -moz-border-radius: 10px 10px 0px 0px; -webkit-border-radius: 10px 10px 0px 0px;
+    height: 85px;
+    padding-left: 5px;
+    width: 795px;
+    margin:0 auto;
+    margin-top:2px;
+    border-color: #000000;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-top-width: 1px;
+    border-top-style: solid;
+    position:relative;
+    }
+
+.header a:link {text-decoration:none;color:white;}
+.header a:visited {text-decoration:none;color:white;}
+.header a:hover {text-decoration:none;color:red;}
+.header a:active {text-decoration:none;color:white;}
+
+
+.chrome-optimized{
+    color:white;
+    font-family:"helvetica",sans-serif;
+    font-size:0.8em;
+    position: absolute;
+    text-align: left;
+    bottom: 5px;
+    left:5px;
+
+}
+
+.footer-nav{
+    color:black;
+    font-family:"helvetica",sans-serif;
+    font-size:0.9em;
+    text-align: center;
+    background-color:ghostwhite;
+    width: 800px;
+    margin:0 auto;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-left-style: solid;
+    border-right-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+
+.footer-nav a:link {text-decoration:none;color:black;}
+.footer-nav a:visited {text-decoration:none;color:black;}
+.footer-nav a:hover {text-decoration:none;color:red;}
+.footer-nav a:active {text-decoration:none;color:black;}
+
+.copyright {
+    color:white;
+    font-family:"helvetica",sans-serif;
+    font-size:0.8em;
+    position: absolute;
+    text-align: right;
+    bottom: 5px;
+    right:5px;
+
+}
+
+.link-container {position:absolute; right: 20; top: 10;color:white;
+    background-color: rgba(45,45,45,100); border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px;
+    padding: .5em; width:170px; height: 115px;font-size:1em; border: #000000; border-width: 1px; border-style: solid;
+    font-family:"helvetica",sans-serif;
+}
+
+.text-container {
+    position:absolute; left: 20; top: 10;color:black;width:500;height:115px;
+}
+
+.button1{    font-size:1em;
+    font-family:"helvetica",sans-serif;
+    background-color:#d3d3d3;
+    border:1px solid;
+    border-radius: 5px 5px 5px 5px;
+}
+.button1:hover {
+    background-color:#a9a9a9;
+}
+
+.text {
+    font-family:"helvetica",sans-serif;
+    font-size:1em;
+}
+
+.welcome-text {
+    font-family:"helvetica",sans-serif;
+    font-size:1em;
+}
+
+.login_form{
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+    width:450px;
+    background-color:white;
+    border-style:solid;
+    border-width:thin;
+    border-color:black;
+    border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px;
+    font-family:"helvetica",sans-serif;
+    color: black;
+}
+
+
+.tooltip {
+    background-color:#000;
+    border:1px solid #fff;
+    padding:10px 15px;
+    width:200px;
+    display:none;
+    color:#fff;
+    text-align:left;
+    font-size:12px;
+
+    /* outline radius for mozilla/firefox only */
+    -moz-box-shadow:0 0 10px #000;
+    -webkit-box-shadow:0 0 10px #000;
+}
+
+.content a:link {text-decoration:none;color:blue;}
+.content a:visited {text-decoration:none;color:blue;}
+.content a:hover {text-decoration:none;color:red;}
+.content a:active {text-decoration:none;color:blue;}
+
+.form {
+    margin-left: auto;
+    margin-right: auto;
+    width:450px;
+    padding:5px;
+    background-color:#ffffff;
+    border-style:solid;
+    border-width:thin;
+    border-color:black;
+    border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px;
+    font-family:"helvetica",sans-serif;
+    color: black;
+}
+
+.logout {
+    font-family:"helvetica",sans-serif;
+    font-size:1em;
+    position:absolute;
+    width:395px;
+    left: 375px;
+    top: 35px;
+
+}
+
+.logo {
+    position:absolute;
+    width:395px;
+    align:left;
+
+}
+
+.sub-nav {
+    height: 30px;
+    width: 100%;
+    position:relative;
+    color:black;
+    font-size:1em;
+    font-family:"helvetica",sans-serif;
+    white-space:pre;
+    text-align: center;
+
+}
+
+.sub-nav a:link {text-decoration:none;color:black;}
+.sub-nav a:visited {text-decoration:none;color:black;}
+.sub-nav a:hover {text-decoration:none;color:red;}
+.sub-nav a:active {text-decoration:none;color:black;}
+
+.username {
+    position:absolute;
+    left:5px;
+    top:15px;
+
+    text-align: left;
+    font-weight: bold;
+    font-family:"helvetica",sans-serif;
+    font-size:.85em;
+}
+
+.flashMsg {
+    position:absolute;
+    right: 5px;
+    top:0px;
+    text-align: right;
+    color: red;
+    font-family:"helvetica",sans-serif;
+    font-size:.95em;
+}
+
+
+.settings_back_button {
+    text-align: right;
+    position:relative;
+    top:45;
+    right:50;
+}
