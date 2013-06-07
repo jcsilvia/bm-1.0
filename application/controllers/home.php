@@ -8,6 +8,7 @@ class Home extends CI_Controller {
             parent::__construct();
             $this->load->helper('url');
             $this->load->database();
+            $this->load->model('Home_model');
         }
 
 
@@ -21,6 +22,11 @@ function index()
            {
 
                $data['title'] = 'Home';
+
+               $state = $this->Home_model->get_user_state();
+               $data['user_state'] = $state;
+               $data['state_ammo_prices'] = $this->Home_model->get_average_price_for_state($state);
+               $data['cheap_ammo_prices'] = $this->Home_model->get_cheapest_price_for_state($state);
 
                $this->load->view('templates/header', $data);
                $this->load->view('templates/sub_nav.php', $data);

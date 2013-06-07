@@ -20,6 +20,6 @@
 }
 ?>
 </div>
-<div class="username">Welcome <?php echo $this->session->userdata('username') ?> </div>
+<div class="username">Welcome, <?php echo $this->session->userdata('username') ?> </div>
 </div>
 <div style="min-height: 50px;"></div>

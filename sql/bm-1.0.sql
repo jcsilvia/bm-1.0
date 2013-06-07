@@ -83,8 +83,8 @@ CREATE TABLE `products` (
   `product_id` bigint(11) NOT NULL AUTO_INCREMENT,
   `product_category_id` int(11) DEFAULT NULL,
   `product_subcategory_id` int(11) DEFAULT NULL,
-  `product name` varchar(50) DEFAULT NULL,
-  `product description` varchar(255) DEFAULT NULL,
+  `product_name` varchar(50) DEFAULT NULL,
+  `product_description` varchar(255) DEFAULT NULL,
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`product_id`),
   KEY `product_category_idx` (`product_category_id`,`product_subcategory_id`)
