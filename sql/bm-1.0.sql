@@ -62,7 +62,7 @@ CREATE TABLE `members` (
 CREATE TABLE `product_availability` (
   `product_availability_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `product_id` bigint(20) DEFAULT NULL,
-  `vendor_id` bigint(20) DEFAULT NULL,
+  `address_id` bigint(20) DEFAULT NULL,
   `member_id` bigint(20) DEFAULT NULL,
   `in_stock` enum('Yes','No') DEFAULT NULL,
   `price` decimal(5,2) DEFAULT NULL,

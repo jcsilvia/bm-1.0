@@ -30,11 +30,11 @@ class Home_model extends CI_Model {
 
         $query = $this->db->query("SELECT po.product_id, po.product_name, ROUND(AVG(DISTINCT(pa.price/pa.quantity)), 2) average_price, ad.state
                                     FROM product_availability pa, addresses ad, products po
-                                    WHERE pa.vendor_id = ad.vendor_id
+                                    WHERE pa.address_id = ad.address_id
                                         AND pa.product_id = po.product_id
                                         AND pa.in_stock = 'Yes'
                                         AND ad.state = '" .$state. "'
-                                        AND pa.created_date > (CURRENT_DATE - 1)
+                                        AND pa.created_date > (CURRENT_DATE - 7)
                                         GROUP BY ad.state, po.product_id LIMIT 10");
 
         return $query->result_array();
@@ -43,6 +43,20 @@ class Home_model extends CI_Model {
     public function get_cheapest_price_for_state($state)
     {
         $query = $this->db->query("CALL get_cheapest_ammo('" .$state. "')");
+
+        return $query->result_array();
+
+    }
+
+    public function get_average_price()
+    {
+         $query = $this->db->query("SELECT po.product_id, po.product_name, ROUND(AVG(DISTINCT(pa.price/pa.quantity)), 2) average_price, ad.state
+                                      FROM product_availability pa, addresses ad, products po
+                                      WHERE pa.address_id = ad.address_id
+                                        AND pa.product_id = po.product_id
+                                        AND pa.in_stock = 'Yes'
+                                        AND pa.created_date > (CURRENT_DATE - 7)
+                                        GROUP BY ad.state, po.product_id LIMIT 15");
 
         return $query->result_array();
 

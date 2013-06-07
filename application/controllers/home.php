@@ -42,7 +42,7 @@ function index()
              //If no session, redirect to home_not_logged_in page
 
                $data['title'] = 'Welcome to Bullet-Monkey';
-
+               $data['ammo_prices'] = $this->Home_model->get_average_price();
 			   //include 'mobile.php';
 			   //if(Mobile::is_mobile()) {
 	           //    $this->load->view('mobile/m_home_not_logged_in');

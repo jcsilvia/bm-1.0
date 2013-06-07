@@ -10,7 +10,7 @@ BEGIN
   DECLARE cur1 CURSOR FOR 
       SELECT DISTINCT pa.product_id
         FROM product_availability pa, addresses ad 
-        WHERE pa.vendor_id = ad.vendor_id
+        WHERE pa.address_id = ad.address_id
           AND pa.in_stock = 'Yes'
           AND ad.state = pState
           AND pa.created_date > CURRENT_DATE - 2;
@@ -24,6 +24,7 @@ BEGIN
       product_name VARCHAR(255),
       vendor_id INT,
       vendor_name VARCHAR(255),
+      address_id INT,
       price_per_round DECIMAL(2,2)
     );
     
@@ -36,26 +37,27 @@ BEGIN
           
         IF NOT no_more_records THEN
         
-          INSERT INTO tmp_cheap_ammo(product_id, product_name, vendor_id, vendor_name, price_per_round)
-          SELECT pa.product_id, po.product_name, pa.vendor_id, ve.vendor_name, ROUND(MIN(price/quantity), 2) as price_per_round 
-            FROM product_availability pa, products po, vendors ve
+          INSERT INTO tmp_cheap_ammo(product_id, product_name, vendor_id, vendor_name, address_id, price_per_round)
+          SELECT pa.product_id, po.product_name, ad.vendor_id, ve.vendor_name, pa.address_id, ROUND(MIN(price/quantity), 2) as price_per_round
+            FROM product_availability pa, products po, addresses ad, vendors ve
             WHERE pa.product_id = var_product_id
               AND po.product_id = pa.product_id
-              AND ve.vendor_id = pa.vendor_id
-              AND pa.vendor_id IN (SELECT DISTINCT ve.vendor_id FROM vendors ve, addresses ad WHERE ve.vendor_id = ad.vendor_id AND ad.state = pState AND ve.is_active = 1)
+              AND ad.vendor_id = ve.vendor_id
+              AND ad.address_id = pa.address_id
+              AND pa.address_id IN (SELECT DISTINCT ad.address_id FROM vendors ve, addresses ad WHERE ve.vendor_id = ad.vendor_id AND ad.state = pState AND ve.is_active = 1)
               AND pa.created_date > CURRENT_DATE - 2
               AND NOT EXISTS 
                 (
-                  SELECT pa2.product_id, pa2.vendor_id 
+                  SELECT pa2.product_id, ad2.vendor_id
                   FROM product_availability pa2, addresses ad2 
-                  WHERE pa2.vendor_id = ad2.vendor_id 
-                  AND pa2.vendor_id = pa.vendor_id
+                  WHERE pa2.address_id = ad2.address_id
+                  AND pa2.address_id = pa.address_id
                   AND pa2.product_id = pa.product_id
                   AND pa2.in_stock = 'No' 
                   AND pa2.created_date > CURRENT_DATE - 8/24
                   AND ad2.state = pState
                 )
-            GROUP BY pa.product_id, pa.vendor_id , po.product_name, ve.vendor_name
+            GROUP BY pa.product_id, ad.vendor_id , po.product_name, ve.vendor_name, pa.address_id
             ORDER BY price_per_round
             LIMIT 1;
           
@@ -72,5 +74,3 @@ BEGIN
     DROP TABLE tmp_cheap_ammo;
 
   END;
-#END //
-#DELIMITER ;
