@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-//$config['base_url']	= 'http://www.grokki.com';
+//$config['base_url']	= 'http://www.bullet-monkey.com';
 $config['base_url']	= 'http://localhost';
 
     /*

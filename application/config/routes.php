@@ -45,7 +45,11 @@ $route['default_controller'] = "home";
 $route['signup'] = "signup";
 $route['login'] = "login";
 $route['home'] = "home";
-$route['home/message_detail/:num'] = "home/get_message_details/$1";
+$route['post'] = "post";
+$route['search'] = "search";
+$route['settings'] = "settings";
+$route['profile'] = "profile";
+//$route['home/message_detail/:num'] = "home/get_message_details/$1";
 
 
 /* End of file routes.php */

@@ -3,7 +3,7 @@
     <div class="sub-nav">
     <?php
 
-                if($title == 'Home') {echo '<b>Home</b>    <a href="/Search/">     Search    </a><a href="/post/">    Update    </a><a href="/settings/">    Settings</a>';}
+                if($title == 'Home') {echo '<b>Home</b>    <a href="/search/">     Search    </a><a href="/post/">    Update    </a><a href="/settings/">    Settings</a>';}
                 elseif($title == 'Search'||$title == 'Search Results') {echo '<a href="/home/">Home    </a>    <b>Search</b>    <a href="/post/">    Update    </a><a href="/settings/">    Settings</a>';}
                 elseif($title == 'Update') {echo ' <a href="/home/">Home    </a><a href="/search/">    Search    </a>    <b>Update</b>    <a href="/settings/">    Settings</a>';}
                 elseif($title == 'Settings') {echo ' <a href="/home/">Home    </a><a href="/search/">    Search    </a><a href="/post/">    Update    </a>    <b>Settings</b>';}
