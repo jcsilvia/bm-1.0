@@ -15,33 +15,35 @@ class Search_model extends CI_Model {
             $offset = (int) $start;
             $limit = (int) $limit;
 
+            $state = $this->session->userdata('search_state');
+            $product = $this->session->userdata('search_product_id');
+
             $sql =
                 "SELECT * FROM (
-                  (SELECT 1 AS 'Order',m.MemberId AS 'SourceId',m.BusinessName, a.Address1 AS 'Address', a.City, a.State, a.Zipcode, a.PhoneNumber, m.UserName AS 'ContactName', (SELECT ifnull(round(avg(mr.rating)), 0) from member_ratings mr where m.memberid = mr.memberid) AS 'Rating'
-                  FROM addresses a, business_categories bc, tags t, members m
-                  WHERE m.MemberId = a.MemberId
-                    AND m.MemberId = bc.MemberId
-                    AND m.MemberId = t.MemberId
-                    AND m.IsBusiness = 1
-                    AND a.City LIKE ?
-                    AND a.State = ?
-                    AND bc.CategoryId = ?
-                    AND MATCH(t.BusinessName,t.Tags)
-                      AGAINST (? IN BOOLEAN MODE) -- change to query expansion once we have more data
-                   ORDER BY relevance DESC, Rating DESC)
-                  UNION ALL
-                  (SELECT 2 AS 'Order',SourceId,BusinessName, Address, City, State, Zipcode, PhoneNumber, ContactName, 0 AS 'Rating'
-                  FROM business_search
-                  WHERE
-                      City LIKE ?
-                      AND State = ?
-                      AND CategoryId = ?
-                      AND MATCH (BusinessName,Sic4CodeDescription)
-                        AGAINST (? WITH QUERY EXPANSION)
-                  ORDER BY relevance DESC)
+                  (SELECT pa.product_id, pro.product_name, pro.product_description, round((pa.price/pa.quantity),2) as price, ad.address_id, ve.vendor_name as vendor, ad.city, round(time_to_sec(timediff(now(), pa.created_date)) / 3600) as last_updated
+                    FROM product_availability pa, products pro, addresses ad, vendors ve
+                    WHERE pa.product_id = pro.product_id
+                          AND pa.address_id = ad.address_id
+                          AND ad.vendor_id = ve.vendor_id
+                          AND pa.in_stock = 'Yes'
+                          AND ad.state = ?
+                          AND pa.created_date > date_sub(now(), interval 5 day)
+                          AND pa.product_id = ?
+                          AND NOT EXISTS
+                                    (
+                                      SELECT pa2.product_id, ad2.vendor_id
+                                      FROM product_availability pa2, addresses ad2
+                                      WHERE pa2.address_id = ad2.address_id
+                                      AND pa2.address_id = pa.address_id
+                                      AND pa2.product_id = pa.product_id
+                                      AND pa2.in_stock = 'No'
+                                      AND pa2.created_date > date_sub(now(), interval 4 hour)
+                                      AND ad2.state = ?
+                )
+                  ORDER BY price ASC)
                  ) q1 LIMIT ?,?";
 
-            $query = $this->db->query($sql, array($this->session->userdata('city'),$this->session->userdata('state'),$this->session->userdata('categoryid'),$this->session->userdata('terms'),$this->session->userdata('city'),$this->session->userdata('state'),$this->session->userdata('categoryid'),$this->session->userdata('terms'),$offset,$limit));
+            $query = $this->db->query($sql, array($state,$product,$state,$offset,$limit));
             return $query->result_array();
 
 
@@ -50,48 +52,51 @@ class Search_model extends CI_Model {
 
     public function count_all_search_results()
     {
-        $sql = "
-                SELECT * FROM (
-                  SELECT 1 AS 'Order',m.MemberId AS 'SourceId',m.BusinessName, a.Address1 AS 'Address', a.City, a.State, a.Zipcode, a.PhoneNumber, m.UserName AS 'ContactName'
-                  FROM members m, addresses a, business_categories bc, tags t
-                  WHERE m.MemberId = a.MemberId
-                    AND m.MemberId = bc.MemberId
-                    AND m.MemberId = t.MemberId
-                    AND m.IsBusiness = 1
-                    AND bc.CategoryId = ?
-                    AND a.City = ?
-                    AND a.State = ?
-                    AND MATCH(t.BusinessName,t.Tags)
-                      AGAINST (? IN BOOLEAN MODE) -- change to query expansion once we have more data
-                  UNION
-                  SELECT 2 AS 'Order',SourceId,BusinessName, Address, City, State, Zipcode, PhoneNumber, ContactName
-                  FROM business_search
-                  WHERE
-                      City = ?
-                      AND State = ?
-                      AND CategoryId = ?
-                      AND MATCH (BusinessName,Sic4CodeDescription)
-                        AGAINST (? WITH QUERY EXPANSION)
-                 ) q1";
+        $state = $this->session->userdata('search_state');
+        $product = $this->session->userdata('search_product_id');
 
-        $query = $this->db->query($sql, array($this->session->userdata('city'),$this->session->userdata('state'),$this->session->userdata('categoryid'),$this->session->userdata('terms'),$this->session->userdata('city'),$this->session->userdata('state'),$this->session->userdata('categoryid'),$this->session->userdata('terms')));
+        $sql =
+            "SELECT * FROM
+              (SELECT pa.product_id, pro.product_name, pro.product_description, (pa.price/pa.quantity) as price, ad.address_id, ve.vendor_name, ad.city
+                FROM product_availability pa, products pro, addresses ad, vendors ve
+                WHERE pa.product_id = pro.product_id
+                      AND pa.address_id = ad.address_id
+                      AND ad.vendor_id = ve.vendor_id
+                      AND pa.in_stock = 'Yes'
+                      AND ad.state = ?
+                      AND pa.created_date > date_sub(now(), interval 5 day)
+                      AND pa.product_id = ?
+                      AND NOT EXISTS
+                                (
+                                  SELECT pa2.product_id, ad2.vendor_id
+                                  FROM product_availability pa2, addresses ad2
+                                  WHERE pa2.address_id = ad2.address_id
+                                  AND pa2.address_id = pa.address_id
+                                  AND pa2.product_id = pa.product_id
+                                  AND pa2.in_stock = 'No'
+                                  AND pa2.created_date > date_sub(now(), interval 4 hour)
+                                  AND ad2.state = ?
+            )
+             ) q1";
+
+        $query = $this->db->query($sql, array($state, $product, $state));
         return $query->num_rows();
 
     }
 
-    public function log_search_parameters()
+
+    public function get_product_name($product_id)
     {
-        $data = array(
-            'MemberId' => $this->session->userdata('memberid'),
-            'CategoryId' => $this->input->post('category'),
-            'City' => $this->input->post('city'),
-            'State' => $this->input->post('state'),
-            'SearchTerms' => $this->input->post('content')
-            //'GeoLat' => $GeoLat,
-            //'GeoLng' => $GeoLng,
-            //'Zipcode' => $zip
-        );
-        $this->db->insert('search_log', $data);
-        return TRUE;
+
+        $this->db->select('product_name',FALSE);
+        $this->db->from('products');
+        $this->db->where('product_id', $product_id);
+        $query = $this->db->get();
+        $row = $query->row();
+
+
+        return $row->product_name;
+
     }
+
 }

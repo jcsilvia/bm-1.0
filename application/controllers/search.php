@@ -7,7 +7,9 @@ class Search extends CI_Controller {
         parent::__construct();
         $this->load->library('pagination');
         $this->load->database();
-        $this->load->model('Search_model');
+        $this->load->model(array('Post_model','Home_model','Search_model'));
+        $this->load->helper(array('form', 'url'));
+        $this->load->library('form_validation');
     }
 
 
@@ -18,9 +20,8 @@ public function index()
         if($this->session->userdata('memberid'))
             {
 
-                $this->load->helper(array('form', 'url'));
-                $this->load->library('form_validation');
-                $this->load->model('Message_model');
+                //unset any prior session search parameters
+                $this->session->unset_userdata('search_state', 'search_product', 'search_product_id', 'offset');
 
                 //config for pagination class
                 $config['base_url'] = base_url() . "search/results";
@@ -41,44 +42,40 @@ public function index()
 
 
                     $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
-                    $this->form_validation->set_rules('content', 'Content', 'trim|required|xss_clean');
-                    $this->form_validation->set_rules('city', 'City', 'trim|required|xss_clean');
                     $this->form_validation->set_rules('state', 'State', 'trim|required|xss_clean');
-                    $this->form_validation->set_rules('category', 'Category', 'trim|required|xss_clean');
+                    $this->form_validation->set_rules('products', 'Product', 'trim|required|xss_clean');
 
                     if ($this->form_validation->run() === FALSE)
                     {
 
 
-                        //unset any prior session search parameters
-                        $this->session->unset_userdata('terms', 'city', 'state', 'categoryid', 'offset');
 
-                        $data['categories'] = $this->Message_model->load_business_categories();
-                        $data['city'] = $this->Message_model->get_user_city($this->session->userdata('memberid'));
-                        $data['state'] = $this->Message_model->get_user_state($this->session->userdata('memberid'));
 
-					   	include 'mobile.php';	
-					   	if(Mobile::is_mobile()) {
-			               $this->load->view('mobile/m_search', $data);
+                        $data['products'] = $this->Post_model->get_products();
+                        $data['all_states'] = $this->Home_model->get_all_states();
+                        $data['user_state'] = $this->Home_model->get_user_state();
 
-						} else {
+					   	//include 'mobile.php';
+					   	//if(Mobile::is_mobile()) {
+			            //   $this->load->view('mobile/m_search', $data);
+
+						//} else {
                         	$this->load->view('templates/header', $data);
                         	$this->load->view('templates/sub_nav.php', $data);
                         	$this->load->view('search', $data);
                         	$this->load->view('templates/footer');
-						}
+						//}
 
                     }
                     else
                     {
-                        //check to see if search form post data already exists, if not, then set it
-                        if (! $this->session->userdata('terms'))
-                            {
-                                $this->session->set_userdata('terms', $this->input->post('content'));
-                                $this->session->set_userdata('city', $this->input->post('city'));
-                                $this->session->set_userdata('state', $this->input->post('state'));
-                                $this->session->set_userdata('categoryid', $this->input->post('category'));
-                            }
+
+                                $this->session->set_userdata('search_state', $this->input->post('state'));
+                                $this->session->set_userdata('search_product_id', $this->input->post('products'));
+                                $this->session->set_userdata('search_product', $this->Search_model->get_product_name($this->input->post('products')));
+                                $data['product_name'] = $this->session->userdata('search_product');
+                                $data['search_state'] = $this->session->userdata('search_state');
+
 
                         $config['total_rows'] = $this->Search_model->count_all_search_results();
                         $this->pagination->initialize($config);
@@ -88,18 +85,15 @@ public function index()
                         $data['total'] = $config['total_rows'];
                         $data['per_page'] = $config['per_page'];
                         $data['searches'] = $this->Search_model->search($config["per_page"], $page);
-                        $this->Search_model->log_search_parameters(); //log the search data for analysis
 
-					   	include 'mobile.php';	
-					   	if(Mobile::is_mobile()) {
-			               $this->load->view('mobile/m_search_results', $data);
 
-						} else {
+
+
                         	$this->load->view('templates/header', $data);
                         	$this->load->view('templates/sub_nav.php', $data);
                         	$this->load->view('search_results', $data);
                         	$this->load->view('templates/footer');
-						}
+
 
                     }
 
@@ -122,7 +116,7 @@ public function results()
 
             //config for pagination class
             $config['base_url'] = base_url() . "search/results";
-            $config['per_page'] = 6;
+            $config['per_page'] = 10;
             $config['uri_segment'] = 3;
             $config['next_link'] = '>';
             $config['prev_link'] = '<';
@@ -146,16 +140,16 @@ public function results()
             $data['searches'] = $this->Search_model->search($config["per_page"], $page);
 
 
-		   	include 'mobile.php';	
-		   	if(Mobile::is_mobile()) {
-               $this->load->view('mobile/m_search_results', $data);
+		   	//include 'mobile.php';
+		   	//if(Mobile::is_mobile()) {
+            //   $this->load->view('mobile/m_search_results', $data);
 
-			} else {
+			//} else {
             	$this->load->view('templates/header', $data);
             	$this->load->view('templates/sub_nav.php', $data);
             	$this->load->view('search_results', $data);
             	$this->load->view('templates/footer');
-			}
+			//}
         }
         else
         {
@@ -163,37 +157,7 @@ public function results()
         }
     }
 
-    public function profile()
-    {
-        // get the message details for a given message id stripped from the url
-        $associateid = $this->uri->segment(3,0);
 
-        // check for the session
-        if($this->session->userdata('memberid'))
-        {
-            $data['title'] = 'Search';
-            $data['username'] = $this->session->userdata('username');
-
-            $this->load->model('Connect_model');
-            $data['profile'] = $this->Connect_model->get_profile($associateid);
-            $data['alreadyConnected'] = $this->Connect_model->is_connnected($associateid);
-
-            //format the phone number before we send it to the view
-            $phone = $this->phone($data['profile']->PhoneNumber);
-            $data['phone'] = $phone;
-
-		   	include 'mobile.php';	
-		   	if(Mobile::is_mobile()) {
-               $this->load->view('mobile/m_business_profile', $data);
-			}
-        }
-        else
-        {
-            //If no session, redirect to login page
-            redirect('home', 'location');
-        }
-
-    }
 
     function phone ($str)
     {

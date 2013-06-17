@@ -4,7 +4,7 @@
 
 <div class="content">
 
-    <div style="min-height: 50px;"></div>
+    <div style="min-height: 25px;"></div>
 
 <?php echo form_open('signup/index') ?>
 
@@ -48,4 +48,3 @@
 
 
 </div>
-    <div style="min-height: 50px;"></div>

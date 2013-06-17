@@ -25,6 +25,31 @@ class Home_model extends CI_Model {
 
     }
 
+
+    public function get_all_states()
+    {
+
+
+        $arr_states = array('AA','AE','AP','AS','DC','FM','GU','MH','MP','PR','PW','VI');
+
+        $this->db->select('state, fullstate', FALSE);
+        $this->db->from('zipcodes');
+        $this->db->where_not_in('state',$arr_states);
+        $this->db->order_by('state');
+        $query = $this->db->get();
+
+        $result = array();
+
+        foreach ($query->result() as $row)
+        {
+            $result[$row->state]= $row->fullstate;
+        }
+
+        return $result;
+
+    }
+
+
     public function get_average_price_for_state($state)
     {
 
@@ -34,8 +59,9 @@ class Home_model extends CI_Model {
                                         AND pa.product_id = po.product_id
                                         AND pa.in_stock = 'Yes'
                                         AND ad.state = '" .$state. "'
-                                        AND pa.created_date > (CURRENT_DATE - 7)
-                                        GROUP BY ad.state, po.product_id LIMIT 10");
+                                        AND pa.created_date > date_sub(now(), interval 7 day)
+                                        GROUP BY ad.state, po.product_id
+                                        ORDER BY average_price LIMIT 10");
 
         return $query->result_array();
     }
@@ -50,16 +76,22 @@ class Home_model extends CI_Model {
 
     public function get_average_price()
     {
-         $query = $this->db->query("SELECT po.product_id, po.product_name, ROUND(AVG(DISTINCT(pa.price/pa.quantity)), 2) average_price, ad.state
+         $query = $this->db->query("SELECT po.product_id, po.product_name, ROUND(AVG(DISTINCT(pa.price/pa.quantity)), 2) average_price
                                       FROM product_availability pa, addresses ad, products po
                                       WHERE pa.address_id = ad.address_id
                                         AND pa.product_id = po.product_id
                                         AND pa.in_stock = 'Yes'
-                                        AND pa.created_date > (CURRENT_DATE - 7)
-                                        GROUP BY ad.state, po.product_id LIMIT 15");
+                                        AND pa.created_date > date_sub(now(), interval 7 day)
+                                        GROUP BY po.product_id
+                                        ORDER BY average_price ASC
+                                        LIMIT 20
+                                        ");
 
         return $query->result_array();
 
     }
 
 }
+
+
+

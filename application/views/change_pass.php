@@ -3,14 +3,17 @@
 
     <div class="content">
 
-        <div style="min-height: 50px;"></div>
+        <div style="min-height: 25px;"></div>
 
+        <div class="settings_back_button"><a href="javascript:history.back()">Back</a></div>
     <?php echo form_open('settings/change_password') ?>
 
 
+
     <div class="form" >
-        <div class="settings_back_button"><p><a href="javascript:history.back()">Back</a></p></div>
-        <div class="title"><h3>Change Password</h3></div>
+
+        <div class="title" style="border-bottom: 1px;border-bottom-color: black; border-bottom-style: solid;"><h3>Change Password</h3><p>Update your prior password here.</p></div>
+
         <p>
             <label for="username">Previous Password:</label>
             <input title="Must be at least 8 characters and no longer than 15 characters. Password is case-sensitive." type="password" name="oldpassword" size="20" value="<?php echo set_value('oldpassword'); ?>"/>
@@ -44,4 +47,4 @@
 
     </div>
 
-<div><p></p></div>
+

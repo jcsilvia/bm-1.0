@@ -2,14 +2,14 @@
 
 <div class="main-content">
 
-    <div style="min-height: 50px;"></div>
+    <div style="min-height: 25px;"></div>
 
     <?php echo form_open('/login/reset_password') ?>
 
 
-    <div class="login_form" >
-        <div class="content_text">
-            <h1>Change your password.</h1>
+    <div class="form" >
+        <div class="title" style="border-bottom: 1px;border-bottom-color: black; border-bottom-style: solid;">
+            <h3>Change your password.</h3>
         </div>
         <p>
             <label for="password1">Enter new password</label>
@@ -25,12 +25,10 @@
             <input type="hidden" name="validation_string" value="<?php echo $validation ?>"></hidden>
         <div>
             <p>
-                <input class="button_login_form" type="submit" name="submit" value="Submit" />
+                <input class="button1" type="submit" name="submit" value="Submit" />
             </p>
         </div>
-    </div>
-
-
 
 
     <?php echo form_close() ?>
+    </div>
