@@ -45,26 +45,24 @@ public function index()
                     $this->form_validation->set_rules('state', 'State', 'trim|required|xss_clean');
                     $this->form_validation->set_rules('products', 'Product', 'trim|required|xss_clean');
 
+                    $this->output->nocache(); // set http header to disable caching if user hits back button
+
                     if ($this->form_validation->run() === FALSE)
                     {
 
 
 
-
-                        $data['products'] = $this->Post_model->get_products();
+                        $data['product_categories'] = $this->Post_model->get_product_categories();
+                        $data['products'] = $this->Post_model->get_products(4);
                         $data['all_states'] = $this->Home_model->get_all_states();
                         $data['user_state'] = $this->Home_model->get_user_state();
 
-					   	//include 'mobile.php';
-					   	//if(Mobile::is_mobile()) {
-			            //   $this->load->view('mobile/m_search', $data);
 
-						//} else {
                         	$this->load->view('templates/header', $data);
                         	$this->load->view('templates/sub_nav.php', $data);
                         	$this->load->view('search', $data);
                         	$this->load->view('templates/footer');
-						//}
+
 
                     }
                     else

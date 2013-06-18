@@ -1,8 +1,12 @@
 
-
+<div>
 
 <div class="content">
-    <div style="min-height: 25px;"></div>
+    <div style="min-height: 25px;width:600px;margin:0 auto;padding:10px;">
+
+        <p>Here are the latest average ammo prices and the cheapest in-stock prices for vendors in your state. </p>
+
+    </div>
 
 
     <?php
@@ -66,4 +70,6 @@
 
     <?php endforeach ?>
         </div>
+</div>
+
 </div>

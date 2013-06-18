@@ -2,6 +2,16 @@
 
 
 
+    <script src="/js/jquery.maskedinput.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        jQuery(function($){
+
+            $("#phone_number").mask("(999) 999-9999");
+
+        });
+    </script>
+
+
     <?php $this->load->helper('form'); ?>
     <div class="settings_back_button"><a href="javascript:history.back()">Back</a></div>
 
@@ -54,9 +64,11 @@
         <?php echo form_error('zipcode'); ?>
         </p>
 
+
+
         <p>
             <label for="phone_number">Phone Number:</label>
-            <input type="text" name="phone_number" size="15" value="<?php echo set_value('phone_number'); ?>">
+            <input type="text" name="phone_number" id="phone_number" size="15" value="<?php echo set_value('phone_number'); ?>">
         <?php echo form_error('phone_number'); ?>
         </p>
 

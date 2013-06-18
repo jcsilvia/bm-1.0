@@ -14,8 +14,8 @@
 | path to your installation.
 |
 */
-//$config['base_url']	= 'http://www.bullet-monkey.com';
-$config['base_url']	= 'http://localhost';
+$config['base_url']	= 'http://www.bullet-monkey.com';
+//$config['base_url']	= 'http://localhost';
 
     /*
     |--------------------------------------------------------------------------

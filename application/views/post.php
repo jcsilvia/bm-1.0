@@ -26,6 +26,32 @@
     });
 </script>
 
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        jQuery('#product_categories').change(function(){
+            var product_subcategory_id = $('#product_categories').val();
+            if (product_subcategory_id != ""){
+                var post_url = "/post/get_products/" + product_subcategory_id;
+                jQuery.ajax({
+                    type: "POST",
+                    url: post_url,
+                    success: function(products) //we're calling the response json array 'products'
+                    {
+                        jQuery('#products').empty();
+                        jQuery.each(products,function(product_id,product_name)
+                        {
+                            var opt = $('<option />'); // here we're creating a new select option for each group
+                            opt.val(product_id);
+                            opt.text(product_name);
+                            jQuery('#products').append(opt);
+                        });
+                    } //end success
+                }); //end AJAX
+            }
+        }); //end change
+    });
+</script>
+
 <div class="content">
 
 
@@ -42,7 +68,8 @@
                 <p>Update product availability for a local merchant in
                     <?php echo $user_state ?>
                 </p>
-                <p>Don't see your vendor?<a href="add_vendor"> Add new merchant here.</a></p>
+                <p>Don't see your favorite local merchant?<a href="/post/add_vendor"> <br>Add new merchant to the merchant drop-down here.</a></p>
+                <p>Don't see your favorite ammo listed?<a href="/post/add_product"> <br>Add new ammo to product drop-down here.</a></p>
             </div>
 
 
@@ -58,14 +85,23 @@
 
             <p>
 
-                <label for="vendors">Merchant Name:</label>
+                <label for="vendors">Merchant:</label>
                 <?php echo form_dropdown('vendors', $vendors, set_value('address_id'), 'id="vendors"') ?>
+
+            </p>
+
+
+            <p>
+
+                <label for="product_categories">Product Category:</label>
+                <?php echo form_dropdown('product_categories', $product_categories, set_value('product_categories'), 'id="product_categories"') ?>
+
 
             </p>
 
             <p>
 
-                <label for="vendors">Product:</label>
+                <label for="products">Product:</label>
                 <?php echo form_dropdown('products', $products, set_value('product_id'), 'id="products"') ?>
 
 

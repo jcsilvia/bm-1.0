@@ -24,7 +24,7 @@ BEGIN
       vendor_id INT,
       vendor_name VARCHAR(255),
       address_id INT,
-      price_per_round DECIMAL(2,2),
+      price_per_round DECIMAL(10,2),
       last_updated INT
     );
     

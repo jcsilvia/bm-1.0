@@ -20,7 +20,7 @@ class Search_model extends CI_Model {
 
             $sql =
                 "SELECT * FROM (
-                  (SELECT pa.product_id, pro.product_name, pro.product_description, round((pa.price/pa.quantity),2) as price, ad.address_id, ve.vendor_name as vendor, ad.city, round(time_to_sec(timediff(now(), pa.created_date)) / 3600) as last_updated
+                  (SELECT pa.product_id, pro.product_name, pro.product_description, min(round((pa.price/pa.quantity),2)) as price, ad.address_id, ve.vendor_name as vendor, ad.city, round(time_to_sec(timediff(now(), pa.created_date)) / 3600) as last_updated
                     FROM product_availability pa, products pro, addresses ad, vendors ve
                     WHERE pa.product_id = pro.product_id
                           AND pa.address_id = ad.address_id
@@ -39,7 +39,8 @@ class Search_model extends CI_Model {
                                       AND pa2.in_stock = 'No'
                                       AND pa2.created_date > date_sub(now(), interval 4 hour)
                                       AND ad2.state = ?
-                )
+                                    )
+                  GROUP BY vendor_name, city, address_id, product_id, product_name, product_description
                   ORDER BY price ASC)
                  ) q1 LIMIT ?,?";
 
@@ -57,7 +58,7 @@ class Search_model extends CI_Model {
 
         $sql =
             "SELECT * FROM
-              (SELECT pa.product_id, pro.product_name, pro.product_description, (pa.price/pa.quantity) as price, ad.address_id, ve.vendor_name, ad.city
+              (SELECT pa.product_id, pro.product_name, pro.product_description, min(round(pa.price/pa.quantity)) as price, ad.address_id, ve.vendor_name, ad.city
                 FROM product_availability pa, products pro, addresses ad, vendors ve
                 WHERE pa.product_id = pro.product_id
                       AND pa.address_id = ad.address_id
@@ -76,7 +77,8 @@ class Search_model extends CI_Model {
                                   AND pa2.in_stock = 'No'
                                   AND pa2.created_date > date_sub(now(), interval 4 hour)
                                   AND ad2.state = ?
-            )
+                                )
+               GROUP BY vendor_name, city, address_id, product_id, product_name, product_description
              ) q1";
 
         $query = $this->db->query($sql, array($state, $product, $state));

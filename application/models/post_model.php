@@ -38,16 +38,37 @@ class Post_model extends CI_Model {
 
 
 
+    public function get_product_categories()
+    {
+        //get ammo for now
+        $parent_category_id = 1;
 
+        $this->db->select('product_category_id, category_name',FALSE);
+        $this->db->from('product_categories');
+        $this->db->where('parent_category_id', $parent_category_id);
+        $this->db->order_by("product_category_id");
+        $query = $this->db->get();
 
-    public function get_products()
+        $result = array();
+
+        foreach ($query->result() as $row)
+        {
+            $result[$row->product_category_id]= $row->category_name;
+        }
+
+        return $result;
+
+    }
+
+    public function get_products($product_subcategory_id)
     {
 
-        $product_ids = array('1','2');
 
-        $this->db->select('product_id, product_name',FALSE);
+
+        $this->db->select('product_id, product_subcategory_id, product_name',FALSE);
         $this->db->from('products');
-        $this->db->where_in('product_category_id', $product_ids);
+        $this->db->where('product_subcategory_id', $product_subcategory_id);
+        $this->db->order_by("product_name");
         $query = $this->db->get();
 
         $result = array();
@@ -94,6 +115,8 @@ class Post_model extends CI_Model {
         $row = $query->row();
         $vendor_id = $row->vendor_id;
 
+        $phone = preg_replace( '/\D/', '',$this->input->post('phone_number') );
+
         $address_data = array(
             'vendor_id' => $vendor_id,
             'address1' => $this->input->post('address1'),
@@ -101,11 +124,29 @@ class Post_model extends CI_Model {
             'city' => $this->input->post('city'),
             'state' => $this->input->post('state'),
             'zipcode' => $this->input->post('zipcode'),
-            'phone_number' => $this->input->post('phone_number')
+            'phone_number' => $phone
         );
 
         $this->db->insert('addresses', $address_data);
 
     }
+
+
+    public function create_product()
+    {
+
+
+        $product_data = array(
+
+            'product_category_id' => $this->input->post('category_id'),
+            'product_subcategory_id' => $this->input->post('product_categories'),
+            'product_name' => $this->input->post('product_name'),
+            'product_description' => $this->input->post('product_description')
+        );
+
+        $this->db->insert('products', $product_data);
+
+    }
+
 
 }

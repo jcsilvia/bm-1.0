@@ -17,7 +17,7 @@ body {
 
 .main-content {
     overflow:auto;
-    padding-bottom:175px;
+    padding-bottom:300px;
     margin: 0 auto;
     width: 800px;
     height: 100%;
@@ -293,7 +293,8 @@ body {
     border-width: 1px;
     border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px;
     margin:0 auto;
-    width:95%
+    width:95%;
+
 }
 
 #content {
@@ -348,5 +349,24 @@ body {
 }
 
 .content{
+    font-family:"helvetica",sans-serif;
+}
 
+.profile{
+    margin:0 auto;
+    width: 600px;
+    font-family:"helvetica",sans-serif;
+}
+
+.map_window{
+    margin:0 auto;
+    width:600px;
+}
+
+.profile_back{
+    text-align: right;
+    position:relative;
+    top:-40px;
+    right:50px;
+    font-family:"helvetica",sans-serif;
 }

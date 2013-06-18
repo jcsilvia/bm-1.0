@@ -41,6 +41,10 @@ insert into `product_categories`(`product_category_id`,`category_name`,`parent_c
 insert into `product_categories`(`product_category_id`,`category_name`,`parent_category_id`) values (39,'Gun Powder, Pistol',2);
 insert into `product_categories`(`product_category_id`,`category_name`,`parent_category_id`) values (40,'Gun Powder, Rifle',2);
 insert into `product_categories`(`product_category_id`,`category_name`,`parent_category_id`) values (41,'Gun Powder, Shotgun',2);
+insert into `product_categories`(`product_category_id`,`category_name`,`parent_category_id`) values (42,'12ga Buckshot',1);
+insert into `product_categories`(`product_category_id`,`category_name`,`parent_category_id`) values (43,'12ga Slug',1);
+insert into `product_categories`(`product_category_id`,`category_name`,`parent_category_id`) values (44,'20ga Buckshot',1);
+insert into `product_categories`(`product_category_id`,`category_name`,`parent_category_id`) values (45,'20ga Slug',1);
 
 
 

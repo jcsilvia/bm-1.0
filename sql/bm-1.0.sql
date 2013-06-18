@@ -16,6 +16,7 @@ CREATE TABLE `addresses` (
   `geolng` decimal(10,5) DEFAULT NULL,
   `geolatbox` decimal(10,5) DEFAULT NULL,
   `geolngbox` decimal(10,5) DEFAULT NULL,
+  `description` varchar(2000) DEFAULT NULL,
   PRIMARY KEY (`address_id`),
   KEY `addresses_vid_idx` (`vendor_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -105,6 +106,7 @@ CREATE TABLE `vendors` (
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `is_active` int(1) NOT NULL DEFAULT '1',
   `is_paid` int(1) NOT NULL DEFAULT '0',
+  `url` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`vendor_id`),
   UNIQUE KEY `vendors_vname_idx` (`vendor_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

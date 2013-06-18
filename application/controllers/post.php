@@ -27,7 +27,8 @@ class Post extends CI_Controller {
             $data['user_state'] = $state;
             $data['all_states'] = $this->Home_model->get_all_states();
             $data['vendors'] = $this->Post_model->get_vendors_by_state($state);
-            $data['products'] = $this->Post_model->get_products();
+            $data['products'] = $this->Post_model->get_products(4);
+            $data['product_categories'] = $this->Post_model->get_product_categories();
 
 
             $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
@@ -88,7 +89,7 @@ class Post extends CI_Controller {
             $this->form_validation->set_rules('city', 'City', 'trim|xss_clean|max_length[50]|required');
             $this->form_validation->set_rules('state', 'State', 'trim|xss_clean|required');
             $this->form_validation->set_rules('zipcode', 'Zipcode', 'trim|required|min_length[5]|max_length[10]|xss_clean');
-            $this->form_validation->set_rules('phone_number', 'Phone', 'trim|xss_clean|min_length[10]|max_length[10]|required');
+            $this->form_validation->set_rules('phone_number', 'Phone', 'trim|xss_clean|min_length[14]|max_length[14]|required');
 
             $this->output->nocache(); // set http header to disable caching if user hits back button
 
@@ -128,6 +129,64 @@ class Post extends CI_Controller {
         header('Content-Type: application/x-json; charset=utf-8');
         echo(json_encode($this->Post_model->get_vendors_by_state($state)));
     }
+
+
+    function get_products($product_subcategory_id){
+
+        header('Content-Type: application/x-json; charset=utf-8');
+        echo(json_encode($this->Post_model->get_products($product_subcategory_id)));
+    }
+
+
+
+    public function add_product()
+    {
+        if($this->session->userdata('memberid'))
+        {
+            //set data array for view
+            $data['title'] = 'Update';
+            $data['username'] = $this->session->userdata('username');
+            $data['product_categories'] = $this->Post_model->get_product_categories();
+
+
+
+            $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
+            $this->form_validation->set_rules('product_categories', 'Product Category', 'trim|required|xss_clean]');
+            $this->form_validation->set_rules('product_name', 'Product Name', 'trim|required|max_length[50]|xss_clean|is_unique[products.product_name]');
+            $this->form_validation->set_rules('product_description', 'Product Description', 'trim|required|xss_clean|max_length[255]');
+
+            $this->output->nocache(); // set http header to disable caching if user hits back button
+
+            if ($this->form_validation->run() === FALSE)
+            {
+
+                //load views
+                $this->load->view('templates/header', $data);
+                $this->load->view('templates/sub_nav.php', $data);
+                $this->load->view('add_product', $data);
+                $this->load->view('templates/footer');
+
+            }
+
+            else
+            {
+
+                $this->Post_model->create_product();
+                $this->session->set_flashdata('flashSuccess', 'product added successfully');
+                redirect('post', 'location');
+
+            }
+
+
+        }
+        else
+        {
+
+            redirect('home', 'location');
+
+        }
+    }
+
 
 
 }

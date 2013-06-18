@@ -1,5 +1,30 @@
 <?php $this->load->helper('form'); ?>
 
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        jQuery('#product_categories').change(function(){
+            var product_subcategory_id = $('#product_categories').val();
+            if (product_subcategory_id != ""){
+                var post_url = "/post/get_products/" + product_subcategory_id;
+                jQuery.ajax({
+                    type: "POST",
+                    url: post_url,
+                    success: function(products) //we're calling the response json array 'products'
+                    {
+                        jQuery('#products').empty();
+                        jQuery.each(products,function(product_id,product_name)
+                        {
+                            var opt = $('<option />'); // here we're creating a new select option for each group
+                            opt.val(product_id);
+                            opt.text(product_name);
+                            jQuery('#products').append(opt);
+                        });
+                    } //end success
+                }); //end AJAX
+            }
+        }); //end change
+    });
+</script>
 
 <div class="content">
 
@@ -27,7 +52,15 @@
 
         <p>
 
-            <label for="vendors">Ammunition:</label>
+            <label for="product_categories">Product Category:</label>
+            <?php echo form_dropdown('product_categories', $product_categories, set_value('product_categories'), 'id="product_categories"') ?>
+
+
+        </p>
+
+        <p>
+
+            <label for="products">Product:</label>
             <?php echo form_dropdown('products', $products, set_value('product_id'), 'id="products"') ?>
 
 
