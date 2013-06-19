@@ -170,7 +170,7 @@ class Settings extends CI_Controller {
                 'protocol' => 'smtp',
                 'smtp_host' => 'ssl://smtp.gmail.com',
                 'smtp_port' => '465',
-                'smtp_user' => 'admin@grokki.com', //for testing only, change this to admin@grokki.com for production
+                'smtp_user' => 'support@bullet-monkey.com',
                 'smtp_pass' => 'viper123', //change this for check in and deployment
                 'mailtype'  => 'html',
                 'charset'   => 'utf-8',
@@ -179,7 +179,7 @@ class Settings extends CI_Controller {
             $this->load->library('email', $config);
 
             // Set to, from, message, etc.
-            $this->email->from('admin@grokki.com', 'Bullet-monkey Administrator'); //change this to admin@grokki.com for production
+            $this->email->from('support@bullet-monkey.com', 'Bullet-monkey Administrator'); //change this to admin@grokki.com for production
             $this->email->to($email_to);
             $this->email->subject($subject);
             $this->email->message($message);
