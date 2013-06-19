@@ -1,6 +1,6 @@
 
         </div> <!-- end main-content div started in nav header -->
-        <div class="footer-nav">/ <a href="">About</a> / <a href="">Privacy Policy</a> | <a href="">Terms of Use</a> \ <a href="">Contact</a> \</div>
+        <div class="footer-nav">/ <a href="/home/about">About</a> / <a href="/home/privacy">Privacy Policy</a> | <a href="/home/terms">Terms of Use</a> \ <a href="/home/contact">Contact</a> \</div>
         </div> <!-- end wrap div started in header -->
 
 

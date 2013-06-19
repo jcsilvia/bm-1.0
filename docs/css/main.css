@@ -16,22 +16,21 @@ body {
 }
 
 .main-content {
-    overflow:auto;
-    padding-bottom:300px;
+    overflow:hidden;
+    padding-bottom:50px;
     margin: 0 auto;
     width: 800px;
-    height: 100%;
+    height: auto;
+    min-height: 800px;
     background-color: white;
     border-color: #000000;
     border-left-width: 1px;
     border-right-width: 1px;
-
     border-left-style: solid;
     border-right-style: solid;
     border-top-style: solid;
     border-top-width: 1px;
-    overflow-y:hidden;
-    overflow-x:hidden;
+
 }
 
 .footer {
@@ -304,7 +303,7 @@ body {
     font-size:.9em;
     width: 750px;
     text-align: center;
-
+    height:100%;
 }
 .col {
 

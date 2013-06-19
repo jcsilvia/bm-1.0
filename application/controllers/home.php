@@ -74,4 +74,133 @@ public function not_logged_in()
 
 
 
+
+
+public function privacy()
+    {
+
+        if($this->session->userdata('memberid'))
+
+        {
+
+            $data['title'] = 'Privacy';
+
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sub_nav.php', $data);
+            $this->load->view('privacy.php', $data);
+            $this->load->view('templates/footer');
+
+        }
+
+        else
+
+        {
+
+
+
+
+            $this->load->view('templates/homepage_header');
+            $this->load->view('privacy.php');
+            $this->load->view('templates/footer');
+
+        }
+
+    }
+
+
+    public function terms()
+    {
+        if($this->session->userdata('memberid'))
+
+        {
+
+            $data['title'] = 'Terms';
+
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sub_nav.php', $data);
+            $this->load->view('terms.php', $data);
+            $this->load->view('templates/footer');
+
+        }
+
+        else
+
+        {
+
+
+
+
+            $this->load->view('templates/homepage_header');
+            $this->load->view('terms.php');
+            $this->load->view('templates/footer');
+
+        }
+
+    }
+
+
+
+    public function contact()
+    {
+        if($this->session->userdata('memberid'))
+
+        {
+
+            $data['title'] = 'Contact';
+
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sub_nav.php', $data);
+            $this->load->view('contact.php', $data);
+            $this->load->view('templates/footer');
+
+        }
+
+        else
+
+        {
+
+
+
+
+            $this->load->view('templates/homepage_header');
+            $this->load->view('contact.php');
+            $this->load->view('templates/footer');
+
+        }
+
+    }
+
+
+
+    public function about()
+    {
+        if($this->session->userdata('memberid'))
+
+        {
+
+            $data['title'] = 'Contact';
+
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sub_nav.php', $data);
+            $this->load->view('about.php', $data);
+            $this->load->view('templates/footer');
+
+        }
+
+        else
+
+        {
+
+
+
+
+            $this->load->view('templates/homepage_header');
+            $this->load->view('about.php');
+            $this->load->view('templates/footer');
+
+        }
+
+    }
+
+
 }
