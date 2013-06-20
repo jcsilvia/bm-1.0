@@ -69,15 +69,21 @@
                     if ($cheap_prices['last_updated'] > 23)
                         {
                             echo round(($cheap_prices['last_updated']/24),0);
-                            if (round(($cheap_prices['last_updated']/24),0) == 1) {echo ' day ago</div>';}
-                            else { echo ' days ago</div>'; }
+
+                            if (round(($cheap_prices['last_updated']/24),0) == 1)
+                                    {echo ' day ago</div>';}
+                            else
+                                    { echo ' days ago</div>'; }
 
                         }
                     else
                         {
                             echo $cheap_prices['last_updated'];
-                            if ($cheap_prices['last_updated'] == 1) {echo ' day ago</div>';}
-                            else { echo ' hours ago</div>'; }
+
+                            if ($cheap_prices['last_updated'] == 1)
+                                    {echo ' day ago</div>';}
+                            else
+                                    { echo ' hours ago</div>'; }
                         }
                     ?>
             </div>
