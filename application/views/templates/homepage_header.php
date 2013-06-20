@@ -1,9 +1,10 @@
 <html>
 <head>
-    <title>Bullet-Monkey - crowd-sourcing the search for ammunition</title>
+    <title>Bullet-Monkey - crowd-sourcing the search for in-stock ammunition</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="description" content="Crowd-sourcing the search for ammunition and reloading supplies.">
+    <meta name="description" content="Crowd-sourcing the search for local, in-stock ammunition like 5.56, 9mm, .45ACP, and .22lr.">
+    <meta name="keywords" content="Bullet Monkey,ammo,ammunition,firearms,in-stock,223,556,9mm,22lr,308,45ACP,ar15,glock,ak47"  />
     <meta property="og:image" content="http://www.bullet-monkey.com/images/bm_icon2.gif" />
     <meta property="og:title" content="bullet-monkey" />
     <meta property="og:type" content="website" />
