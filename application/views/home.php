@@ -64,7 +64,22 @@
                 <div class="col col-1"> <?php  echo $cheap_prices['product_name'] ?></div>
                 <div class="col col-2"> $<?php  echo $cheap_prices['price_per_round'] ?>/round</div>
                 <div class="col col-3"><a href="/profile/<?php echo $cheap_prices['address_id'] ?>"> <?php  echo $cheap_prices['vendor_name'] ?></a> </div>
-                <div class="col col-4"> <?php  echo $cheap_prices['last_updated'] ?> hours ago</div>
+                <div class="col col-4">
+                    <?php
+                    if ($cheap_prices['last_updated'] > 23)
+                        {
+                            echo round(($cheap_prices['last_updated']/24),0);
+                            if (round(($cheap_prices['last_updated']/24),0) == 1) {echo ' day ago</div>';}
+                            else { echo ' days ago</div>'; }
+
+                        }
+                    else
+                        {
+                            echo $cheap_prices['last_updated'];
+                            if ($cheap_prices['last_updated'] == 1) {echo ' day ago</div>';}
+                            else { echo ' hours ago</div>'; }
+                        }
+                    ?>
             </div>
 
 

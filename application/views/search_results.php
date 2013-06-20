@@ -64,7 +64,27 @@
 
                 $<?php  echo $search['price'] ?>/round</div>
             <div class="col col-3"> <?php  echo $search['city'] ?> </div>
-            <div class="col col-4"> <?php  echo $search['last_updated'] ?> hours ago</div>
+            <div class="col col-4">
+
+                <?php
+                if ($search['last_updated'] > 20)
+                {
+                    echo round(($search['last_updated']/24),0);
+                    if (round(($search['last_updated']/24),0) == 1) {echo ' day ago</div>';}
+                    else { echo ' days ago</div>'; }
+
+                }
+                else
+                {
+                    echo $search['last_updated'];
+                    if ($search['last_updated'] == 1) {echo ' day ago</div>';}
+                    else { echo ' hours ago</div>'; }
+                }
+                ?>
+
+
+
+
         </div>
 
 
