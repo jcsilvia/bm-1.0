@@ -3,7 +3,7 @@
 
     <div class="content">
 
-        <div style="position: relative">
+        <div style="position: relative; width:800px;">
 
             <div class="link-container">
                 <div class="text" style="border-bottom: 1px;border-bottom-color: white;border-bottom-style: solid">

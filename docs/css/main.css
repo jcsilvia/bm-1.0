@@ -80,6 +80,10 @@ body {
 .header a:hover {text-decoration:none;color:red;}
 .header a:active {text-decoration:none;color:white;}
 
+.logo a:link {text-decoration:none;color:transparent;;}
+.logo a:visited {text-decoration:none;color:transparent;;}
+.logo a:hover {text-decoration:none;color:transparent;;}
+.logo a:active {text-decoration:none;color:transparent;;}
 
 .chrome-optimized{
     color:white;
@@ -124,14 +128,14 @@ body {
 
 }
 
-.link-container {position:absolute; right: 20; top: 10;color:white;
+.link-container {position:absolute; right: 20px; top: 10px;color:white;
     background-color: rgba(45,45,45,100); border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px;
     padding: .5em; width:170px; height: 115px;font-size:1em; border: #000000; border-width: 1px; border-style: solid;
     font-family:"helvetica",sans-serif;
 }
 
 .text-container {
-    position:absolute; left: 20; top: 10;color:black;width:500;height:115px;
+    position:absolute; left: 20px; top: 10px;color:black;width:500px;height:115px;
 }
 
 .button1{    font-size:1em;
@@ -216,7 +220,7 @@ body {
 .logo {
     position:absolute;
     width:395px;
-    align:left;
+    text-align:left;
 
 }
 
@@ -281,7 +285,7 @@ body {
 }
 
 
-.mobile_container {position:absolute; right: 20; top: 180;color:black;
+.mobile_container {position:absolute; right: 20px; top: 180px;color:black;
     background-color: white; border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px;
     padding: .5em; width:170px; height: 115px;font-size:1em; border: #000000; border-width: 1px; border-style: solid;
     font-family:"helvetica",sans-serif";
@@ -303,7 +307,7 @@ body {
     font-size:.9em;
     width: 750px;
     text-align: center;
-    height:100%;
+
 }
 .col {
 

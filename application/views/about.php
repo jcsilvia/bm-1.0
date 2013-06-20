@@ -7,17 +7,20 @@
 
 
             <p>
-                Bullet-Monkey started out as an idea to help shooting enthusiasts find fairly priced ammunition in the crazy period after the 2012 Presidential Election. Greatly increased demand
+                Bullet-Monkey.com started out as an idea to help shooting enthusiasts find fairly priced ammunition locally in the crazy period after the 2012 Presidential Election. Greatly increased demand
                 created shortages of common calibers and prices, when ammunition could be found, varied greatly. </p>
-            <p>As an active participant in the shooting sports community, I came up with the idea to help all of us continue to enjoy shooting. Feedback
-                from my fellow shooters at <a href="http://www.northeastshooters.com">Northeastshooters.com</a> was enthusiastic and so Bullet-Monkey was born.
+            <p>As an active participant in the shooting sports community, we came up with the idea to help all of us continue to enjoy shooting. Feedback
+                from our fellow shooters was enthusiastic and so Bullet-Monkey was born.
 
             </p>
             <p>
-                Bullet-Monkey is a small start-up based in Boston, Massachusetts.
+                Bullet-Monkey.com is a small tech start-up based in Boston, Massachusetts. Our mission is to use technology to promote responsible firearms ownership and use. Basically, we're techies who like guns.
             </p>
 
+            <p>Bullet-Monkey.com supports the 2nd Amendment and Americans' fundamental right to keep and bear arms. We support the <a href="http://www.nra.org">NRA</a> and it's mission to support responsible firearms
+            ownership and the 2nd Amendment.</p>
 
+            <p>As active shooting sports enthusiasts, we belong to <a href="http://www.northeastshooters.com">Northeast Shooters</a> and <a href="http://www.tauntonrifleandpistol.org/">Taunton Rifle & Pistol</a>. If you see us at the range or at an NES event, stop by... we love to share with others in the shooting community.</p>
 
 
         </div>
