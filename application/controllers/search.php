@@ -21,7 +21,7 @@ public function index()
             {
 
                 //unset any prior session search parameters
-                $this->session->unset_userdata('search_state', 'search_product', 'search_product_id', 'offset');
+                $this->session->unset_userdata('search_state', 'search_product', 'search_product_id', 'offset', 'all_products','search_product_category');
 
                 //config for pagination class
                 $config['base_url'] = base_url() . "search/results";
@@ -70,9 +70,13 @@ public function index()
 
                                 $this->session->set_userdata('search_state', $this->input->post('state'));
                                 $this->session->set_userdata('search_product_id', $this->input->post('products'));
+                                $this->session->set_userdata('all_products', $this->input->post('all_products'));
                                 $this->session->set_userdata('search_product', $this->Search_model->get_product_name($this->input->post('products')));
+                                $this->session->set_userdata('search_product_category', $this->Search_model->get_product_category($this->input->post('products')));
                                 $data['product_name'] = $this->session->userdata('search_product');
                                 $data['search_state'] = $this->session->userdata('search_state');
+                                $data['product_category'] = $this->session->userdata('search_product_category');
+                                $data['all_products_flag'] = $this->session->userdata('all_products');
 
 
                         $config['total_rows'] = $this->Search_model->count_all_search_results();

@@ -64,6 +64,8 @@
             <?php echo form_dropdown('products', $products, set_value('product_id'), 'id="products"') ?>
 
 
+            <label for="all_products" style="position:relative; right:-40px;">Search All Products:</label>
+            <input type="checkbox" name="all_products" value="Yes" style="position:relative; right:-40px;">
         </p>
 
 

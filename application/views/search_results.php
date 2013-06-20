@@ -11,7 +11,16 @@
 
     <?php
     echo '<div class="ammo_heading">Search In-stock Ammo Prices for <span style="color:red;">';
-    echo $product_name;
+
+    if ($all_products_flag == 'Yes')
+    {
+        echo $product_category;
+    }
+    else
+    {
+         echo $product_name;
+    }
+
     echo '</span> in ';
     echo $search_state;
     echo '</div><div class="ammo_container" style="padding: 15px;">';
@@ -23,7 +32,14 @@
 
     <?php if (count($searches) < 1) {
         echo '<div style=" text-align: center;font-family:helvetica,sans-serif;font-size:.9em;padding:10px;">There is no current data for ';
-        echo $product_name;
+        if ($all_products_flag == 'Yes')
+        {
+            echo $product_category;
+        }
+        else
+        {
+            echo $product_name;
+        }
         echo ' in ';
         echo $search_state;
         echo '. Please check back soon.</div>';
@@ -37,7 +53,16 @@
 
         <div id="content">
             <div class="col col-1"><a href="/profile/<?php echo $search['address_id'] ?>"> <?php  echo $search['vendor'] ?></a></div>
-            <div class="col col-2"> $<?php  echo $search['price'] ?>/round</div>
+            <div class="col col-2">
+                <?php
+                if ($all_products_flag == 'Yes')
+                {
+                echo $search['product_name'];
+                echo '@';
+                }
+                ?>
+
+                $<?php  echo $search['price'] ?>/round</div>
             <div class="col col-3"> <?php  echo $search['city'] ?> </div>
             <div class="col col-4"> <?php  echo $search['last_updated'] ?> hours ago</div>
         </div>
