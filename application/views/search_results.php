@@ -67,7 +67,7 @@
             <div class="col col-4">
 
                 <?php
-                if ($search['last_updated'] > 20)
+                if ($search['last_updated'] > 23)
                 {
                     echo round(($search['last_updated']/24),0);
                     if (round(($search['last_updated']/24),0) == 1) {echo ' day ago</div>';}
