@@ -65,8 +65,7 @@
         <div class="form" >
             <div class="title" style="border-bottom: 1px;border-bottom-color: black; border-bottom-style: solid;">
                 <h3>Update Availability</h3>
-                <p>Update product availability for a local merchant in
-                    <?php echo $user_state ?>
+                <p>Update product availability for a local merchant.
                 </p>
                 <p>Don't see your favorite local merchant?<a href="/post/add_vendor"> <br>Add new merchant to the merchant drop-down here.</a></p>
                 <p>Don't see your favorite ammo listed?<a href="/post/add_product"> <br>Add new ammo to product drop-down here.</a></p>

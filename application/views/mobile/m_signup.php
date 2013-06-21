@@ -26,21 +26,21 @@
 		<div class="form" >
 			<div data-role="fieldcontain" class="ui-hide-label">
 				<input type="text" name="username" id="username" value="<?php echo set_value('username'); ?>"
-				 	placeholder="username"/>
+				 	placeholder="username" data-mini="true"/>
 				<?php echo form_error('username'); ?>
 			</div>
 			<div data-role="fieldcontain" class="ui-hide-label">
-				<input type="password" name="password" id="password" placeholder="password"/>
+				<input type="password" name="password" id="password" placeholder="password" data-mini="true"/>
 				<?php echo form_error('password'); ?>
 			</div>
 			<div data-role="fieldcontain" class="ui-hide-label">
 				<input type="email" name="email" id="email" value="<?php echo set_value('email'); ?>" 
-				     placeholder="email"/>
+				     placeholder="email" data-mini="true"/>
 				<?php echo form_error('email'); ?>
 			</div>
 			<div data-role="fieldcontain" class="ui-hide-label">
 				<input type="text" name="zipcode" id="zipcode" value="<?php echo set_value('zipcode'); ?>" 
-				     placeholder="zipcode"/>
+				     placeholder="zipcode" data-mini="true"/>
 				<?php echo form_error('zipcode'); ?>
 			</div>
 
@@ -48,7 +48,7 @@
 		        Already have an account? <a href="/login/">Sign in here.</a>
 			</div>		
 			<div>
-				<input class="button" type="submit" name="submit" value="Create my account" />
+				<input class="button" type="submit" name="submit" value="Create my account" data-mini="true" />
 			</div>	
 
 			<?php echo form_close() ?>

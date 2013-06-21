@@ -40,12 +40,18 @@ class Post extends CI_Controller {
             if ($this->form_validation->run() === FALSE)
             {
 
+
+                include 'mobile.php';
+                if(Mobile::is_mobile()) {
+                    $this->load->view('mobile/m_post', $data);
+
+                } else {
                 //load views
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/sub_nav.php', $data);
                 $this->load->view('post', $data);
                 $this->load->view('templates/footer');
-
+                }
             }
 
             else

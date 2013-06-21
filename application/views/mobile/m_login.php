@@ -26,11 +26,11 @@
 		<div class="form" >
 			<div data-role="fieldcontain" class="ui-hide-label">
 				<input type="text" name="username" id="username" value="<?php echo set_value('username'); ?>"
-				 	placeholder="username or email"/>
+				 	placeholder="username or email" data-mini="true" />
 				<?php echo form_error('username'); ?>
 			</div>
 			<div data-role="fieldcontain" class="ui-hide-label">
-				<input type="password" name="password" id="password" placeholder="password"/>
+				<input type="password" name="password" id="password" placeholder="password" data-mini="true" />
 				<?php echo form_error('password'); ?>
 				<div class="error">
 	            	<?php echo $msg ?>
@@ -43,7 +43,7 @@
 		        Don't have an account? <a href="/signup/">Create one here</a>
 			</div>		
 			<div>
-				<input class="button" type="submit" name="submit" value="Sign in" />
+				<input class="button" type="submit" name="submit" value="Sign in" data-mini="true" />
 			</div>	
 
 			<?php echo form_close() ?>

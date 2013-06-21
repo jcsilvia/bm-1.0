@@ -26,7 +26,7 @@
         <div class="form" >
             <div data-role="fieldcontain" class="ui-hide-label">
                 <input type="text" name="username" id="username" value="<?php echo set_value('username'); ?>"
-                       placeholder="username or email"/>
+                       placeholder="username or email" data-mini="true" />
                 <?php echo form_error('username'); ?>
             </div>
 
@@ -34,7 +34,7 @@
                 Have an account? <a href="/login/">Login here.</a>
             </div>
             <div>
-                <input class="button" type="submit" name="submit" value="Submit" />
+                <input class="button" type="submit" name="submit" value="Submit" data-mini="true" />
             </div>
 
             <?php echo form_close() ?>
