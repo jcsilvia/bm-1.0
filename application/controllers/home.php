@@ -28,11 +28,17 @@ function index()
                $data['state_ammo_prices'] = $this->Home_model->get_average_price_for_state($state);
                $data['cheap_ammo_prices'] = $this->Home_model->get_cheapest_price_for_state($state);
 
+               include 'mobile.php';
+               if(Mobile::is_mobile()) {
+                   $this->load->view('mobile/m_home', $data);
+
+               } else {
+
                $this->load->view('templates/header', $data);
                $this->load->view('templates/sub_nav.php', $data);
                $this->load->view('home.php', $data);
                $this->load->view('templates/footer');
-
+               }
            }
 
        else
@@ -43,15 +49,15 @@ function index()
 
                $data['title'] = 'Welcome to Bullet-Monkey';
                $data['ammo_prices'] = $this->Home_model->get_average_price();
-			   //include 'mobile.php';
-			   //if(Mobile::is_mobile()) {
-	           //    $this->load->view('mobile/m_home_not_logged_in');
+			   include 'mobile.php';
+			   if(Mobile::is_mobile()) {
+	               $this->load->view('mobile/m_home_not_logged_in');
 				  
-				//} else {
+				} else {
 	               $this->load->view('templates/homepage_header', $data);
 	               $this->load->view('home_not_logged_in');
 	               $this->load->view('templates/footer');
-				//}
+				}
            }
      }
 

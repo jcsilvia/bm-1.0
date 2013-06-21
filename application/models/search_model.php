@@ -23,14 +23,14 @@ class Search_model extends CI_Model {
 
                 $sql =
                     "SELECT * FROM (
-                      (SELECT pa.product_id, pro.product_name, pro.product_description, min(round((pa.price/pa.quantity),2)) as price, ad.address_id, ve.vendor_name as vendor, ad.city, round(time_to_sec(timediff(now(), pa.created_date)) / 3600) as last_updated
+                      (SELECT pa.product_id, pro.product_name, pro.product_description, min(round((pa.price/pa.quantity),2)) as price, ad.address_id, ve.vendor_name as vendor, ad.city, round(time_to_sec(timediff(current_timestamp(), pa.created_date)) / 3600) as last_updated
                         FROM product_availability pa, products pro, addresses ad, vendors ve
                         WHERE pa.product_id = pro.product_id
                               AND pa.address_id = ad.address_id
                               AND ad.vendor_id = ve.vendor_id
                               AND pa.in_stock = 'Yes'
                               AND ad.state = ?
-                              AND pa.created_date > date_sub(now(), interval 5 day)
+                              AND pa.created_date > date_sub(current_timestamp(), interval 5 day)
                               AND pro.product_subcategory_id = (SELECT product_subcategory_id FROM products WHERE product_id = ?)
                               AND NOT EXISTS
                                         (
@@ -40,11 +40,11 @@ class Search_model extends CI_Model {
                                           AND pa2.address_id = pa.address_id
                                           AND pa2.product_id = pa.product_id
                                           AND pa2.in_stock = 'No'
-                                          AND pa2.created_date > date_sub(now(), interval 4 hour)
+                                          AND pa2.created_date > date_sub(current_timestamp(), interval 4 hour)
                                           AND ad2.state = ?
                                         )
                       GROUP BY vendor_name, city, address_id, product_id, product_name, product_description
-                      ORDER BY price ASC)
+                      ORDER BY price, last_updated ASC)
                      ) q1 LIMIT ?,?";
 
                 $query = $this->db->query($sql, array($state,$product,$state,$offset,$limit));
@@ -63,7 +63,7 @@ class Search_model extends CI_Model {
                           AND ad.vendor_id = ve.vendor_id
                           AND pa.in_stock = 'Yes'
                           AND ad.state = ?
-                          AND pa.created_date > date_sub(now(), interval 5 day)
+                          AND pa.created_date > date_sub(current_timestamp(), interval 5 day)
                           AND pa.product_id = ?
                           AND NOT EXISTS
                                     (
@@ -73,11 +73,11 @@ class Search_model extends CI_Model {
                                       AND pa2.address_id = pa.address_id
                                       AND pa2.product_id = pa.product_id
                                       AND pa2.in_stock = 'No'
-                                      AND pa2.created_date > date_sub(now(), interval 4 hour)
+                                      AND pa2.created_date > date_sub(current_timestamp(), interval 4 hour)
                                       AND ad2.state = ?
                                     )
                   GROUP BY vendor_name, city, address_id, product_id, product_name, product_description
-                  ORDER BY price ASC)
+                  ORDER BY price, last_updated ASC)
                  ) q1 LIMIT ?,?";
 
             $query = $this->db->query($sql, array($state,$product,$state,$offset,$limit));
@@ -105,7 +105,7 @@ class Search_model extends CI_Model {
                           AND ad.vendor_id = ve.vendor_id
                           AND pa.in_stock = 'Yes'
                           AND ad.state = ?
-                          AND pa.created_date > date_sub(now(), interval 5 day)
+                          AND pa.created_date > date_sub(current_timestamp(), interval 5 day)
                           AND pro.product_subcategory_id = (SELECT product_subcategory_id FROM products WHERE product_id = ?)
                           AND NOT EXISTS
                                     (
@@ -115,7 +115,7 @@ class Search_model extends CI_Model {
                                       AND pa2.address_id = pa.address_id
                                       AND pa2.product_id = pa.product_id
                                       AND pa2.in_stock = 'No'
-                                      AND pa2.created_date > date_sub(now(), interval 4 hour)
+                                      AND pa2.created_date > date_sub(current_timestamp(), interval 4 hour)
                                       AND ad2.state = ?
                                     )
                    GROUP BY vendor_name, city, address_id, product_id, product_name, product_description
@@ -136,7 +136,7 @@ class Search_model extends CI_Model {
                       AND ad.vendor_id = ve.vendor_id
                       AND pa.in_stock = 'Yes'
                       AND ad.state = ?
-                      AND pa.created_date > date_sub(now(), interval 5 day)
+                      AND pa.created_date > date_sub(current_timestamp(), interval 5 day)
                       AND pa.product_id = ?
                       AND NOT EXISTS
                                 (
@@ -146,7 +146,7 @@ class Search_model extends CI_Model {
                                   AND pa2.address_id = pa.address_id
                                   AND pa2.product_id = pa.product_id
                                   AND pa2.in_stock = 'No'
-                                  AND pa2.created_date > date_sub(now(), interval 4 hour)
+                                  AND pa2.created_date > date_sub(current_timestamp(), interval 4 hour)
                                   AND ad2.state = ?
                                 )
                GROUP BY vendor_name, city, address_id, product_id, product_name, product_description

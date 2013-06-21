@@ -3,7 +3,7 @@
 <head> 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
-	<title>Grokki</title> 
+	<title>Bullet-Monkey Mobile Home</title>
 	
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
 	<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
@@ -17,43 +17,58 @@
     <?php $this->load->view('mobile/m_header.php'); ?>
 
 	<div data-role="content">	
-		
-		<div class="ui-grid-a">
-			<div class="ui-block-a">Messages</div>
-	        <div class="ui-block-b" align="right">
-	        	<?php
-            		if (count($messages) > 0) {
-                 		echo (count($messages));
-                 		echo ' of ';
-                 		echo $total;
-                 		echo ' messages';
-            		}
-	            ?>
-			</div>
-		</div>
 
-		<div class="ui-grid-solo">
-			<ul data-role="listview" data-inset="true">
-		        <?php foreach ($messages as $message): ?>
 
-					<li><a href="/home/message_detail/<?php  echo $message['MessageId'] ?>">
-						<?php if ($message['IsRead'] == 0) { ?>
-								<p><strong><?php  echo $message['SenderName'] ?> ::
-								   <?php  echo $message['CategoryName'] ?></strong>
-								</p>
 
-								<p class="ui-li-aside"><strong><?php  echo $message['DateFormatted'] ?></strong></p>
-						<?php } else { ?>
-							<p><?php  echo $message['SenderName'] ?> ::
-							   <?php  echo $message['CategoryName'] ?>
-							</p>
 
-							<p class="ui-li-aside"><?php  echo $message['DateFormatted'] ?></p>
-						<?php } ?>
-					</a></li>
-		        <?php endforeach ?>
-			</ul>
-		</div>
+
+
+        <div class="ui-grid-solo">
+            <ul data-role="listview" data-theme="d" data-divider-theme="d">
+                <li data-role="list-divider">In-stock Ammo Prices for <?php echo $user_state; ?></li>
+                <?php foreach ($cheap_ammo_prices as $cheap_prices): ?>
+
+                    <li>
+                        <p><b>Ammo:</b>  <?php  echo $cheap_prices['product_name'] ?></p>
+                        <p><b>Cost per round:</b> $<?php  echo $cheap_prices['price_per_round'] ?>/round</p>
+                        <p><b>Vendor:</b> <a href="/profile/<?php echo $cheap_prices['address_id'] ?>"> <?php  echo $cheap_prices['vendor_name'] ?></a></p>
+                        <p><b>Last Updated:</b>
+                        <?php
+                        if ($cheap_prices['last_updated'] > 23)
+                        {
+                        echo round(($cheap_prices['last_updated']/24),0);
+
+                        if (round(($cheap_prices['last_updated']/24),0) == 1)
+                        {echo ' day ago';}
+                        else
+                        { echo ' days ago'; }
+
+                        }
+                        else
+                        {
+                        echo $cheap_prices['last_updated'];
+
+                        if ($cheap_prices['last_updated'] == 1)
+                        {echo ' day ago';}
+                        else
+                        { echo ' hours ago'; }
+                        }
+                        ?>
+                        </p>
+                    </li>
+                <?php endforeach ?>
+
+                <?php if (count($cheap_ammo_prices) < 1) {
+                    echo '<li><p>There is no current data for ';
+                    echo $user_state;
+                    echo '. </p><p>Please check back soon.</p></li>';
+                }
+                ?>
+            </ul>
+        </div>
+
+
+
 
 	</div><!-- /content -->
 	

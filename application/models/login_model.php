@@ -63,7 +63,7 @@ class Login_model extends CI_Model
                     $row = $query->row();
                     $validation_string = $this->generateRandomString();
                     $data = array(
-                        'ValidationString' => $validation_string
+                        'validation_string' => $validation_string
                     );
                     $this->db->where('member_id', $row->member_id);
                     $this->db->update('members', $data);

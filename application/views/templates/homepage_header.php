@@ -28,7 +28,7 @@
 
     <div class="header">
         <div class="logo" align="left"><a href="/home">
-<img src="/images/bm-logo-6.gif"></a>
+<img src="/images/bm-logo-7.gif"></a>
         </div>
         <?php if ($this->session->userdata('memberid') == TRUE )
     {

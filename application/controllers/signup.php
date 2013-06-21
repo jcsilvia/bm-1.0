@@ -42,15 +42,15 @@ public function index()
             if ($this->form_validation->run() === FALSE)
                 {
 
-				   //include 'mobile.php';
-				   //if(Mobile::is_mobile()) {
-		           //    $this->load->view('mobile/m_signup');
+				   include 'mobile.php';
+				   if(Mobile::is_mobile()) {
+		               $this->load->view('mobile/m_signup');
 
-					//} else {
+					} else {
                     	$this->load->view('templates/header', $data);
                     	$this->load->view('signup');
                     	$this->load->view('templates/footer');
-					//}
+					}
                 }
             else
                 {

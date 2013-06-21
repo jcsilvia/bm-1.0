@@ -3,16 +3,23 @@
 	
 	<div class="ui-grid-a">
 		<div class="ui-block-b">
-				<a href="/home/"><img src="/images/bm-graphic-mobile-black.gif" alt="Bullet-Monkey logo"></a>
+				<a href="/home/"><img src="/images/bm-graphic-mobile3.gif" alt="Bullet-Monkey logo"></a>
 		</div>
-		<?php echo $this->session->userdata('username'); ?>
-        <div class="ui-block-b" align="right">
+
+        <div class="ui-block-b" align="right" style="padding-right: 10px;padding-top:15px;">
 
 		    <?php if ($this->session->userdata('memberid') == TRUE )
 		    {
-		    	echo '<a href="/home/logout"><img src="/images/logout.png" alt="Logout"></a>';
+		    	echo '<a href="/home/logout">Logout</a>';
 		    } ?>
 		</div>
 	</div>
 
 </div><!-- /header -->
+<?php
+if($this->session->userdata('username') == TRUE){
+    echo '<div><h5>Welcome, ';
+    echo $this->session->userdata('username');
+    echo '</h5></div>';
+}
+?>

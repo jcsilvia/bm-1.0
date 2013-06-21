@@ -3,7 +3,7 @@
 <head> 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
-	<title>Grokki</title> 
+	<title>Bullet-Monkey Mobile Sign-up</title>
 	
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
 	<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
@@ -21,7 +21,7 @@
 		<?php $this->load->helper('form'); ?>
 		<?php echo form_open('signup/index') ?>
 		
-		<div><h3>Sign up with Grokki today</h3></div>
+		<div><h3>Sign up with Bullet-Monkey</h3></div>
 
 		<div class="form" >
 			<div data-role="fieldcontain" class="ui-hide-label">
@@ -43,9 +43,7 @@
 				     placeholder="zipcode"/>
 				<?php echo form_error('zipcode'); ?>
 			</div>
-			<div>
-				<label><input type="checkbox" name="is_business" value=1 /> Is a business account</label>
-			</div>
+
 			<div>
 		        Already have an account? <a href="/login/">Sign in here.</a>
 			</div>		

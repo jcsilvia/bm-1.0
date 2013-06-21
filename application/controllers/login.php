@@ -52,15 +52,15 @@ public function index($msg = NULL)
                     {
                         $data['msg'] = 'Invalid username or password';
                         $this->output->nocache(); // set http header to disable caching if user hits back button
-				//	   	include 'mobile.php';
-				//	   	if(Mobile::is_mobile()) {
-			    //         $this->load->view('mobile/m_login', $data);
+					   	include 'mobile.php';
+					   	if(Mobile::is_mobile()) {
+			             $this->load->view('mobile/m_login', $data);
 
-				//	} else {
+					} else {
                         	$this->load->view('templates/header', $data);
                         	$this->load->view('login', $data);
                         	$this->load->view('templates/footer');
-				//		}
+						}
                     }
                 }
             }
@@ -114,8 +114,8 @@ public function index($msg = NULL)
                             'protocol' => 'smtp',
                             'smtp_host' => 'ssl://smtp.gmail.com',
                             'smtp_port' => '465',
-                            'smtp_user' => 'admin@grokki.com', //for testing only, change this to admin@grokki.com for production
-                            'smtp_pass' => 'viper123', //change this for check in and deployment
+                            'smtp_user' => 'support@bullet-monkey.com',
+                            'smtp_pass' => 'viper123',
                             'mailtype'  => 'html',
                             'charset'   => 'utf-8',
                             'newline'  => "\r\n"
@@ -123,7 +123,7 @@ public function index($msg = NULL)
                         $this->load->library('email', $config);
 
                         // Set to, from, message, etc.
-                        $this->email->from('admin@grokki.com', 'Bullet-Monkey Administrator'); //change this to admin@grokki.com for production
+                        $this->email->from('support@bullet-monkey.com', 'Bullet-Monkey Administrator');
                         $this->email->to($email_to);
                         $this->email->subject($subject);
                         $this->email->message($message);
@@ -132,15 +132,15 @@ public function index($msg = NULL)
                     }
 
                 $this->output->nocache(); // set http header to disable caching if user hits back button
-               // include 'mobile.php';
-               // if(Mobile::is_mobile()) {
-               //     $this->load->view('mobile/password_resent', $data);
+                include 'mobile.php';
+                if(Mobile::is_mobile()) {
+                    $this->load->view('mobile/m_login', $data);
 
-               // } else {
+                } else {
                     $this->load->view('templates/header', $data);
                     $this->load->view('password_resent', $data);
                     $this->load->view('templates/footer');
-               // }
+                }
 
 
             }
