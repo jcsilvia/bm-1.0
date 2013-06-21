@@ -56,7 +56,7 @@
         echo '<img border="1" src="//maps.googleapis.com/maps/api/staticmap?center=';
         echo $profile->address1; echo ','; echo $profile->city; echo ','; echo $profile->state;
         echo '&markers=color:red%7Clabel:A%7C'; echo $profile->address1; echo ','; echo $profile->city; echo ','; echo $profile->state;
-        echo '&zoom=15&scale=2&size=190x200&key=AIzaSyBOIxN_iEcuMDdEz5xesWkGjCyxqHZXRpE&sensor=false" />';
+        echo '&zoom=15&scale=2&size=170x170&key=AIzaSyBOIxN_iEcuMDdEz5xesWkGjCyxqHZXRpE&sensor=false" />';
         ?>
 
     </div>

@@ -3,7 +3,7 @@
 	
 	<div class="ui-grid-a">
 		<div class="ui-block-b">
-				<a href="/home/"><img src="/images/bm-graphic-mobile3.gif" alt="Bullet-Monkey logo"></a>
+				<img src="/images/bm-graphic-mobile3.gif" alt="Bullet-Monkey logo">
 		</div>
 
         <div class="ui-block-b" align="right" style="padding-right: 10px;padding-top:15px;">
