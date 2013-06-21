@@ -1,10 +1,8 @@
 <?php $ipad = strpos($_SERVER['HTTP_USER_AGENT'],"iPad");
-if ($iPad == true)
-
-{
-    echo '<div style="min-height: 200px;"></div>';
-}
-
+        if ($ipad == true)
+        {
+            echo '<div style="min-height: 650px;"></div>';
+        }
 ?>
         </div> <!-- end main-content div started in nav header -->
         <div class="footer-nav">/ <a href="/home/about">About</a> / <a href="/home/privacy">Privacy Policy</a> | <a href="/home/terms">Terms of Use</a> \ <a href="/home/contact">Contact</a> \</div>

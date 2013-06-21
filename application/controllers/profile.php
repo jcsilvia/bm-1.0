@@ -33,13 +33,17 @@ class Profile extends CI_Controller {
             $phone = $this->phone($data['profile']->phone_number);
             $data['phone'] = $phone;
 
+            include 'mobile.php';
+            if(Mobile::is_mobile()) {
+                $this->load->view('mobile/m_profile', $data);
 
+            } else {
 
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/sub_nav.php', $data);
                 $this->load->view('profile', $data);
                 $this->load->view('templates/footer');
-
+            }
 
         }
         else
