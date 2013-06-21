@@ -29,15 +29,15 @@ public function index($msg = NULL)
                 if ($this->form_validation->run() === FALSE)
                 {
                    $this->output->nocache(); // set http header to disable caching if user hits back button
-				//   include 'mobile.php';
-				//   if(Mobile::is_mobile()) {
-		        //       $this->load->view('mobile/m_login', $data);
+				   include 'mobile.php';
+				   if(Mobile::is_mobile()) {
+		               $this->load->view('mobile/m_login', $data);
 
-				//	} else {
+					} else {
                     	$this->load->view('templates/header', $data);
                     	$this->load->view('login', $data);
                     	$this->load->view('templates/footer');
-				//	}
+					}
                 }
                 else
                 {
@@ -88,15 +88,15 @@ public function index($msg = NULL)
             if ($this->form_validation->run() === FALSE)
             {
                 $this->output->nocache(); // set http header to disable caching if user hits back button
-             //   include 'mobile.php';
-             //   if(Mobile::is_mobile()) {
-             //       $this->load->view('mobile/m_forgot_password', $data);
+                include 'mobile.php';
+                if(Mobile::is_mobile()) {
+                    $this->load->view('mobile/m_forgot_password', $data);
 
-             //   } else {
+                } else {
                     $this->load->view('templates/header', $data);
                     $this->load->view('forgot_password', $data);
                     $this->load->view('templates/footer');
-             //   }
+                }
             }
             else
             {
