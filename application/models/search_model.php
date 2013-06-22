@@ -30,7 +30,7 @@ class Search_model extends CI_Model {
                               AND ad.vendor_id = ve.vendor_id
                               AND pa.in_stock = 'Yes'
                               AND ad.state = ?
-                              AND pa.created_date > date_sub(current_timestamp(), interval 5 day)
+                              AND pa.created_date > date_sub(current_timestamp(), interval 4 day)
                               AND pro.product_subcategory_id = (SELECT product_subcategory_id FROM products WHERE product_id = ?)
                               AND NOT EXISTS
                                         (
@@ -40,7 +40,7 @@ class Search_model extends CI_Model {
                                           AND pa2.address_id = pa.address_id
                                           AND pa2.product_id = pa.product_id
                                           AND pa2.in_stock = 'No'
-                                          AND pa2.created_date > date_sub(current_timestamp(), interval 4 hour)
+                                          AND pa2.created_date > date_sub(current_timestamp(), interval 4 day)
                                           AND ad2.state = ?
                                         )
                       GROUP BY vendor_name, city, address_id, product_id, product_name, product_description
@@ -63,7 +63,7 @@ class Search_model extends CI_Model {
                           AND ad.vendor_id = ve.vendor_id
                           AND pa.in_stock = 'Yes'
                           AND ad.state = ?
-                          AND pa.created_date > date_sub(current_timestamp(), interval 5 day)
+                          AND pa.created_date > date_sub(current_timestamp(), interval 4 day)
                           AND pa.product_id = ?
                           AND NOT EXISTS
                                     (
@@ -73,7 +73,7 @@ class Search_model extends CI_Model {
                                       AND pa2.address_id = pa.address_id
                                       AND pa2.product_id = pa.product_id
                                       AND pa2.in_stock = 'No'
-                                      AND pa2.created_date > date_sub(current_timestamp(), interval 4 hour)
+                                      AND pa2.created_date > date_sub(current_timestamp(), interval 4 day)
                                       AND ad2.state = ?
                                     )
                   GROUP BY vendor_name, city, address_id, product_id, product_name, product_description
@@ -105,7 +105,7 @@ class Search_model extends CI_Model {
                           AND ad.vendor_id = ve.vendor_id
                           AND pa.in_stock = 'Yes'
                           AND ad.state = ?
-                          AND pa.created_date > date_sub(current_timestamp(), interval 5 day)
+                          AND pa.created_date > date_sub(current_timestamp(), interval 4 day)
                           AND pro.product_subcategory_id = (SELECT product_subcategory_id FROM products WHERE product_id = ?)
                           AND NOT EXISTS
                                     (
@@ -115,7 +115,7 @@ class Search_model extends CI_Model {
                                       AND pa2.address_id = pa.address_id
                                       AND pa2.product_id = pa.product_id
                                       AND pa2.in_stock = 'No'
-                                      AND pa2.created_date > date_sub(current_timestamp(), interval 4 hour)
+                                      AND pa2.created_date > date_sub(current_timestamp(), interval 4 day)
                                       AND ad2.state = ?
                                     )
                    GROUP BY vendor_name, city, address_id, product_id, product_name, product_description
@@ -136,7 +136,7 @@ class Search_model extends CI_Model {
                       AND ad.vendor_id = ve.vendor_id
                       AND pa.in_stock = 'Yes'
                       AND ad.state = ?
-                      AND pa.created_date > date_sub(current_timestamp(), interval 5 day)
+                      AND pa.created_date > date_sub(current_timestamp(), interval 4 day)
                       AND pa.product_id = ?
                       AND NOT EXISTS
                                 (
@@ -146,7 +146,7 @@ class Search_model extends CI_Model {
                                   AND pa2.address_id = pa.address_id
                                   AND pa2.product_id = pa.product_id
                                   AND pa2.in_stock = 'No'
-                                  AND pa2.created_date > date_sub(current_timestamp(), interval 4 hour)
+                                  AND pa2.created_date > date_sub(current_timestamp(), interval 4 day)
                                   AND ad2.state = ?
                                 )
                GROUP BY vendor_name, city, address_id, product_id, product_name, product_description

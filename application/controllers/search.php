@@ -58,11 +58,17 @@ public function index()
                         $data['user_state'] = $this->Home_model->get_user_state();
 
 
+                        include 'mobile.php';
+                        if(Mobile::is_mobile()) {
+                            $this->load->view('mobile/m_search', $data);
+
+                        } else {
+
                         	$this->load->view('templates/header', $data);
                         	$this->load->view('templates/sub_nav.php', $data);
                         	$this->load->view('search', $data);
                         	$this->load->view('templates/footer');
-
+                        }
 
                     }
                     else
@@ -89,13 +95,17 @@ public function index()
                         $data['searches'] = $this->Search_model->search($config["per_page"], $page);
 
 
+                        include 'mobile.php';
+                        if(Mobile::is_mobile()) {
+                            $this->load->view('mobile/m_search_results', $data);
 
+                        } else {
 
                         	$this->load->view('templates/header', $data);
                         	$this->load->view('templates/sub_nav.php', $data);
                         	$this->load->view('search_results', $data);
                         	$this->load->view('templates/footer');
-
+                        }
 
                     }
 

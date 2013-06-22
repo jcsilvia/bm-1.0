@@ -1,4 +1,5 @@
 DROP PROCEDURE IF EXISTS bullet_monkey.get_cheapest_ammo;
+DELIMITER //
 CREATE PROCEDURE bullet_monkey.`get_cheapest_ammo`(IN pState VARCHAR(2))
 BEGIN
 	
@@ -55,7 +56,7 @@ BEGIN
                   AND pa2.address_id = pa.address_id
                   AND pa2.product_id = pa.product_id
                   AND pa2.in_stock = 'No' 
-                  AND pa2.created_date > (date_sub(current_timestamp, INTERVAL 3 HOUR))
+                  AND pa2.created_date > (date_sub(current_timestamp, INTERVAL 3 DAY))
                   AND ad2.state = pState
                 )
             GROUP BY pa.product_id, ad.vendor_id , po.product_name, ve.vendor_name, pa.address_id, last_updated
@@ -75,3 +76,5 @@ BEGIN
     DROP TABLE tmp_cheap_ammo;
 
   END;
+//
+DELIMITER ;

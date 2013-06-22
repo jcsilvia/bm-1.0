@@ -59,7 +59,7 @@ class Home_model extends CI_Model {
                                         AND pa.product_id = po.product_id
                                         AND pa.in_stock = 'Yes'
                                         AND ad.state = '" .$state. "'
-                                        AND pa.created_date > date_sub(now(), interval 7 day)
+                                        AND pa.created_date > date_sub(current_timestamp(), interval 14 day)
                                         GROUP BY ad.state, po.product_id
                                         ORDER BY average_price LIMIT 10");
 
@@ -81,7 +81,7 @@ class Home_model extends CI_Model {
                                       WHERE pa.address_id = ad.address_id
                                         AND pa.product_id = po.product_id
                                         AND pa.in_stock = 'Yes'
-                                        AND pa.created_date > date_sub(now(), interval 7 day)
+                                        AND pa.created_date > date_sub(current_timestamp(), interval 14 day)
                                         GROUP BY po.product_id
                                         ORDER BY average_price ASC
                                         LIMIT 20
