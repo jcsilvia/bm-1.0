@@ -102,12 +102,18 @@ class Post extends CI_Controller {
             if ($this->form_validation->run() === FALSE)
             {
 
+
+                include 'mobile.php';
+                if(Mobile::is_mobile()) {
+                    $this->load->view('mobile/m_add_vendor', $data);
+
+                } else {
                 //load views
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/sub_nav.php', $data);
                 $this->load->view('add_vendor', $data);
                 $this->load->view('templates/footer');
-
+                }
             }
 
             else
@@ -166,12 +172,18 @@ class Post extends CI_Controller {
             if ($this->form_validation->run() === FALSE)
             {
 
+                include 'mobile.php';
+                if(Mobile::is_mobile()) {
+                    $this->load->view('mobile/m_add_product', $data);
+
+                } else {
+
                 //load views
                 $this->load->view('templates/header', $data);
                 $this->load->view('templates/sub_nav.php', $data);
                 $this->load->view('add_product', $data);
                 $this->load->view('templates/footer');
-
+                }
             }
 
             else

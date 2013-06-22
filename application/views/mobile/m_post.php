@@ -73,7 +73,7 @@
         <?php $this->load->helper('form'); ?>
 
 
-
+    <div data-role="content">
 
 
         <?php echo form_open('post/index') ?>
@@ -87,7 +87,7 @@
                 <p>Don't see your favorite ammo listed?<a href="/post/add_product"> <br>Add new ammo product here.</a></p>
             </div>
 
-    <div data-role="content">
+
 
 
             <div data-role="fieldcontain">
@@ -133,7 +133,7 @@
 
             <div data-role="fieldcontain">
                 <label for="price">Price:</label>
-                <input type="text" name="price" size="10" value="0.00" data-mini="true">
+                <input type="number" pattern="\d+\.\d\d" name="price" size="10" value="0.00" data-mini="true">
             <?php echo form_error('price'); ?>
 
 
@@ -141,7 +141,7 @@
 
             <div data-role="fieldcontain" >
                 <label for="quantity">Quantity:</label>
-                <input type="text" name="quantity" size="10" value="0" data-mini="true">
+                <input type="number" name="quantity" size="10" value="0" data-mini="true">
             <?php echo form_error('quantity'); ?>
             </div>
 

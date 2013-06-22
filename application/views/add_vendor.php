@@ -21,7 +21,7 @@
     <div class="form" >
         <div class="title" style="border-bottom: 1px;border-bottom-color: black; border-bottom-style: solid;">
             <h3>Add New Merchant</h3>
-            <p>Add a local merchant here.
+            <p>Add a new local merchant here.
             </p>
         </div>
 
