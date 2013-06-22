@@ -97,6 +97,7 @@ public function index()
 
                         include 'mobile.php';
                         if(Mobile::is_mobile()) {
+
                             $this->load->view('mobile/m_search_results', $data);
 
                         } else {
@@ -152,16 +153,16 @@ public function results()
             $data['searches'] = $this->Search_model->search($config["per_page"], $page);
 
 
-		   	//include 'mobile.php';
-		   	//if(Mobile::is_mobile()) {
-            //   $this->load->view('mobile/m_search_results', $data);
+		   	include 'mobile.php';
+		   	if(Mobile::is_mobile()) {
+               $this->load->view('mobile/m_search_results', $data);
 
-			//} else {
+			} else {
             	$this->load->view('templates/header', $data);
             	$this->load->view('templates/sub_nav.php', $data);
             	$this->load->view('search_results', $data);
             	$this->load->view('templates/footer');
-			//}
+			}
         }
         else
         {
@@ -184,6 +185,11 @@ public function results()
         $strPhone = "(".$strArea.") ".$strPrefix."-".$strNumber;
 
         return ($strPhone);
+    }
+
+    public function new_search()
+    {
+        redirect('search', 'location');
     }
 
 }

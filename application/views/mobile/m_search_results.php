@@ -5,7 +5,7 @@
 <head> 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
-	<title>Bullet-Monkey Mobile Search</title>
+	<title>Bullet-Monkey Mobile Search Results</title>
 	
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
 	<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
@@ -21,9 +21,9 @@
 	<div data-role="content">
 
 
-
         <div class="ui-grid-solo">
             <ul data-role="listview" data-theme="d" data-divider-theme="d">
+                <li  data-role="list-divider" style="text-align: center"><a href="/search/new_search">Perform another search</a></li>
                 <li data-role="list-divider">In-stock Ammo Prices for
                 <span style="color:red;">
                         <?php
