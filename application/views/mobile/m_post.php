@@ -28,6 +28,7 @@
                                     opt.text(vendor);
                                     jQuery('#vendors').append(opt);
                                 });
+                                jQuery('#vendors').selectmenu('refresh',true);
                             } //end success
                         }); //end AJAX
                     }
@@ -54,6 +55,7 @@
                                 opt.text(product_name);
                                 jQuery('#products').append(opt);
                             });
+                            jQuery('#products').selectmenu('refresh',true);
                         } //end success
                     }); //end AJAX
                 }

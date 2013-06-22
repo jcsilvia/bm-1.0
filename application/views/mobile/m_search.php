@@ -28,6 +28,7 @@
                                 opt.text(product_name);
                                 jQuery('#products').append(opt);
                             });
+                            jQuery('#products').selectmenu('refresh',true);
                         } //end success
                     }); //end AJAX
                 }
