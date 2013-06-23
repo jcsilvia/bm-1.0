@@ -41,6 +41,7 @@
 </div>
 
 <?php echo form_close() ?>
-
+    <div style="margin: 0 auto;width:600px;text-align: center;padding:10px;"><img src="/images/bm-220-k.jpg" style="border:solid;border-width: 1px;border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px;">
+    </div>
 
 </div>
