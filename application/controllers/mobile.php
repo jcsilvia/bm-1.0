@@ -3,6 +3,8 @@ class Mobile {
 	
 	public function is_mobile() {
 
+        $this->load->library('session');
+
 		$iphone = strpos($_SERVER['HTTP_USER_AGENT'],"iPhone");
 		$android = strpos($_SERVER['HTTP_USER_AGENT'],"Android");
 		$palmpre = strpos($_SERVER['HTTP_USER_AGENT'],"webOS");
@@ -24,7 +26,7 @@ class Mobile {
             //if ($iphone || $android || $palmpre || $ipod || $berry || $firefox == true)
             if ($iphone || $android || $palmpre || $ipod || $berry || $winphone == true)
             {
-                $this->session->set_userdata('is_mobile', 1);
+
                 return true;
 
             }

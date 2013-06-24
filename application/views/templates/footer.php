@@ -3,10 +3,7 @@
         {
             echo '<div style="min-height: 650px;"></div>';
         }
-        elseif($this->session->userdata('is_mobile') == 1)
-        {
-            echo '<div style="min-height: 650px;"></div>';
-        }
+      
 ?>
         </div> <!-- end main-content div started in nav header -->
 
