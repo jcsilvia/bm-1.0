@@ -8,16 +8,29 @@ class Mobile {
 		$palmpre = strpos($_SERVER['HTTP_USER_AGENT'],"webOS");
 		$berry = strpos($_SERVER['HTTP_USER_AGENT'],"BlackBerry");
 		$ipod = strpos($_SERVER['HTTP_USER_AGENT'],"iPod");
+        $winphone = strpos($_SERVER['HTTP_USER_AGENT'],"Windows Phone");
 
 		//for test purpose
-		$firefox = strpos($_SERVER['HTTP_USER_AGENT'],"Firefox");
-        if ($iphone || $android || $palmpre || $ipod || $berry || $firefox == true)
-        //if ($iphone || $android || $palmpre || $ipod || $berry)
-		{ 
-		  return true;
-		}
+		//$firefox = strpos($_SERVER['HTTP_USER_AGENT'],"Firefox");
 
-		return false;
+        if ( $this->session->userdata('full_site'))
+        {
+            return false;
+        }
+
+        else
+
+        {
+            //if ($iphone || $android || $palmpre || $ipod || $berry || $firefox == true)
+            if ($iphone || $android || $palmpre || $ipod || $berry || $winphone == true)
+            {
+
+                return true;
+
+            }
+
+            return false;
+        }
 	}
 }
 ?>

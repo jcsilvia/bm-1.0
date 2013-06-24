@@ -1,3 +1,4 @@
+
 <div data-role="navbar">
 	<ul>
 		<li><a href="/home" rel="external" target="_parent" <?php if ($title=="Home") echo "class='ui-btn-active ui-state-persist'"; ?> >Home</a></li>
@@ -14,5 +15,12 @@
 				echo '>Update</a></li>';
 
 		?>
+
+                <?php if($this->session->userdata('memberid'))
+                {
+                    echo '<li><a id="full" href="/home/full_site" rel="external" target="_parent">Full Site</a></li>';
+                }
+                ?>
+
 	</ul>
 </div>

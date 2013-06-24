@@ -64,7 +64,7 @@ function index()
 public function logout()
     {
         // destroy the session
-        $this->session->unset_userdata('memberid', 'username');
+        $this->session->unset_userdata('memberid', 'username', 'full_site');
         $this->session->sess_destroy();
         $this->not_logged_in();
     }
@@ -208,5 +208,20 @@ public function privacy()
 
     }
 
+    public function full_site()
+    {
+
+        if($this->session->userdata('full_site') == 1 )
+        {
+            $this->session->unset_userdata('full_site');
+
+        }
+        else
+        {
+            $this->session->set_userdata('full_site', 1);
+        }
+            redirect('/home', 'refresh');
+
+    }
 
 }

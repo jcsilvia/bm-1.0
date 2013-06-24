@@ -169,6 +169,8 @@
 
     <div data-role="footer" data-position="fixed">
         <?php $this->load->view("mobile/m_sub_nav.php");?>
+
+
     </div>
 
 </div><!-- /page -->
