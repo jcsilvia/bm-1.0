@@ -24,6 +24,14 @@
 		</div>
 		<a href="/signup/" data-role="button">Sign up</a>
 		<a href="/login/" data-role="button">Sign in</a>
+        <div>
+            <h3>How does it work?</h3>
+            <ol>
+                <li><b>Find</b> cheap ammunition near you. Save money and time.
+                <li><b>Report</b> price and availability of ammunition and help out your fellow shooting enthusiasts.
+                <li><b>Earn</b> points for reporting prices and availability. Use those points to enter to win great prizes.
+            </ol>
+        </div>
 	</div><!-- /content -->
 
     <?php $this->load->view("mobile/m_footer.php");?>

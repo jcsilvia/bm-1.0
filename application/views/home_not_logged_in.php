@@ -27,7 +27,7 @@
                     <ol>
                         <li><b>Find</b> cheap ammunition near you. Save money and time.
                         <li><b>Report</b> price and availability of ammunition and help out your fellow shooting enthusiasts.
-                        <li><b>Earn</b> points and prestige for reporting prices and availability. Use those points to enter to win great prizes.
+                        <li><b>Earn</b> points for reporting prices and availability. Use those points to enter to win great prizes.
                     </ol>
 
                 </div>
@@ -36,7 +36,7 @@
             <div class="mobile_container">
                 <div style="font-family:helvetica,sans-serif;font-size:1em; border-bottom-style: solid;border-width: 1px;"><b>Bullet-Monkey Mobile</b></div>
                 <div style="font-family:helvetica,sans-serif;font-size:.95em;">
-                    <p> Bullet-Monkey for Android, iPhone, and the mobile web is coming soon!</p>
+                    <p> Bullet-Monkey Mobile is now live! Check out Bullet-Monkey.com from any mobile device. </p>
                 </div>
             </div>
 
