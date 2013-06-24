@@ -4,41 +4,51 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bullet-Monkey Mobile Update Availability</title>
-
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
     <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript">
+        $(document).bind("mobileinit", function(){
+            $.mobile.ajaxEnabled = false;
+        });
+    </script>
     <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
     <script type="text/javascript" src="js/jquery-templ.js"></script>
-        <script type="text/javascript">
-            jQuery(document).ready(function(){
-                jQuery('#state').change(function(){
-                    var state_id = $('#state').val();
-                    if (state_id != ""){
-                        var post_url = "/post/get_vendors/" + state_id;
-                        jQuery.ajax({
-                            type: "POST",
-                            url: post_url,
-                            success: function(vendors) //we're calling the response json array 'vendors'
+
+</head>
+<body>
+<?php $this->load->view('analytics_tracking.php'); ?>
+<div data-role="page" id="post">
+
+    <script type="text/javascript">
+        jQuery('#post').live('pageinit',function(event){
+            jQuery('#state').bind('change', function(event){
+                var state_id = $('#state').val();
+                if (state_id != ""){
+                    var post_url = "/post/get_vendors/" + state_id;
+                    jQuery.ajax({
+                        type: "POST",
+                        url: post_url,
+                        success: function(vendors) //we're calling the response json array 'vendors'
+                        {
+                            jQuery('#vendors').empty();
+                            jQuery.each(vendors,function(address_id,vendor)
                             {
-                                jQuery('#vendors').empty();
-                                jQuery.each(vendors,function(address_id,vendor)
-                                {
-                                    var opt = $('<option />'); // here we're creating a new select option for each group
-                                    opt.val(address_id);
-                                    opt.text(vendor);
-                                    jQuery('#vendors').append(opt);
-                                });
-                                jQuery('#vendors').selectmenu('refresh',true);
-                            } //end success
-                        }); //end AJAX
-                    }
-                }); //end change
-            });
+                                var opt = $('<option />'); // here we're creating a new select option for each group
+                                opt.val(address_id);
+                                opt.text(vendor);
+                                jQuery('#vendors').append(opt);
+                            });
+                            jQuery('#vendors').selectmenu('refresh',true);
+                        } //end success
+                    }); //end AJAX
+                }
+            }); //end change
+        });
     </script>
 
     <script type="text/javascript">
-        jQuery(document).ready(function(){
-            jQuery('#product_categories').change(function(){
+        jQuery('#post').live('pageinit',function(event){
+            jQuery('#product_categories').bind('change', function(event){
                 var product_subcategory_id = $('#product_categories').val();
                 if (product_subcategory_id != ""){
                     var post_url = "/post/get_products/" + product_subcategory_id;
@@ -62,12 +72,6 @@
             }); //end change
         });
     </script>
-
-</head>
-<body>
-<?php $this->load->view('analytics_tracking.php'); ?>
-<div data-role="page">
-
     <?php $this->load->view('mobile/m_header.php'); ?>
 
 

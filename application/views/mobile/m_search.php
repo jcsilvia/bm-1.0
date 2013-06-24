@@ -4,14 +4,23 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 	<title>Bullet-Monkey Mobile Search</title>
-	
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
 	<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript">
+        $(document).bind("mobileinit", function(){
+           $.mobile.ajaxEnabled = false;
+        });
+    </script>
 	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
 	<script type="text/javascript" src="js/jquery-templ.js"></script>
+
+</head> 
+<body>
+<?php $this->load->view('analytics_tracking.php'); ?>
+<div data-role="page" id="search">
     <script type="text/javascript">
-        jQuery(document).ready(function(){
-            jQuery('#product_categories').change(function(){
+        jQuery('#search').live('pageinit', function(event){
+            jQuery('#product_categories').bind('change', function(event){
                 var product_subcategory_id = $('#product_categories').val();
                 if (product_subcategory_id != ""){
                     var post_url = "/post/get_products/" + product_subcategory_id;
@@ -28,17 +37,13 @@
                                 opt.text(product_name);
                                 jQuery('#products').append(opt);
                             });
-                            jQuery('#products').selectmenu('refresh',true);
+                            jQuery('#products').selectmenu("refresh",true);
                         } //end success
                     }); //end AJAX
                 }
             }); //end change
         });
     </script>
-</head> 
-<body>
-<?php $this->load->view('analytics_tracking.php'); ?>
-<div data-role="page">
 
     <?php $this->load->view('mobile/m_header.php'); ?>
 
