@@ -24,7 +24,7 @@ class Mobile {
             //if ($iphone || $android || $palmpre || $ipod || $berry || $firefox == true)
             if ($iphone || $android || $palmpre || $ipod || $berry || $winphone == true)
             {
-
+                $this->session->set_userdata('is_mobile', 1);
                 return true;
 
             }
