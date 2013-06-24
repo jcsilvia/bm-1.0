@@ -3,7 +3,7 @@ class Mobile {
 	
 	public function is_mobile() {
 
-        $this->load->library('session');
+
 
 		$iphone = strpos($_SERVER['HTTP_USER_AGENT'],"iPhone");
 		$android = strpos($_SERVER['HTTP_USER_AGENT'],"Android");

@@ -88,7 +88,8 @@ CREATE TABLE `products` (
   `product_description` varchar(255) DEFAULT NULL,
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`product_id`),
-  KEY `product_category_idx` (`product_category_id`,`product_subcategory_id`)
+  KEY `product_category_idx` (`product_category_id`,`product_subcategory_id`),
+  UNIQUE KEY `products_pname_idx` (`product_name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `rewards` (
