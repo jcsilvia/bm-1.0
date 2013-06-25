@@ -149,4 +149,53 @@ class Post_model extends CI_Model {
     }
 
 
+
+    public function get_vendors($state)
+    {
+
+        $query = $this->db->query("SELECT ve.vendor_name AS vendor, ve.vendor_id AS vendor_id
+                                   FROM vendors ve, addresses ad
+                                   WHERE ad.vendor_id = ve.vendor_id
+                                        AND ad.state = '" .$state. "'
+                                        AND ve.is_active = 1");
+
+        $result = array();
+
+        if($query->result()){
+
+            foreach ($query->result() as $row)
+            {
+                $result[$row->vendor_id]= $row->vendor;
+            }
+
+            return $result;
+
+        }
+
+        else {
+            return FALSE;
+        }
+
+    }
+
+    public function add_vendor_address()
+    {
+
+        $phone = preg_replace( '/\D/', '',$this->input->post('phone_number') );
+
+        $address_data = array(
+            'vendor_id' => $this->input->post('vendors'),
+            'address1' => $this->input->post('address1'),
+            'address2' => $this->input->post('address2'),
+            'city' => $this->input->post('city'),
+            'state' => $this->input->post('state'),
+            'zipcode' => $this->input->post('zipcode'),
+            'phone_number' => $phone
+        );
+
+        $this->db->insert('addresses', $address_data);
+
+    }
+
+
 }
