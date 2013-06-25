@@ -90,6 +90,7 @@
                 <h4>Update Availability</h4>
                 <p>Update product availability for a local merchant.
                 <p>Don't see your favorite local merchant?<a href="/post/add_vendor"> <br>Add new merchant here.</a></p>
+                <p>Need to add a new location for an existing merchant?<a href="/post/add_vendor_address"> Add a new address to an existing merchant here.</a></p>
                 <p>Don't see your favorite ammo listed?<a href="/post/add_product"> <br>Add new ammo product here.</a></p>
             </div>
 

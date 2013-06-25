@@ -21,7 +21,7 @@
 </head>
 <body>
 <?php $this->load->view('analytics_tracking.php'); ?>
-<div data-role="page">
+<div data-role="page" id="add_address">
 
     <?php $this->load->view('mobile/m_header.php'); ?>
 
@@ -33,7 +33,7 @@
     <div data-role="content">
 
         <script type="text/javascript">
-            jQuery('#post').live('pageinit',function(event){
+            jQuery('#add_address').live('pageinit',function(event){
                 jQuery('#state').bind('change', function(event){
                     var state_id = $('#state').val();
                     if (state_id != ""){
@@ -77,7 +77,7 @@
 
         <div data-role="fieldcontain">
             <label for="vendors">Merchant:</label>
-            <?php echo form_dropdown('vendors', $vendors, 'id="vendors" data-mini="true"') ?>
+            <?php echo form_dropdown('vendors', $vendors, '','id=vendors data-mini="true"') ?>
             <?php echo form_error('vendors'); ?>
         </div>
 
