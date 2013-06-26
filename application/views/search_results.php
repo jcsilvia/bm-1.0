@@ -26,7 +26,13 @@
     echo '</div><div class="ammo_container" style="padding: 15px;">';
 
     if (count($searches) > 0) {
-        echo '<div id="content"><div class="col col-1"><b>Vendor:</b></div><div class="col col-2"><b>Price Per Round:</b></div><div class="col col-3"><b>City:</b></div><div class="col col-4"><b>Last Updated:</b></div></div>';
+        echo '<div id="content">
+        <div class="col col-1"><b>Vendor:</b></div>
+        <div class="col col-2"><b>Price Per Round:</b></div>
+        <div class="col col-3"><b>City:</b></div>
+        <div class="col col-4"><b>Last Updated:</b></div>
+        <div class="col col-5"><b>Flag/Delete</b></div>
+        </div>';
     }
     ?>
 
@@ -70,19 +76,26 @@
                 if ($search['last_updated'] > 23)
                 {
                     echo round(($search['last_updated']/24),0);
-                    if (round(($search['last_updated']/24),0) == 1) {echo ' day ago</div>';}
-                    else { echo ' days ago</div>'; }
-
+                    if (round(($search['last_updated']/24),0) == 1) {echo ' day ago by ';}
+                    else { echo ' days ago by '; }
+                    echo $search['user_name'];
+                    echo '</div>';
                 }
                 else
                 {
                     echo $search['last_updated'];
-                    if ($search['last_updated'] == 1) {echo ' day ago</div>';}
-                    else { echo ' hours ago</div>'; }
+                    if ($search['last_updated'] == 1) {echo ' day ago by ';}
+                    else { echo ' hours ago by '; }
+                    echo $search['user_name'];
+                    echo '</div>';
                 }
                 ?>
 
-
+                <?php
+                echo '<div class="col col-5"><a href="/search/flag_entry/';
+                echo $search['product_availability_id'];
+                echo '">Flag</a></div>';
+                ?>
 
 
         </div>

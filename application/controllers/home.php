@@ -220,7 +220,18 @@ public function privacy()
         {
             $this->session->set_userdata('full_site', 1);
         }
-            redirect('/home', 'refresh');
+            redirect('/home/', 'refresh');
+
+    }
+
+    public function flag_entry()
+    {
+        $pid = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+
+        $this->Home_model->flag_entry($pid);
+        $this->session->set_flashdata('flashSuccess', 'Entry Flagged for Deletion');
+        redirect('/home/', 'refresh');
+
 
     }
 

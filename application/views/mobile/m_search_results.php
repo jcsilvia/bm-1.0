@@ -67,21 +67,29 @@
                                 echo round(($search['last_updated']/24),0);
 
                                 if (round(($search['last_updated']/24),0) == 1)
-                                {echo ' day ago';}
+                                {echo ' day ago by ';}
                                 else
-                                { echo ' days ago'; }
-
+                                { echo ' days ago by '; }
+                                echo $search['user_name'];
                             }
                             else
                             {
                                 echo $search['last_updated'];
 
                                 if ($search['last_updated'] == 1)
-                                {echo ' day ago';}
+                                {echo ' day ago by ';}
                                 else
-                                { echo ' hours ago'; }
+                                { echo ' hours ago by '; }
+                                echo $search['user_name'];
                             }
                             ?>
+                        </p>
+                        <p>
+                        <?php
+                            echo '<a href="/search/flag_entry/';
+                            echo $search['product_availability_id'];
+                            echo '">Flag/Delete</a>';
+                        ?>
                         </p>
                     </li>
                 <?php endforeach ?>

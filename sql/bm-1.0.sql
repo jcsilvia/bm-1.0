@@ -127,3 +127,12 @@ CREATE TABLE `zipcodes` (
   KEY `city` (`city`,`state`),
   KEY `state` (`state`,`city`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+CREATE TABLE product_availability_flag (
+   flag_id BIGINT(20) AUTO_INCREMENT NOT NULL,
+   product_availability_id BIGINT(20) NOT NULL,
+   member_id BIGINT(20) NOT NULL,
+   created_date TIMESTAMP NOT NULL,
+  PRIMARY KEY (flag_id),
+  KEY `product_availability_flag_idx` (`product_availability_id`)
+) ENGINE = InnoDB ROW_FORMAT = DEFAULT;

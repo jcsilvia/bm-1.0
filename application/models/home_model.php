@@ -60,6 +60,7 @@ class Home_model extends CI_Model {
                                         AND pa.in_stock = 'Yes'
                                         AND ad.state = '" .$state. "'
                                         AND pa.created_date > date_sub(current_timestamp(), interval 14 day)
+                                        AND pa.product_availability_id NOT IN (select product_availability_id FROM product_availability_flag)
                                         GROUP BY ad.state, po.product_id
                                         ORDER BY average_price LIMIT 12");
 
@@ -82,12 +83,27 @@ class Home_model extends CI_Model {
                                         AND pa.product_id = po.product_id
                                         AND pa.in_stock = 'Yes'
                                         AND pa.created_date > date_sub(current_timestamp(), interval 14 day)
+                                        AND product_availability_id NOT IN (select product_availability_id FROM product_availability_flag)
                                         GROUP BY po.product_id
                                         ORDER BY average_price ASC
                                         LIMIT 20
                                         ");
 
         return $query->result_array();
+
+    }
+
+    public function flag_entry($pid)
+    {
+        //form data to insert
+        $flag_data = array(
+            'product_availability_id' => $pid,
+            'member_id' => $this->session->userdata('memberid')
+        );
+
+        //insert member data
+        $this->db->insert('product_availability_flag', $flag_data);
+        return true;
 
     }
 

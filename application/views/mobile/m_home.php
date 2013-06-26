@@ -39,9 +39,10 @@
                         echo round(($cheap_prices['last_updated']/24),0);
 
                         if (round(($cheap_prices['last_updated']/24),0) == 1)
-                        {echo ' day ago';}
+                        {echo ' day ago by ';}
                         else
-                        { echo ' days ago'; }
+                        { echo ' days ago by '; }
+                            echo $cheap_prices['user_name'];
 
                         }
                         else
@@ -49,11 +50,19 @@
                         echo $cheap_prices['last_updated'];
 
                         if ($cheap_prices['last_updated'] == 1)
-                        {echo ' day ago';}
+                        {echo ' day ago by ';}
                         else
-                        { echo ' hours ago'; }
+                        { echo ' hours ago by '; }
+                            echo $cheap_prices['user_name'];
                         }
                         ?>
+                        </p>
+                        <p>
+                            <?php
+                                echo '<a href="/home/flag_entry/';
+                                echo $cheap_prices['product_availability_id'];
+                                echo '">Flag/Delete</a>';
+                            ?>
                         </p>
                     </li>
                 <?php endforeach ?>
