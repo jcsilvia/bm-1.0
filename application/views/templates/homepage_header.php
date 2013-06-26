@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="description" content="Crowd-sourcing the search for local, in-stock ammunition like 5.56, 9mm, .45ACP, and .22lr.">
-    <meta name="keywords" content="Bullet Monkey,ammo,ammunition,firearms,in-stock,223,556,9mm,22lr,308,45ACP,ar15,glock,ak47"  />
+    <meta name="keywords" content="Bullet Monkey,ammo,ammunition,firearms,in-stock,223,556,9mm,22lr,308,45ACP,ar15,glock,ak47,cheap ammo, ammo for sale, ammunition for sale, cheap ammunition, in stock"  />
     <meta property="og:image" content="http://www.bullet-monkey.com/images/bm_icon2.gif" />
     <meta property="og:title" content="bullet-monkey" />
     <meta property="og:type" content="website" />
@@ -19,7 +19,7 @@
 <div class="wrap">
 
     <div class="header">
-        <div class="logo" align="left"><a href="/home">
+        <div class="logo" align="left"><a href="/home/">
 <img src="/images/bm-logo-7.gif"></a>
         </div>
         <?php if ($this->session->userdata('memberid') == TRUE )

@@ -17,15 +17,15 @@
                 Bullet-Monkey.com is a small tech start-up based in Boston, Massachusetts. Our mission is to use technology to promote responsible firearms ownership and use. We're techies who love guns.
             </p>
 
-            <p>Bullet-Monkey.com supports the 2nd Amendment and Americans' fundamental right to keep and bear arms. We support the <a href="http://www.nra.org">NRA</a> and it's mission to support responsible firearms
-            ownership and the 2nd Amendment. As veterans and former military, we salute and support those who serve and sacrifice so that we may continue to exercise our freedoms.</p>
+            <p>Bullet-Monkey.com supports the 2nd Amendment and Americans' fundamental right to keep and bear arms. We support the <a target="_blank" href="http://www.nra.org">NRA</a> and it's mission to promote responsible firearms
+            ownership and the 2nd Amendment. As veterans and former military, we salute and support those who serve and sacrifice so that we may continue to exercise our freedoms. To that end we encourage everyone to donate to <a target="_blank" href="http://www.woundedwarriorproject.org/">The Wounded Warrior Project.</a></p>
 
-            <p>When we're not working on Bullet-Monkey.com, we're posting on <a href="http://www.northeastshooters.com">Northeast Shooters</a> or shooting at <a href="http://www.tauntonrifleandpistol.org/">Taunton Rifle & Pistol</a>. If you see us at the range or an NES event, stop by... we love to share with others in the shooting community.</p>
+            <p>When we're not working on Bullet-Monkey, we're posting on <a target="_blank" href="http://www.northeastshooters.com">Northeast Shooters</a> or shooting at <a target="_blank" href="http://www.tauntonrifleandpistol.org/">Taunton Rifle & Pistol</a>. If you see us at the range or an NES event, stop by... we love to meet others in the shooting community.</p>
 
 
         </div>
 
 
     </div>
-    <div style="margin: 0 auto;width:600px;text-align: center;padding:10px;"><img src="/images/bm_m4.jpg" style="border:solid;border-width: 1px;border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px;"><p>NES MRGCI 2013 2nd Annual Dave Hanan Memorial Car Shoot</p></div>
+    <div style="margin: 0 auto;width:600px;text-align: center;padding:10px;"><img src="/images/bm_lr308.jpg" style="border:solid;border-width: 1px;border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px;"></div>
 </div>

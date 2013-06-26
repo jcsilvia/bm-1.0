@@ -15,7 +15,8 @@ class Post_model extends CI_Model {
                                    FROM vendors ve, addresses ad
                                    WHERE ad.vendor_id = ve.vendor_id
                                         AND ad.state = '" .$state. "'
-                                        AND ve.is_active = 1");
+                                        AND ve.is_active = 1
+                                        ORDER BY vendor");
 
         $result = array();
 
@@ -157,7 +158,8 @@ class Post_model extends CI_Model {
                                    FROM vendors ve, addresses ad
                                    WHERE ad.vendor_id = ve.vendor_id
                                         AND ad.state = '" .$state. "'
-                                        AND ve.is_active = 1");
+                                        AND ve.is_active = 1
+                                        ORDER BY vendor");
 
         $result = array();
 
