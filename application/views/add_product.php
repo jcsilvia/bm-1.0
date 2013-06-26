@@ -28,13 +28,13 @@
 
         <p>
             <label for="product_name">Product Name:</label>
-            <input type="text" name="product_name" size="30" value="<?php echo set_value('product_name'); ?>">
+            <input title="Enter a name for this product. Example: Federal XM193 5.56mm" type="text" name="product_name" size="30" value="<?php echo set_value('product_name'); ?>">
             <?php echo form_error('product_name'); ?>
         </p>
 
         <p>
             <label for="product_description">Product Description:</label>
-            <input type="text" name="product_description" size="50" value="<?php echo set_value('product_description'); ?>">
+            <input title="Enter a description for this product. Example: Federal Premium Personal Defense 9mm Luger 124gr Hydra-Shok Jacketed Hollow Point" type="text" name="product_description" size="50" value="<?php echo set_value('product_description'); ?>">
             <?php echo form_error('product_description'); ?>
         </p>
 

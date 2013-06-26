@@ -61,7 +61,7 @@ class Home_model extends CI_Model {
                                         AND ad.state = '" .$state. "'
                                         AND pa.created_date > date_sub(current_timestamp(), interval 14 day)
                                         GROUP BY ad.state, po.product_id
-                                        ORDER BY average_price LIMIT 10");
+                                        ORDER BY average_price LIMIT 12");
 
         return $query->result_array();
     }

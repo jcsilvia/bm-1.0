@@ -110,7 +110,7 @@
 
             <p>
                 <label for="in_stock">In Stock:</label>
-                <select name="in_stock">
+                <select title="Enter the status of the product in question here. If it is not in stock for this store, leave the price and quantity below as 0" name="in_stock">
                     <option value="Yes" selected>Yes</option>
                     <option value="No">No</option>
                 </select>
@@ -118,13 +118,13 @@
 
             <p>
                 <label for="price">Price:</label>
-                <input type="text" name="price" size="10" value="0.00"></p>
+                <input title="Enter the price per box here. If not in stock, leave as 0.00" type="text" name="price" size="10" value="0.00"></p>
                 <?php echo form_error('price'); ?>
 
 
             <p>
                 <label for="quantity">Quantity:</label>
-                <input type="text" name="quantity" size="10" value="0"> </p>
+                <input title="Enter the number of rounds/shells per box here. If not in stock, leave as 0" type="text" name="quantity" size="10" value="0"> </p>
                 <?php echo form_error('quantity'); ?>
 
 
