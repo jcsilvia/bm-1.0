@@ -42,9 +42,7 @@
 
 
 
-            <div class="fb-like" data-href="http://www.bullet-monkey.com" data-send="false" data-layout="button_count" data-width="450" data-show-faces="true" data-colorscheme="dark" data-font="arial" style="position: relative;top:35px;left:265px;">
-
-            </div>
+            
         </div>
 
         <div style="height: 350px; width:800px;">
