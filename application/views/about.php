@@ -29,3 +29,24 @@
     </div>
     <div style="margin: 0 auto;width:600px;text-align: center;padding:10px;"><img src="/images/bm_lr308.jpg" style="border:solid;border-width: 1px;border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px;"></div>
 </div>
+
+<!-- need empty space to push the footer down with different high resolution screens -->
+<?php   $ipad = strpos($_SERVER['HTTP_USER_AGENT'],"iPad");
+$iphone = strpos($_SERVER['HTTP_USER_AGENT'],"iPhone");
+$android = strpos($_SERVER['HTTP_USER_AGENT'],"Android");
+$palmpre = strpos($_SERVER['HTTP_USER_AGENT'],"webOS");
+$berry = strpos($_SERVER['HTTP_USER_AGENT'],"BlackBerry");
+$ipod = strpos($_SERVER['HTTP_USER_AGENT'],"iPod");
+$winphone = strpos($_SERVER['HTTP_USER_AGENT'],"Windows Phone");
+
+if ($iphone || $android || $palmpre || $ipod || $berry || $winphone ||$ipad == true)
+{
+    echo '<div style="min-height: 750px;"></div>';
+}
+else
+{
+
+    echo '<div style="min-height: 475px;"></div>';
+}
+
+?>
