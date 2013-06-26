@@ -54,14 +54,14 @@
 
         <p>
             <label for="state">State:</label>
-            <?php echo form_dropdown('state', $all_states, $user_state, 'id="state"') ?>
+            <?php echo form_dropdown('state', $all_states, $user_state, 'id=state') ?>
             <?php echo form_error('state'); ?>
         </p>
 
 
         <p>
             <label for="vendors">Merchant:</label>
-            <?php echo form_dropdown('vendors', $vendors, 'id="vendors"') ?>
+            <?php echo form_dropdown('vendors', $vendors, '',  'id=vendors') ?>
             <?php echo form_error('vendors'); ?>
         </p>
 
