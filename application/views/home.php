@@ -114,12 +114,17 @@ $winphone = strpos($_SERVER['HTTP_USER_AGENT'],"Windows Phone");
 
 if ($iphone || $android || $palmpre || $ipod || $berry || $winphone ||$ipad == true)
 {
-    echo '<div style="min-height: 750px;"></div>';
+    if(count($cheap_prices) < 5){
+        echo '<div style="min-height: 800px;"></div>';
+    }
+    else{
+        echo '<div style="min-height: 150px;"></div>';
+    }
 }
 else
 {
 
-    echo '<div style="min-height: 475px;"></div>';
+    echo '<div style="min-height: 75px;"></div>';
 }
 
 ?>

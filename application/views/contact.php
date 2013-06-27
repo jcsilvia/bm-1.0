@@ -30,12 +30,12 @@ $winphone = strpos($_SERVER['HTTP_USER_AGENT'],"Windows Phone");
 
 if ($iphone || $android || $palmpre || $ipod || $berry || $winphone ||$ipad == true)
 {
-    echo '<div style="min-height: 750px;"></div>';
+    echo '<div style="min-height: 400px;"></div>';
 }
 else
 {
 
-    echo '<div style="min-height: 475px;"></div>';
+    echo '<div style="min-height: 100px;"></div>';
 }
 
 ?>
