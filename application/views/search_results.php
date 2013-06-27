@@ -136,12 +136,12 @@ if ($iphone || $android || $palmpre || $ipod || $berry || $winphone ||$ipad == t
 
     if(count($searches) < 4){
 
-    echo '<div style="min-height: 800px;"></div>';
+    echo '<div style="min-height: 875px;"></div>';
 
     }
     else
     {
-        echo '<div style="min-height: 550px;"></div>';
+        echo '<div style="min-height: 600px;"></div>';
     }
 }
 else

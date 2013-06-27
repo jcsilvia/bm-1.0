@@ -76,7 +76,7 @@
         </div>
         <div style="min-height: 50px;"></div>
         <div style="margin: 0 auto;width:600px;text-align: center;padding:10px;"><img src="/images/bm_m4.jpg" style="border:solid;border-width: 1px;border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px;">
-            <p>NES MRGCI 2013 2nd Annual Dave Hanan Memorial Car Shoot</p>
+            <p>NES MRGCI 2013</p>
         </div>
 
         </div>
@@ -85,4 +85,4 @@
 
 
     <!-- need empty space to push the footer down with different high resolution screens -->
-    <div style="min-height: 50px;"></div>';
+    <div style="min-height: 50px;"></div>
