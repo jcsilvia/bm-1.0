@@ -3,7 +3,7 @@
 
     <div class="content">
 
-        <div style="min-height: 25px;"></div>
+
 
         <div class="settings_back_button"><a href="javascript:history.back()">Back</a></div>
     <?php echo form_open('settings/change_password') ?>

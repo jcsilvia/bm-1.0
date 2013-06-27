@@ -56,7 +56,7 @@ if ($iphone || $android || $palmpre || $ipod || $berry || $winphone ||$ipad == t
 else
 {
 
-    echo '<div style="min-height: 350px;"></div>';
+    echo '<div style="min-height: 450px;"></div>';
 }
 
 ?>
