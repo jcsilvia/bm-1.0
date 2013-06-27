@@ -1,6 +1,6 @@
 <?php $this->load->helper('form'); ?>
 
-
+    <div style="min-height: 20px;"></div>
     <div class="content">
 
 
