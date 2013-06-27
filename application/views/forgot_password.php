@@ -43,7 +43,7 @@ if ($ipad == true)
 else
 {
 
-    echo '<div style="min-height: 475px;"></div>';
+    echo '<div style="min-height: 550px;"></div>';
 }
 
 ?>
