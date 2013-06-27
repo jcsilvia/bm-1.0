@@ -77,7 +77,7 @@
                                 echo $search['last_updated'];
 
                                 if ($search['last_updated'] == 1)
-                                {echo ' day ago by ';}
+                                {echo ' hour ago by ';}
                                 else
                                 { echo ' hours ago by '; }
                                 echo $search['user_name'];

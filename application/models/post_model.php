@@ -66,7 +66,7 @@ class Post_model extends CI_Model {
 
 
 
-        $this->db->select('product_id, product_subcategory_id, product_name',FALSE);
+        $this->db->select('product_id, product_name',FALSE);
         $this->db->from('products');
         $this->db->where('product_subcategory_id', $product_subcategory_id);
         $this->db->order_by("product_name");

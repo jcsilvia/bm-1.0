@@ -75,7 +75,7 @@
         <div data-role="fieldcontain">
 
             <label for="products">Product:</label>
-            <?php echo form_dropdown('products', $products, set_value('product_id'), 'id="products" data-mini="true"') ?>
+            <?php echo form_dropdown('products', $products, '', 'id="products" data-mini="true"') ?>
 
 
         </div>

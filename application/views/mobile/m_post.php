@@ -98,7 +98,7 @@
 
 
             <div data-role="fieldcontain">
-                <label for="state">State:</label>
+                <label for="state">State: </label>
                 <?php echo form_dropdown('state', $all_states, $user_state, 'id=state data-mini="true"') ?>
                 <?php echo form_error('state'); ?>
             </div>
@@ -107,31 +107,31 @@
 
             <div data-role="fieldcontain">
 
-                <label for="vendors">Merchant:</label>
-                <?php echo form_dropdown('vendors', $vendors, set_value('address_id'), 'id="vendors" data-mini="true"') ?>
+                <label for="vendors">Merchant: </label>
+                <?php echo form_dropdown('vendors', $vendors, set_value('address_id'), 'id=vendors data-mini="true"') ?>
 
             </div>
 
 
             <div data-role="fieldcontain">
 
-                <label for="product_categories">Product Category:</label>
-                <?php echo form_dropdown('product_categories', $product_categories, set_value('product_categories'), 'id="product_categories" data-mini="true"') ?>
+                <label for="product_categories">Product Category: </label>
+                <?php echo form_dropdown('product_categories', $product_categories, set_value('product_categories'), 'id=product_categories data-mini="true"') ?>
 
 
             </div>
 
             <div data-role="fieldcontain">
 
-                <label for="products">Product:</label>
-                <?php echo form_dropdown('products', $products, set_value('product_id'), 'id="products" data-mini="true"') ?>
+                <label for="products">Product: </label>
+                <?php echo form_dropdown('products', $products, set_value('products'), 'id=products data-mini="true"') ?>
 
 
             </div>
 
 
             <div data-role="fieldcontain">
-                <label for="in_stock">In Stock:</label>
+                <label for="in_stock">In Stock: </label>
                 <select name="in_stock" data-mini="true">
                     <option value="Yes" selected>Yes</option>
                     <option value="No">No</option>
@@ -139,7 +139,7 @@
             </div>
 
             <div data-role="fieldcontain">
-                <label for="price">Price:</label>
+                <label for="price">Price: </label>
                 <input type="number" pattern="\d+\.\d\d" name="price" size="10" value="0.00" data-mini="true">
             <?php echo form_error('price'); ?>
 
@@ -147,7 +147,7 @@
             </div>
 
             <div data-role="fieldcontain" >
-                <label for="quantity">Quantity:</label>
+                <label for="quantity">Quantity: </label>
                 <input type="number" name="quantity" size="10" value="0" data-mini="true">
             <?php echo form_error('quantity'); ?>
             </div>
