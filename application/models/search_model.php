@@ -23,7 +23,7 @@ class Search_model extends CI_Model {
 
                 $sql =
                     "SELECT * FROM (
-                      (SELECT pa.product_id, pro.product_name, pro.product_description, min(round((pa.price/pa.quantity),2)) as price, ad.address_id, ve.vendor_name as vendor, ad.city, round(time_to_sec(timediff(current_timestamp(), pa.created_date)) / 3600) as last_updated, pa.product_availability_id, m.user_name
+                      (SELECT pa.product_id, pro.product_name, pro.product_description, max(round((pa.price/pa.quantity),2)) as price, ad.address_id, ve.vendor_name as vendor, ad.city, min(round(time_to_sec(timediff(current_timestamp(), pa.created_date)) / 3600)) as last_updated, pa.product_availability_id, m.user_name
                         FROM product_availability pa, products pro, addresses ad, vendors ve, members m
                         WHERE pa.product_id = pro.product_id
                               AND pa.address_id = ad.address_id
@@ -45,8 +45,8 @@ class Search_model extends CI_Model {
                                           AND pa2.created_date > date_sub(current_timestamp(), interval 4 day)
                                           AND ad2.state = ?
                                         )
-                      GROUP BY vendor_name, city, address_id, product_id, product_name, product_description, pa.product_availability_id,m.user_name
-                      ORDER BY price, last_updated ASC)
+                      GROUP BY vendor_name, city, address_id, product_id, product_name, product_description
+                      ORDER BY last_updated ASC)
                      ) q1 LIMIT ?,?";
 
                 $query = $this->db->query($sql, array($state,$product,$state,$offset,$limit));
@@ -58,7 +58,7 @@ class Search_model extends CI_Model {
 
             $sql =
                 "SELECT * FROM (
-                  (SELECT pa.product_id, pro.product_name, pro.product_description, min(round((pa.price/pa.quantity),2)) as price, ad.address_id, ve.vendor_name as vendor, ad.city, round(time_to_sec(timediff(now(), pa.created_date)) / 3600) as last_updated, pa.product_availability_id,m.user_name
+                  (SELECT pa.product_id, pro.product_name, pro.product_description, max(round((pa.price/pa.quantity),2)) as price, ad.address_id, ve.vendor_name as vendor, ad.city, min(round(time_to_sec(timediff(now(), pa.created_date)) / 3600)) as last_updated, pa.product_availability_id,m.user_name
                     FROM product_availability pa, products pro, addresses ad, vendors ve, members m
                     WHERE pa.product_id = pro.product_id
                           AND pa.address_id = ad.address_id
@@ -80,8 +80,8 @@ class Search_model extends CI_Model {
                                       AND pa2.created_date > date_sub(current_timestamp(), interval 4 day)
                                       AND ad2.state = ?
                                     )
-                  GROUP BY vendor_name, city, address_id, product_id, product_name, product_description, pa.product_availability_id,m.user_name
-                  ORDER BY price, last_updated ASC)
+                  GROUP BY vendor_name, city, address_id, product_id, product_name, product_description
+                  ORDER BY last_updated ASC)
                  ) q1 LIMIT ?,?";
 
             $query = $this->db->query($sql, array($state,$product,$state,$offset,$limit));
@@ -102,7 +102,7 @@ class Search_model extends CI_Model {
 
             $sql =
                 "SELECT * FROM
-                  (SELECT pa.product_id, pro.product_name, pro.product_description, min(round(pa.price/pa.quantity)) as price, ad.address_id, ve.vendor_name, ad.city, pa.product_availability_id, m.user_name
+                  (SELECT pa.product_id, pro.product_name, pro.product_description, max(round(pa.price/pa.quantity)) as price, ad.address_id, ve.vendor_name, ad.city, pa.product_availability_id, m.user_name
                     FROM product_availability pa, products pro, addresses ad, vendors ve, members m
                     WHERE pa.product_id = pro.product_id
                           AND pa.address_id = ad.address_id
@@ -124,7 +124,7 @@ class Search_model extends CI_Model {
                                       AND pa2.created_date > date_sub(current_timestamp(), interval 4 day)
                                       AND ad2.state = ?
                                     )
-                   GROUP BY vendor_name, city, address_id, product_id, product_name, product_description, pa.product_availability_id,m.user_name
+                   GROUP BY vendor_name, city, address_id, product_id, product_name, product_description
                  ) q1";
 
             $query = $this->db->query($sql, array($state, $product, $state));
@@ -135,7 +135,7 @@ class Search_model extends CI_Model {
         {
         $sql =
             "SELECT * FROM
-              (SELECT pa.product_id, pro.product_name, pro.product_description, min(round(pa.price/pa.quantity)) as price, ad.address_id, ve.vendor_name, ad.city, pa.product_availability_id,m.user_name
+              (SELECT pa.product_id, pro.product_name, pro.product_description, max(round(pa.price/pa.quantity)) as price, ad.address_id, ve.vendor_name, ad.city, pa.product_availability_id,m.user_name
                 FROM product_availability pa, products pro, addresses ad, vendors ve, members m
                 WHERE pa.product_id = pro.product_id
                       AND pa.address_id = ad.address_id
@@ -157,7 +157,7 @@ class Search_model extends CI_Model {
                                   AND pa2.created_date > date_sub(current_timestamp(), interval 4 day)
                                   AND ad2.state = ?
                                 )
-               GROUP BY vendor_name, city, address_id, product_id, product_name, product_description, pa.product_availability_id,m.user_name
+               GROUP BY vendor_name, city, address_id, product_id, product_name, product_description
              ) q1";
 
         $query = $this->db->query($sql, array($state, $product, $state));

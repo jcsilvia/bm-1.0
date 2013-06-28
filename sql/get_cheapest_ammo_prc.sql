@@ -42,7 +42,7 @@ BEGIN
         IF NOT no_more_records THEN
         
           INSERT INTO tmp_cheap_ammo(product_id, product_name, vendor_id, vendor_name, address_id, price_per_round, last_updated, product_availability_id, user_name)
-          SELECT pa.product_id, po.product_name, ad.vendor_id, ve.vendor_name, pa.address_id, ROUND(MIN(price/quantity), 2) as price_per_round, ROUND(time_to_sec(timediff(current_timestamp(), pa.created_date)) / 3600) as last_updated, pa.product_availability_id, m.user_name
+          SELECT pa.product_id, po.product_name, ad.vendor_id, ve.vendor_name, pa.address_id, ROUND(MIN(price/quantity), 2) as price_per_round, MAX(ROUND(time_to_sec(timediff(current_timestamp(), pa.created_date)) / 3600)) as last_updated, pa.product_availability_id, m.user_name
             FROM product_availability pa, products po, addresses ad, vendors ve, members m
             WHERE pa.product_id = var_product_id
               AND po.product_id = pa.product_id
@@ -63,8 +63,8 @@ BEGIN
                   AND pa2.created_date > (date_sub(current_timestamp, INTERVAL 3 DAY))
                   AND ad2.state = pState
                 )
-            GROUP BY pa.product_id, ad.vendor_id , po.product_name, ve.vendor_name, pa.address_id, last_updated, pa.product_availability_id, m.user_name
-            ORDER BY price_per_round, last_updated
+            GROUP BY pa.product_id, ad.vendor_id , po.product_name, ve.vendor_name, pa.address_id
+            ORDER BY last_updated ASC,price_per_round
             LIMIT 1;
           
           

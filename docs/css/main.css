@@ -40,7 +40,7 @@ body {
     margin-top:-80px;
     margin: 0 auto;
     position: relative;
-    background-color: rgba(45,45,45,100);
+    background-color: black;
     border-color: #000000;
     border-left-width: 1px;
     border-right-width: 1px;
@@ -91,31 +91,33 @@ body {
     font-size:0.8em;
     position: absolute;
     text-align: left;
-    bottom: 5px;
+    bottom: 10px;
     left:5px;
 
 }
 
 .footer-nav{
-    color:black;
+    color:white;
     font-family:"helvetica",sans-serif;
     font-size:0.9em;
     text-align: center;
-    background-color:white;
+    background-color:black;
     width: 800px;
     margin:0 auto;
     border-left-width: 1px;
     border-right-width: 1px;
     border-left-style: solid;
     border-right-style: solid;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-color: black;
+
 }
 
-.footer-nav a:link {text-decoration:none;color:black;}
-.footer-nav a:visited {text-decoration:none;color:black;}
+.footer-nav a:link {text-decoration:none;color:white;}
+.footer-nav a:visited {text-decoration:none;color:white;}
 .footer-nav a:hover {text-decoration:none;color:red;}
-.footer-nav a:active {text-decoration:none;color:black;}
+.footer-nav a:active {text-decoration:none;color:white;}
 
 .copyright {
     color:white;
@@ -123,13 +125,13 @@ body {
     font-size:0.8em;
     position: absolute;
     text-align: right;
-    bottom: 5px;
+    bottom: 0px;
     right:5px;
 
 }
 
 .link-container {position:absolute; right: 20px; top: 10px;color:white;
-    background-color: rgba(45,45,45,100); border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px;
+    background-color: black; border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px;
     padding: .5em; width:170px; height: 115px;font-size:1em; border: #000000; border-width: 1px; border-style: solid;
     font-family:"helvetica",sans-serif;
 }
@@ -229,7 +231,7 @@ body {
     height: 40px;
     width: 100%;
     position:relative;
-    background-color: rgba(45,45,45,100);
+    background-color: black;
     color:white;
     font-size:1em;
     font-family:"helvetica",sans-serif;
