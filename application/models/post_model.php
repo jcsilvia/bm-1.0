@@ -11,12 +11,12 @@ class Post_model extends CI_Model {
     public function get_vendors_by_state($state)
     {
 
-        $query = $this->db->query("SELECT CONCAT(ve.vendor_name, ' - ', ad.city) AS vendor, ad.address_id
+        $query = $this->db->query("SELECT CONCAT(ve.vendor_name, ' - ', ad.city) AS vendor, ad.address_id, ve.vendor_name
                                    FROM vendors ve, addresses ad
                                    WHERE ad.vendor_id = ve.vendor_id
                                         AND ad.state = '" .$state. "'
                                         AND ve.is_active = 1
-                                        ORDER BY vendor");
+                                        ORDER BY vendor_name");
 
         $result = array();
 
