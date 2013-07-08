@@ -7,7 +7,7 @@ class Profile extends CI_Controller {
         parent::__construct();
 
         $this->load->database();
-        $this->load->model('Profile_model');
+        $this->load->model(array('Profile_model','Home_model'));
         $this->load->helper(array('form', 'url'));
 
     }
