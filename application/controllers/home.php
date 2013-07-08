@@ -235,7 +235,7 @@ public function privacy()
         $this->load->view('mobile/m_redirect.php');
         $this->Home_model->flag_entry($pid);
         $this->session->set_flashdata('flashSuccess', 'Entry Flagged for Deletion');
-        redirect('/home/', 'refresh');
+        redirect('/home/', 'location');
 
 
     }

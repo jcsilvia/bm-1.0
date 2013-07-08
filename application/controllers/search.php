@@ -198,7 +198,7 @@ public function results()
     public function flag_entry()
     {
         $pid = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-
+        $this->load->view('mobile/m_redirect.php');
         $this->Home_model->flag_entry($pid);
         $this->session->set_flashdata('flashSuccess', 'Entry Flagged for Deletion');
         redirect('/search/', 'location');

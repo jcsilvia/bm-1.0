@@ -11,6 +11,6 @@
 </head>
 
 <body>
-
+<div data-role="content"></div>
 </body>
 </html>
