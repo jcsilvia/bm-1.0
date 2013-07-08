@@ -18,9 +18,12 @@
 </div><!-- /header -->
 <?php
 if($this->session->userdata('username') == TRUE){
-    echo '<div><h5>Welcome, ';
+    echo '<div><h5>Welcome, <b>';
     echo $this->session->userdata('username');
-    echo '</h5></div>';
+    echo '</b>';
+    echo '<br>You have <span style="color:red;font-weight: bold;">';
+    echo $user_rewards;
+    echo '</span> points.</h5></div>';
 }
 ?>
 

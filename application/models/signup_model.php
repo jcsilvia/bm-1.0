@@ -33,6 +33,7 @@ class Signup_model extends CI_Model {
         //insert member data
             $this->db->insert('members', $memberdata);
 
+
         //build memberid query
             $this->db->select('member_id');
             $this->db->from('members');
@@ -42,6 +43,17 @@ class Signup_model extends CI_Model {
             $row = $query->row();
             $memberid = $row->member_id;
             $username = $this->input->post('username');
+
+        //form data to insert
+        $rewarddata = array(
+            'member_id' => $memberid,
+            'action_id' => 1, //account creation reward action id
+            'reward_points' => 25
+        );
+
+        //insert reward data
+        $this->db->insert('rewards', $rewarddata);
+
 
 
         $this->session->set_userdata('memberid', $memberid); //set the session userdata to the memberid for future lookups

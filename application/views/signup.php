@@ -12,7 +12,15 @@
 <div>
 
 <div class="form" >
-    <div class="title" style="border-bottom: 1px;border-bottom-color: black; border-bottom-style: solid;"><h3>Sign up with Bullet-Monkey today.</h3></div>
+    <div class="title" style="border-bottom: 1px;border-bottom-color: black; border-bottom-style: solid;"><h3>Sign up with Bullet-Monkey today.</h3>
+    <p>Why sign up for a Bullet-Monkey account? </p>
+        <ul>
+            <li>Bullet-Monkey is free.</li>
+            <li>Bullet-Monkey makes it easy to search for cheap, in-stock ammunition near you.</li>
+            <li>By signing up and posting price and inventory updates when you shop for ammo at your local merchants, you earn points which you can use to enter our monthly prize give-away.</li>
+        </ul>
+
+    </div>
 <p>
 <label for="username">Username</label>
 <input title="Must be at least 5 characters and no longer than 20 characters." type="text" name="username" size="20" value="<?php echo set_value('username'); ?>"/>

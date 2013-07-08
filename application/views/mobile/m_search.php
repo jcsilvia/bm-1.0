@@ -81,8 +81,8 @@
         </div>
 
         <div data-role="fieldcontain">
-            <label for="all_products">Search All Products in Category: </label>
-            <div style="position:absolute;top:24px;left:250px;"><input type="checkbox" name="all_products" value="Yes"></div>
+            <label for="all_products">Search All Products in Category </label>
+            <div style="position:absolute;top:24px;left:250px;"><input  type="checkbox" id="all_products" name="all_products" value="Yes" data-mini="true"></div>
         </div>
 
 		<div>

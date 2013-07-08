@@ -12,6 +12,7 @@
     <div class="login_form" >
         <div class="title" style="border-bottom: 1px;border-bottom-color: black; border-bottom-style: solid;">
             <h3>Forgot your password?</h3>
+            <p>Don't worry, we've got you covered. Just enter your username or email address, then we'll check our system and send you an email with instructions on how to reset your password.</p>
         </div>
         <p>
             <label for="username">Enter username or email</label>

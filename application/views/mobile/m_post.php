@@ -132,7 +132,7 @@
 
             <div data-role="fieldcontain">
                 <label for="in_stock">In Stock: </label>
-                <select name="in_stock" data-mini="true">
+                <select name="in_stock" data-mini="true" title="Enter the status of the product in question here. If it is not in stock for this store, leave the price and quantity below as 0" id="in_stock">
                     <option value="Yes" selected>Yes</option>
                     <option value="No">No</option>
                 </select>
@@ -140,7 +140,7 @@
 
             <div data-role="fieldcontain">
                 <label for="price">Price: </label>
-                <input type="number" pattern="\d+\.\d\d" name="price" size="10" value="0.00" data-mini="true">
+                <input type="number" pattern="\d+\.\d\d" name="price" size="10" value="0.00" id="price" data-mini="true" title="Enter the price per box here in the format 20.95  or 10.00. If not in stock, leave as 0.00">
             <?php echo form_error('price'); ?>
 
 
@@ -148,7 +148,7 @@
 
             <div data-role="fieldcontain" >
                 <label for="quantity">Quantity: </label>
-                <input type="number" name="quantity" size="10" value="0" data-mini="true">
+                <input type="number" name="quantity" size="10" value="0" id="quantity" data-mini="true" title="Enter the number of rounds/shells per box here. If not in stock, leave as 0">
             <?php echo form_error('quantity'); ?>
             </div>
 

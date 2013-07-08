@@ -40,7 +40,7 @@ body {
     margin-top:-80px;
     margin: 0 auto;
     position: relative;
-    background-color: black;
+    background-color: darkolivegreen;
     border-color: #000000;
     border-left-width: 1px;
     border-right-width: 1px;
@@ -253,7 +253,7 @@ body {
     top:15px;
 
     text-align: left;
-    font-weight: bold;
+
     font-family:"helvetica",sans-serif;
     font-size:.85em;
 }

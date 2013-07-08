@@ -8,7 +8,7 @@ class Settings extends CI_Controller {
         $this->load->helper(array('form', 'url', 'email'));
         $this->load->library('form_validation');
         $this->load->database();
-        $this->load->model('Settings_model');
+        $this->load->model(array('Settings_model','Home_model'));
     }
 
 
@@ -22,6 +22,7 @@ class Settings extends CI_Controller {
             $data['title'] = 'Settings';
             $data['username'] = $this->session->userdata('username');
             $data['profile'] = $this->Settings_model->get_profile();
+            $data['user_rewards'] = $this->Home_model->get_rewards();
 
             //set form validation rules
             $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
@@ -68,6 +69,7 @@ class Settings extends CI_Controller {
             $data['title'] = 'Settings';
             $data['username'] = $this->session->userdata('username');
             $data['msg'] = $msg;
+            $data['user_rewards'] = $this->Home_model->get_rewards();
 
             $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
             $this->form_validation->set_rules('oldpassword', 'previous Password', 'trim|required|xss_clean|min_length[8]|max_length[15]');
@@ -119,7 +121,8 @@ class Settings extends CI_Controller {
 
             $data['title'] = 'Settings';
             $data['username'] = $this->session->userdata('username');
-
+            $this->load->model(array('Post_model','Home_model','Search_model'));
+            $data['user_rewards'] = $this->Home_model->get_rewards();
 
             $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
             $this->form_validation->set_rules('email', 'new Email', 'trim|required|valid_email|max_length[50]|xss_clean|update_unique[members.email_address.member_id.'. $this->session->userdata('memberid') .']');
@@ -162,6 +165,7 @@ class Settings extends CI_Controller {
             $email_to = $result->email_address;
             $validation_string = $this->generateRandomString();//get the email validation string to send
             $this->Settings_model->change_validation_string($validation_string);
+            $this->load->model(array('Post_model','Home_model','Search_model'));
 
             $subject = 'Bullet-monkey.com Email Validation';
             $message = 'Click the link below to validate the email used to register for Bullet-monkey.com. <br><br>' . anchor('/email/confirmation_email/' . $validation_string, 'Click here to validate email.') . '<br><br>Regards, <br>The Bullet-monkey.com team';

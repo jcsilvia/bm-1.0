@@ -26,34 +26,36 @@
 		<div class="form" >
 			<div data-role="fieldcontain" class="ui-hide-label">
 				<input type="text" name="username" id="username" value="<?php echo set_value('username'); ?>"
-				 	placeholder="username" data-mini="true"/>
+				 	placeholder="username" data-mini="true" title="Must be at least 5 characters and no longer than 20 characters.">
 				<?php echo form_error('username'); ?>
 			</div>
 			<div data-role="fieldcontain" class="ui-hide-label">
-				<input type="password" name="password" id="password" placeholder="password" data-mini="true"/>
+				<input type="password" name="password" id="password" placeholder="password" data-mini="true" title="Must be at least 8 characters and no longer than 15 characters. Password is case-sensitive.">
 				<?php echo form_error('password'); ?>
 			</div>
 			<div data-role="fieldcontain" class="ui-hide-label">
 				<input type="email" name="email" id="email" value="<?php echo set_value('email'); ?>" 
-				     placeholder="email" data-mini="true"/>
+				     placeholder="email" data-mini="true" title="The primary email address you would like to use for communication with Bullet-Monkey. We will send you a verification email to confirm the email you provided.">
 				<?php echo form_error('email'); ?>
 			</div>
 			<div data-role="fieldcontain" class="ui-hide-label">
 				<input type="text" name="zipcode" id="zipcode" value="<?php echo set_value('zipcode'); ?>" 
-				     placeholder="zipcode" data-mini="true"/>
+				     placeholder="zipcode" data-mini="true" title="The 5-digit zip for your primary location.">
 				<?php echo form_error('zipcode'); ?>
 			</div>
 
+
 			<div>
-		        Already have an account? <a href="/login/">Sign in here.</a>
-			</div>		
-			<div>
-				<input class="button" type="submit" name="submit" value="Create my account" data-mini="true" />
+				<input class="button" type="submit" name="submit" value="Create my account" data-mini="true" >
 			</div>	
 
 			<?php echo form_close() ?>
-			
-		</div> <!-- end of class form -->
+
+            <div>
+                <p>Already have an account? <a href="/login/">Sign in here.</a></p>
+            </div>
+
+        </div> <!-- end of class form -->
 		
 	</div><!-- /content -->
 

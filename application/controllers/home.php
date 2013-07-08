@@ -25,6 +25,7 @@ function index()
 
                $state = $this->Home_model->get_user_state();
                $data['user_state'] = $state;
+               $data['user_rewards'] = $this->Home_model->get_rewards();
                $data['state_ammo_prices'] = $this->Home_model->get_average_price_for_state($state);
                $data['cheap_ammo_prices'] = $this->Home_model->get_cheapest_price_for_state($state);
 
@@ -90,6 +91,7 @@ public function privacy()
         {
 
             $data['title'] = 'Privacy';
+            $data['user_rewards'] = $this->Home_model->get_rewards();
 
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sub_nav.php', $data);
@@ -121,6 +123,7 @@ public function privacy()
         {
 
             $data['title'] = 'Terms';
+            $data['user_rewards'] = $this->Home_model->get_rewards();
 
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sub_nav.php', $data);
@@ -153,6 +156,7 @@ public function privacy()
         {
 
             $data['title'] = 'Contact';
+            $data['user_rewards'] = $this->Home_model->get_rewards();
 
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sub_nav.php', $data);
@@ -185,6 +189,7 @@ public function privacy()
         {
 
             $data['title'] = 'Contact';
+            $data['user_rewards'] = $this->Home_model->get_rewards();
 
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sub_nav.php', $data);
@@ -226,8 +231,8 @@ public function privacy()
 
     public function flag_entry()
     {
-        $pid = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-
+        $pid = ($this->uri->segment(3));
+        $this->load->view('mobile/m_redirect.php');
         $this->Home_model->flag_entry($pid);
         $this->session->set_flashdata('flashSuccess', 'Entry Flagged for Deletion');
         redirect('/home/', 'refresh');

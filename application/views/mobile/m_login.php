@@ -26,11 +26,11 @@
 		<div class="form" >
 			<div data-role="fieldcontain" class="ui-hide-label">
 				<input type="text" name="username" id="username" value="<?php echo set_value('username'); ?>"
-				 	placeholder="username or email" data-mini="true" />
+				 	placeholder="username or email" data-mini="true" title="Enter your username or the email address used to sign up with Bullet-Monkey.">
 				<?php echo form_error('username'); ?>
 			</div>
 			<div data-role="fieldcontain" class="ui-hide-label">
-				<input type="password" name="password" id="password" placeholder="password" data-mini="true" />
+				<input type="password" name="password" id="password" placeholder="password" data-mini="true" title="Minimum 8 characters. Password is case-sensitive.">
 				<?php echo form_error('password'); ?>
 				<div class="error">
 	            	<?php echo $msg ?>

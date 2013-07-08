@@ -26,7 +26,13 @@
         ?>
         </div>
 
-        <div class="username">Welcome, <?php echo $this->session->userdata('username') ?>
+        <div class="username">Welcome, <b><?php echo $this->session->userdata('username') ?></b><br>
+                <?php
+                    echo 'You have <span style="color:red;font-weight: bold;">';
+                    echo $user_rewards;
+                    echo '</span> points.'
+
+                ?>
         </div>
 
     </div>

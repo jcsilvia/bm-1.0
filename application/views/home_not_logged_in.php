@@ -36,7 +36,7 @@
             <div class="mobile_container">
                 <div style="font-family:helvetica,sans-serif;font-size:1em; border-bottom-style: solid;border-width: 1px;"><b>Bullet-Monkey Mobile</b></div>
                 <div style="font-family:helvetica,sans-serif;font-size:.95em;">
-                    <p> Bullet-Monkey Mobile is now live! Check out Bullet-Monkey.com from any mobile device. </p>
+                    <p> Bullet-Monkey Mobile is now live! Check us out from your Apple or Android device. </p>
                 </div>
             </div>
 

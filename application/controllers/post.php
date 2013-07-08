@@ -25,6 +25,7 @@ class Post extends CI_Controller {
 
             $state = $this->Home_model->get_user_state();
             $data['user_state'] = $state;
+            $data['user_rewards'] = $this->Home_model->get_rewards();
             $data['all_states'] = $this->Home_model->get_all_states();
             $data['vendors'] = $this->Post_model->get_vendors_by_state($state);
             $data['products'] = $this->Post_model->get_products(4);
@@ -83,6 +84,7 @@ class Post extends CI_Controller {
             //set data array for view
             $data['title'] = 'Update';
             $data['username'] = $this->session->userdata('username');
+            $data['user_rewards'] = $this->Home_model->get_rewards();
             $state = $this->Home_model->get_user_state();
             $data['user_state'] = $state;
             $data['all_states'] = $this->Home_model->get_all_states();
@@ -164,6 +166,7 @@ class Post extends CI_Controller {
             $data['title'] = 'Update';
             $data['username'] = $this->session->userdata('username');
             $data['product_categories'] = $this->Post_model->get_product_categories();
+            $data['user_rewards'] = $this->Home_model->get_rewards();
 
 
 
@@ -222,6 +225,7 @@ class Post extends CI_Controller {
             $data['user_state'] = $state;
             $data['all_states'] = $this->Home_model->get_all_states();
             $data['vendors'] = $this->Post_model->get_vendors($state);
+            $data['user_rewards'] = $this->Home_model->get_rewards();
 
 
             $this->form_validation->set_error_delimiters('<div class="error">', '</div>');

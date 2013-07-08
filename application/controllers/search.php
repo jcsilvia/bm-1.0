@@ -39,6 +39,7 @@ public function index()
 
                 $data['title'] = 'Search';
                 $data['username'] = $this->session->userdata('username');
+                $data['user_rewards'] = $this->Home_model->get_rewards();
 
 
                     $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
@@ -142,6 +143,7 @@ public function results()
 
             $data['title'] = 'Search';
             $data['username'] = $this->session->userdata('username');
+            $data['user_rewards'] = $this->Home_model->get_rewards();
 
             $config['total_rows'] = $this->Search_model->count_all_search_results();
             $this->pagination->initialize($config);

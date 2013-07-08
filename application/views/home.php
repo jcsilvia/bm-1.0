@@ -82,7 +82,7 @@
                             echo $cheap_prices['last_updated'];
 
                             if ($cheap_prices['last_updated'] == 1)
-                                    {echo ' day ago by ';}
+                                    {echo ' hour ago by ';}
                             else
                                     { echo ' hours ago by '; }
                             echo $cheap_prices['user_name'];

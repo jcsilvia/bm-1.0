@@ -49,6 +49,7 @@ $route['post'] = "post";
 $route['search'] = "search";
 $route['settings'] = "settings";
 $route['profile/:num'] = "profile/index/$1";
+$route['home/flag_entry/:num'] = "home/flag_entry/$1";
 
 //$route['home/message_detail/:num'] = "home/get_message_details/$1";
 

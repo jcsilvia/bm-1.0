@@ -13,7 +13,7 @@ BEGIN
         WHERE pa.address_id = ad.address_id
           AND pa.in_stock = 'Yes'
           AND ad.state = pState
-          AND pa.created_date > (date_sub(current_timestamp, INTERVAL 3 DAY));
+          AND pa.created_date > (date_sub(current_timestamp, INTERVAL 5 DAY));
   
   DECLARE CONTINUE HANDLER FOR NOT FOUND SET no_more_records=1;
   
@@ -50,7 +50,7 @@ BEGIN
               AND ad.address_id = pa.address_id
               AND pa.member_id = m.member_id
               AND pa.address_id IN (SELECT DISTINCT ad.address_id FROM vendors ve, addresses ad WHERE ve.vendor_id = ad.vendor_id AND ad.state = pState AND ve.is_active = 1)
-              AND pa.created_date > (date_sub(current_timestamp, INTERVAL 3 DAY))
+              AND pa.created_date > (date_sub(current_timestamp, INTERVAL 5 DAY))
               AND product_availability_id NOT IN (select product_availability_id FROM product_availability_flag)
               AND NOT EXISTS 
                 (
@@ -60,7 +60,7 @@ BEGIN
                   AND pa2.address_id = pa.address_id
                   AND pa2.product_id = pa.product_id
                   AND pa2.in_stock = 'No' 
-                  AND pa2.created_date > (date_sub(current_timestamp, INTERVAL 3 DAY))
+                  AND pa2.created_date > (date_sub(current_timestamp, INTERVAL 5 DAY))
                   AND ad2.state = pState
                 )
             GROUP BY pa.product_id, ad.vendor_id , po.product_name, ve.vendor_name, pa.address_id

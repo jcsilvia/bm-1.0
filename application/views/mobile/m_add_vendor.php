@@ -76,7 +76,7 @@
 
         <div data-role="fieldcontain">
             <label for="zipcode">Zipcode:</label>
-            <input type="number" name="zipcode" size="10" value="<?php echo set_value('zipcode'); ?>" data-mini="true">
+            <input type="number" name="zipcode" size="10" value="<?php echo set_value('zipcode'); ?>" data-mini="true" title="Enter 5-digit zipcode here">
             <?php echo form_error('zipcode'); ?>
         </div>
 
@@ -84,7 +84,7 @@
 
         <div data-role="fieldcontain">
             <label for="phone_number">Phone Number:</label>
-            <input type="text" name="phone_number" id="phone_number" size="15" value="<?php echo set_value('phone_number'); ?>" data-mini="true">
+            <input type="text" name="phone_number" id="phone_number" size="15" value="<?php echo set_value('phone_number'); ?>" data-mini="true" title="Enter phone number in the format (xxx)xxx-xxxx">
             <?php echo form_error('phone_number'); ?>
         </div>
 

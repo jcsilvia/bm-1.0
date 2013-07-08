@@ -13,14 +13,13 @@
 				echo '<li><a id="post" href="/post" rel="external" target="_parent"';
 				 	if ($title=="Update") echo "class='ui-btn-active ui-state-persist'";
 				echo '>Update</a></li>';
+                echo '<li><a id="full" href="/home/full_site" rel="external" target="_parent">Full Site</a></li>';
 
 		?>
 
-                <?php if($this->session->userdata('memberid'))
-                {
-                    echo '<li><a id="full" href="/home/full_site" rel="external" target="_parent">Full Site</a></li>';
-                }
-                ?>
+
+
+
 
 	</ul>
 </div>

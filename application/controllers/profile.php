@@ -24,6 +24,7 @@ class Profile extends CI_Controller {
 
             $data['title'] = 'Profile';
             $data['username'] = $this->session->userdata('username');
+            $data['user_rewards'] = $this->Home_model->get_rewards();
 
 
             $data['profile'] = $this->Profile_model->get_vendor_profile($addressid);
