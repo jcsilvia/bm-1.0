@@ -110,7 +110,7 @@ class Home_model extends CI_Model {
 
     public function get_rewards()
     {
-        $query = $this->db->query("SELECT SUM(reward_points) AS reward FROM REWARDS WHERE member_id = " .$this->session->userdata('memberid'). " GROUP BY member_id;");
+        $query = $this->db->query("SELECT SUM(reward_points) AS reward FROM rewards WHERE member_id = " .$this->session->userdata('memberid'). " GROUP BY member_id;");
 
         $row = $query->row();
         $rewards = $row->reward;
