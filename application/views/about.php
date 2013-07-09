@@ -8,19 +8,23 @@
 
             <p><img src="/images/bm-snipe-graphic-white.gif" style="float:left;padding-right: 10px;">
                 Bullet-Monkey.com started out as an idea to help shooting enthusiasts find fairly priced ammunition locally in the crazy period after the 2012 Presidential Election. Greatly increased demand
-                created shortages of common calibers and prices, when ammunition could be found, varied greatly. </p>
+                created shortages of common calibers and ammunition prices, when it could be found, varied greatly.
+            </p>
+
             <p>As active participants in the shooting sports community, we came up with the idea to help all of us continue to enjoy shooting. Feedback
                 from our fellow shooters was enthusiastic and so Bullet-Monkey was born.
-
             </p>
+
             <p>
                 Bullet-Monkey.com is a small tech start-up based in Boston, Massachusetts. Our mission is to use technology to promote responsible firearms ownership and use. We're techies who love guns.
             </p>
 
             <p>Bullet-Monkey.com supports the 2nd Amendment and Americans' fundamental right to keep and bear arms. We support the <a target="_blank" href="http://www.nra.org">NRA</a> and it's mission to promote responsible firearms
-            ownership and the 2nd Amendment. As veterans and former military, we salute and support those who serve and sacrifice so that we may continue to exercise our freedoms. To that end we encourage everyone to donate to <a target="_blank" href="http://www.woundedwarriorproject.org/">The Wounded Warrior Project.</a></p>
+            ownership and the 2nd Amendment. As veterans and former members of the US military, we salute and support those who serve and sacrifice so that we may continue to exercise our freedoms. To that end we encourage everyone to donate to <a target="_blank" href="http://www.woundedwarriorproject.org/">The Wounded Warrior Project.</a>
+            </p>
 
-            <p>When we're not working on Bullet-Monkey, we're posting on <a target="_blank" href="http://www.northeastshooters.com">Northeast Shooters</a> or shooting at <a target="_blank" href="http://www.tauntonrifleandpistol.org/">Taunton Rifle & Pistol</a>. If you see us at the range or an NES event, stop by... we love to meet others in the shooting community.</p>
+            <p>When we're not working on Bullet-Monkey, we're shooting at <a target="_blank" href="http://www.tauntonrifleandpistol.org/">Taunton Rifle & Pistol</a> or the <a target="_blank" href="http://www.newbedford-ma.gov/publicfacilities/parkrecreation/rifle_range.html">New Bedford Rifle Range</a>. If you see us at the range, stop by... we love to meet others in the shooting community.
+            </p>
 
 
         </div>
@@ -50,3 +54,9 @@ else
 }
 
 ?>
+
+
+
+
+
+

@@ -90,7 +90,7 @@ public function privacy()
 
         {
 
-            $data['title'] = 'Privacy';
+            $data['title'] = 'Privacy statement, how Bullet-Monkey uses your data';
             $data['user_rewards'] = $this->Home_model->get_rewards();
 
             $this->load->view('templates/header', $data);
@@ -122,7 +122,7 @@ public function privacy()
 
         {
 
-            $data['title'] = 'Terms';
+            $data['title'] = 'Terms and conditions of use of Bullet-Monkey';
             $data['user_rewards'] = $this->Home_model->get_rewards();
 
             $this->load->view('templates/header', $data);
@@ -155,7 +155,7 @@ public function privacy()
 
         {
 
-            $data['title'] = 'Contact';
+            $data['title'] = 'Contact us for support, feedback, or advertising sales';
             $data['user_rewards'] = $this->Home_model->get_rewards();
 
             $this->load->view('templates/header', $data);
@@ -188,7 +188,7 @@ public function privacy()
 
         {
 
-            $data['title'] = 'Contact';
+            $data['title'] = 'About us and why we want to help find cheap local ammunition';
             $data['user_rewards'] = $this->Home_model->get_rewards();
 
             $this->load->view('templates/header', $data);

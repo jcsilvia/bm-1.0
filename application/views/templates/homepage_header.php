@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Bullet-Monkey - crowd-sourcing the search for in-stock ammunition</title>
+    <title>Bullet-Monkey - Crowd-sourcing the search for local, in-stock ammo like 5.56, 9mm and 22lr.</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="description" content="Crowd-sourcing the search for local, in-stock ammunition like 5.56, 9mm, .45ACP, and .22lr.">

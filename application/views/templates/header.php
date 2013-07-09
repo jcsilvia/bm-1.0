@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>bullet-monkey - <?php echo $title ?></title>
+        <title>Bullet-Monkey - <?php echo $title ?></title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <link href="/css/main.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />

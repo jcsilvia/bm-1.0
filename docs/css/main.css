@@ -97,11 +97,11 @@ body {
 }
 
 .footer-nav{
-    color:white;
+    color:black;
     font-family:"helvetica",sans-serif;
     font-size:0.9em;
     text-align: center;
-    background-color:black;
+    background-color:darkkhaki;
     width: 800px;
     margin:0 auto;
     border-left-width: 1px;
@@ -110,14 +110,16 @@ body {
     border-right-style: solid;
     border-top-width: 1px;
     border-top-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
     border-color: black;
 
 }
 
-.footer-nav a:link {text-decoration:none;color:white;}
-.footer-nav a:visited {text-decoration:none;color:white;}
+.footer-nav a:link {text-decoration:none;color:black;}
+.footer-nav a:visited {text-decoration:none;color:black;}
 .footer-nav a:hover {text-decoration:none;color:red;}
-.footer-nav a:active {text-decoration:none;color:white;}
+.footer-nav a:active {text-decoration:none;color:black;}
 
 .copyright {
     color:white;
@@ -268,6 +270,13 @@ body {
     font-size:.95em;
 }
 
+.contest_back_button {
+    text-align: right;
+    position:relative;
+    top:35px;
+    right:50px;
+    font-family:"helvetica",sans-serif;
+}
 
 .settings_back_button {
     text-align: right;
@@ -320,6 +329,7 @@ body {
     float:left;
     width:19%;
     margin-right: 1%;
+
 }
 
 .col-5 {margin-right:0;}
@@ -328,12 +338,28 @@ body {
     float:left;
     width:45%;
     margin-right: 4%;
+
 }
 
 .two_col-2 {
+
     margin-right:0;
+
 }
 
+.contest_col {
+    float:left;
+    width:60%;
+    margin-right: 5%;
+    margin-left:10px;
+
+}
+
+.contest_col-2 {
+
+    margin-right:10px;
+
+}
 
 .tooltip {
     background-color:#000;

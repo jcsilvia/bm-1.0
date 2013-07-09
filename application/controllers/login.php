@@ -18,7 +18,7 @@ public function index($msg = NULL)
         if ($this->session->userdata('memberid') == false)
             {
 
-                $data['title'] = 'Login';
+                $data['title'] = 'Login to Bullet-Monkey. Get access to local, in-stock ammo and enter to win prizes';
                 $data['msg'] = $msg;
 
                 $this->form_validation->set_error_delimiters('<div class="error">', '</div>');

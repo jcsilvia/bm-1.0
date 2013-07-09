@@ -366,7 +366,7 @@ you its reasonable attorney’s fees in responding to such action.<o:p></o:p></s
 
 <p style='orphans: auto;widows: auto;-webkit-text-stroke-width: 0px;word-spacing:
 0px'><span style='font-family:Arial;color:black'>TO THE FULLEST EXTENT
-PERMITTED UNDER APPLICABLE LAW, YOU AND GUNBROKER.COM AGREE THAT (A) EACH OF US
+PERMITTED UNDER APPLICABLE LAW, YOU AND BULLET-MONKEY.COM AGREE THAT (A) EACH OF US
 MAY BRING CLAIMS AGAINST THE OTHER ONLY ON AN INDIVIDUAL BASIS, (B) WE BOTH
 HEREBY WAIVE ANY RIGHT TO BRING CLAIMS AS PART OF ANY CLASS OR REPRESENTATIVE
 ACTION OR PROCEEDING, (C) UNLESS BOTH YOU AND BULLET-MONKEY.COM AGREE TO THE
@@ -387,7 +387,7 @@ notified that the message did not reach the recipient.<o:p></o:p></span></p>
 
 <p><span style='font-family:Arial;color:black'>5.<span
             class=apple-converted-space>&nbsp;</span><u>Independent Contractors</u>. You
-and GunBroker.com are independent contractors. No agency relationship,
+and Bullet-Monkey.com are independent contractors. No agency relationship,
 partnership, joint venture, employer-employee relationship or
 franchisor-franchisee relationship is intended or created by this Agreement.<o:p></o:p></span></p>
 

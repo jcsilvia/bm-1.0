@@ -19,7 +19,7 @@ public function index()
     if ($this->session->userdata('memberid') == false)
         {
 
-            $data['title'] = 'Register';
+            $data['title'] = 'Sign-up for Bullet-Monkey. Reap the rewards of being a member today.';
 
             $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 

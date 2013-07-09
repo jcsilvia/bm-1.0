@@ -3,8 +3,8 @@
 <head> 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
-	<title>Bullet-Monkey Mobile Home</title>
-	
+	<title>Bullet-Monkey Mobile - Crowd-sourcing the search for local, in-stock ammo like 5.56, 9mm and 22lr.</title>
+    <meta name="description" content="Bullet-Monkey Mobile, crowd-sourcing the search for local, in-stock ammunition like 5.56, 9mm, .45ACP, and .22lr.">
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
 	<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
