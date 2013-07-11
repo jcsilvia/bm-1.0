@@ -13,7 +13,7 @@ class Mobile {
         $winphone = strpos($_SERVER['HTTP_USER_AGENT'],"Windows Phone");
 
 		//for test purpose
-		$firefox = strpos($_SERVER['HTTP_USER_AGENT'],"Firefox");
+		//$firefox = strpos($_SERVER['HTTP_USER_AGENT'],"Firefox");
 
         if ( $this->session->userdata('full_site'))
         {
@@ -23,8 +23,8 @@ class Mobile {
         else
 
         {
-            if ($iphone || $android || $palmpre || $ipod || $berry || $firefox == true)
-            //if ($iphone || $android || $palmpre || $ipod || $berry || $winphone == true)
+            //if ($iphone || $android || $palmpre || $ipod || $berry || $firefox == true)
+            if ($iphone || $android || $palmpre || $ipod || $berry || $winphone == true)
             {
 
                 return true;

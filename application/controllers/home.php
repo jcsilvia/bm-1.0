@@ -155,13 +155,25 @@ public function privacy()
 
         {
 
-            $data['title'] = 'Contact us for support, feedback, or advertising sales';
+            $data['title'] = 'Contact';
             $data['user_rewards'] = $this->Home_model->get_rewards();
 
-            $this->load->view('templates/header', $data);
-            $this->load->view('templates/sub_nav.php', $data);
-            $this->load->view('contact.php', $data);
-            $this->load->view('templates/footer');
+
+            include 'mobile.php';
+            if(Mobile::is_mobile()) {
+                $this->load->view('mobile/m_contact', $data);
+
+            }
+            else {
+                $this->load->view('templates/header', $data);
+                $this->load->view('templates/sub_nav.php', $data);
+                $this->load->view('contact.php', $data);
+                $this->load->view('templates/footer');
+            }
+
+
+
+
 
         }
 

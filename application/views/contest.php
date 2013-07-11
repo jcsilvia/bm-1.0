@@ -12,7 +12,6 @@
                 <p>Contest closes August 31st at 11:59PM EST. Prize drawing to occur and winner announced in September.</p>
             </div>
             <div>
-                <a href="/contest/enter_contest"></a>
                 <form method="link" action="/contest/enter_contest"><input type="submit" class="button1" value="Redeem points and enter contest"></button></form>
             </div>
             <div style="text-align: center">

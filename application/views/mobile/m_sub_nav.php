@@ -13,6 +13,15 @@
 				echo '<li><a id="post" href="/post" rel="external" target="_parent"';
 				 	if ($title=="Update") echo "class='ui-btn-active ui-state-persist'";
 				echo '>Update</a></li>';
+
+                echo '<li><a id="contest" href="/contest" rel="external" target="_parent"';
+                if ($title=="Contest") echo "class='ui-btn-active ui-state-persist'";
+                echo '>Contest</a></li>';
+
+                echo '<li><a id="contact" href="/home/contact" rel="external" target="_parent"';
+                if ($title=="Contact") echo "class='ui-btn-active ui-state-persist'";
+                echo '>Contact Us</a></li>';
+
                 echo '<li><a id="full" href="/home/full_site" rel="external" target="_parent">Full Site</a></li>';
 
 		?>
