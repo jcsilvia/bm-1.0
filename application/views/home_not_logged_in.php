@@ -50,30 +50,68 @@
         </div>
 
         <div style="width:800px;position:relative; ">
-        <?php
 
-            echo '<div class="ammo_heading">Average National Ammo Prices</div><div class="ammo_container">';
 
+            <div class="ammo_heading">Latest In-Stock Ammo Updates</div><div class="ammo_container">
+
+
+
+
+
+         <?php
             if (count($ammo_prices) > 0) {
-                echo '<div id="content"><div class="two_col two_col-1"><b>Ammo Type:</b></div><div class="two_col two_col-2"><b>Price Per Round:</b></div></div>';
-              }
-        ?>
+            echo '<div id="content"><div class="four_col col-1"><b>Ammo Type:</b></div><div class="four_col col-2"><b>Price Per Round:</b></div><div class="four_col col-3"><b>Vendor:</b></div><div class="four_col col-4"><b>Last Updated:</b></div></div>';
+            }
+         ?>
+         <div id="content">
 
-        <?php if (count($ammo_prices) < 1) {
-            echo '<div style="font-weight: bold; text-align: center;font-family:helvetica,sans-serif;font-size:.9em;padding:10px;">There is no current data. Please check back again shortly.</div>';
-        }
-        ?>
+           <?php if (count($ammo_prices) == 0) {
+                echo '<div style="font-weight: bold; text-align: center;font-family:helvetica,sans-serif;font-size:.9em;padding:10px;">There is no current data. Please check back again shortly or login to post an update.</div>';
+            }
+            ?>
 
-        <?php foreach ($ammo_prices as $cheap_prices): ?>
+            <?php foreach ($ammo_prices as $latest_updates): ?>
 
-            <div id="content">
-                <div class="two_col two_col-1"> <?php  echo $cheap_prices['product_name'] ?></div>
-                <div class="two_col two_col-2"> $<?php  echo $cheap_prices['average_price'] ?>/round</div>
+
+
+                <div class="four_col col-1"> <?php  echo $latest_updates['product_name'] ?></div>
+                <div class="four_col col-2"> <?php if (count($ammo_prices) > 0){echo '$';}  echo $latest_updates['price_per_round']; if (count($ammo_prices) > 0){ echo '/round'; } ?></div>
+                <div class="four_col col-3"><a href="/profile/<?php echo $latest_updates['address_id'] ?>"> <?php  echo $latest_updates['vendor_name'] ?></a> </div>
+                <div class="four_col col-4">
+                    <?php
+                    if (count($ammo_prices) > 0) {
+                        if ($latest_updates['last_updated'] > 23)
+                        {
+                            echo round(($latest_updates['last_updated']/24),0);
+
+                            if (round(($latest_updates['last_updated']/24),0) == 1)
+                            {echo ' day ago';}
+                            else
+                            { echo ' days ago'; }
+                            echo '</div>';
+                        }
+                        else
+                        {
+                            echo $latest_updates['last_updated'];
+
+                            if ($latest_updates['last_updated'] == 1)
+                            {echo ' hour ago';}
+                            else
+                            { echo ' hours ago'; }
+                            echo '</div>';
+                        }
+                    }
+
+                    ?>
+
+
+
+
+                <?php endforeach ?>
+
             </div>
+         </div>
 
-        <?php endforeach ?>
-
-        </div>
         <div style="min-height: 50px;"></div>
         <div style="margin: 0 auto;width:600px;text-align: center;padding:10px;"><img src="/images/bm_m4.jpg" style="border:solid;border-width: 1px;border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px;">
 

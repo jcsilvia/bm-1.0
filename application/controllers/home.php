@@ -22,7 +22,6 @@ function index()
            {
 
                $data['title'] = 'Home';
-
                $state = $this->Home_model->get_user_state();
                $data['user_state'] = $state;
                $data['user_rewards'] = $this->Home_model->get_rewards();
@@ -48,8 +47,8 @@ function index()
 
              //If no session, redirect to home_not_logged_in page
 
-               $data['title'] = 'Welcome to Bullet-Monkey';
-               $data['ammo_prices'] = $this->Home_model->get_average_price();
+               //$data['title'] = 'Welcome to Bullet-Monkey';
+               $data['ammo_prices'] = $this->Home_model->get_latest_updates();
 			   include 'mobile.php';
 			   if(Mobile::is_mobile()) {
 	               $this->load->view('mobile/m_home_not_logged_in');

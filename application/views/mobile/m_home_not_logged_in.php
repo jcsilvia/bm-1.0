@@ -3,8 +3,9 @@
 <head> 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
-	<title>Bullet-Monkey Mobile - Crowd-sourcing the search for local, in-stock ammo like 5.56, 9mm and 22lr.</title>
+	<title>Bullet-Monkey Mobile - Crowd-sourcing ammo finder helps the search for local, in-stock ammo like 5.56, 9mm and 22lr.</title>
     <meta name="description" content="Bullet-Monkey Mobile, crowd-sourcing the search for local, in-stock ammunition like 5.56, 9mm, .45ACP, and .22lr.">
+    <meta name="keywords" content="Bullet Monkey,ammo,ammunition,firearms,in-stock,223,556,9mm,22lr,308,45ACP,ar15,glock,ak47,cheap ammo, ammo for sale, ammunition for sale, cheap ammunition, in stock, instock ammo, ammo finder, ammo locator, ammo search">
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
 	<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>

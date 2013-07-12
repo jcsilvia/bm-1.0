@@ -18,21 +18,23 @@ class Profile extends CI_Controller {
 
         $addressid = $this->uri->segment(2,0);
 
+        $data['profile'] = $this->Profile_model->get_vendor_profile($addressid);
+        $data['variable'] = $addressid;
+
+        //format the phone number before we send it to the view
+        $phone = $this->phone($data['profile']->phone_number);
+        $data['phone'] = $phone;
+
+        $data['title'] = 'Bullet-Monkey Vendor Profile for '|| $data['profile']->vendor_name;
+
         // check for the session
         if($this->session->userdata('memberid'))
         {
 
-            $data['title'] = 'Profile';
+
             $data['username'] = $this->session->userdata('username');
             $data['user_rewards'] = $this->Home_model->get_rewards();
 
-
-            $data['profile'] = $this->Profile_model->get_vendor_profile($addressid);
-            $data['variable'] = $addressid;
-
-            //format the phone number before we send it to the view
-            $phone = $this->phone($data['profile']->phone_number);
-            $data['phone'] = $phone;
 
             include 'mobile.php';
             if(Mobile::is_mobile()) {
@@ -49,8 +51,11 @@ class Profile extends CI_Controller {
         }
         else
         {
-            //If no session, redirect to login page
-            redirect('home', 'location');
+
+            $this->load->view('templates/header', $data);
+            $this->load->view('profile_not_logged_in', $data);
+            $this->load->view('templates/footer');
+
         }
 
 
