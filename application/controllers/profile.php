@@ -25,7 +25,7 @@ class Profile extends CI_Controller {
         $phone = $this->phone($data['profile']->phone_number);
         $data['phone'] = $phone;
 
-        $data['title'] = 'Bullet-Monkey Vendor Profile for '|| $data['profile']->vendor_name;
+        $data['title'] = 'Profile for ' . $data['profile']->vendor_name;
 
         // check for the session
         if($this->session->userdata('memberid'))
