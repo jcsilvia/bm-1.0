@@ -8,7 +8,7 @@ class Post extends CI_Controller {
         $this->load->helper(array('form', 'url', 'email'));
         $this->load->library('form_validation');
         $this->load->database();
-        $this->load->model(array('Post_model','Home_model'));
+        $this->load->model(array('Post_model','Home_model', 'Profile_model'));
     }
 
 
@@ -121,7 +121,10 @@ class Post extends CI_Controller {
             else
             {
 
-                $this->Post_model->create_vendor();
+                $data['address'] = $this->Post_model->create_vendor();
+                $addressid = $data['address']->address_id;
+                $this->Profile_model->get_lat_long_from_address($addressid);
+
                 $this->session->set_flashdata('flashSuccess', 'Merchant added successfully');
                 redirect('post', 'location');
 
@@ -259,7 +262,10 @@ class Post extends CI_Controller {
             else
             {
 
-                $this->Post_model->add_vendor_address();
+                $data['address'] = $this->Post_model->add_vendor_address();
+                $addressid = $data['address']->address_id;
+                $this->Profile_model->get_lat_long_from_address($addressid);
+
                 $this->session->set_flashdata('flashSuccess', 'Merchant updated successfully');
                 redirect('post', 'location');
 

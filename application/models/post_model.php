@@ -130,6 +130,16 @@ class Post_model extends CI_Model {
 
         $this->db->insert('addresses', $address_data);
 
+        $this->db->select('address_id');
+        $this->db->from('addresses');
+        $this->db->where('vendor_id', $vendor_id);
+        $query = $this->db->get();
+
+        return $query->row();
+
+
+
+
     }
 
 
@@ -196,6 +206,18 @@ class Post_model extends CI_Model {
         );
 
         $this->db->insert('addresses', $address_data);
+
+
+        $this->db->select('address_id');
+        $this->db->from('addresses');
+        $this->db->where('vendor_id', $this->input->post('vendors'));
+        $this->db->where('address1', $this->input->post('address1'));
+        $this->db->where('city', $this->input->post('city'));
+        $this->db->where('state', $this->input->post('state'));
+        $this->db->where('zipcode', $this->input->post('zipcode'));
+        $query = $this->db->get();
+
+        return $query->row();
 
     }
 

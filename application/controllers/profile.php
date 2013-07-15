@@ -21,6 +21,15 @@ class Profile extends CI_Controller {
         $data['profile'] = $this->Profile_model->get_vendor_profile($addressid);
         $data['variable'] = $addressid;
 
+        //check to see if we have geocoded this address and if not, geocode it
+        $lng = $data['profile']->geolng;
+        $lat = $data['profile']->geolat;
+
+        if (trim($lng) || trim($lat) == FALSE)
+        {
+            $this->Profile_model->get_lat_long_from_address($addressid);
+        }
+
         //format the phone number before we send it to the view
         $phone = $this->phone($data['profile']->phone_number);
         $data['phone'] = $phone;
@@ -78,5 +87,11 @@ class Profile extends CI_Controller {
         return ($strPhone);
     }
 
+
+    public function geocode ()
+        {
+            $this->Profile_model->geocode_existing_locations();
+
+        }
 
 }

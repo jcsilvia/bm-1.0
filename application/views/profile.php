@@ -48,6 +48,9 @@
 
     </div>
 
+    <p style="font-size:10px; text-align: center;"><a href="/profile/geocode">Geocode address</a></p>
+
+
 </div>
 
 <!-- need empty space to push the footer down with different high resolution screens -->
