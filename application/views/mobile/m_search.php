@@ -4,8 +4,13 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 	<title>Bullet-Monkey Mobile Search</title>
+
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
-	<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+
+    <!-- <script src="http://code.jquery.com/jquery-1.9.1.js"></script> -->
+    <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <script type="text/javascript">
         $(document).bind("mobileinit", function(){
            $.mobile.ajaxEnabled = false;
@@ -45,6 +50,18 @@
         });
     </script>
 
+    <script type="text/javascript">
+        jQuery('#search').live('pageinit', function (event) {
+            jQuery('#city').autocomplete({
+                source: "/search/get_cities",
+                minLength: 5,
+                select: function (event, ui) { }
+            });
+        });
+    </script>
+
+
+
     <?php $this->load->view('mobile/m_header.php'); ?>
 
 	<div data-role="content">
@@ -60,7 +77,7 @@
 
         <div data-role="fieldcontain">
             <label for="state">State:</label>
-            <?php echo form_dropdown('state', $all_states, $user_state, 'id=state data-mini="true"') ?>
+            <?php echo form_dropdown('state', $all_states, $user_state->state, 'id=state data-mini="true"') ?>
             <?php echo form_error('state'); ?>
         </div>
 
@@ -71,6 +88,7 @@
             $data=array(
                 'name' => 'city',
                 'id' => 'city',
+                'data-mini' => "true",
                 'value' => $user_state->city
             );
 
@@ -80,14 +98,20 @@
         </div>
 
         <div data-role="fieldcontain">
-            <label for="distance">Distance:</label>
-            <select name="distance">
-                <option value="10">10 miles</option>
-                <option value="30" selected>30 miles</option>
-                <option value="50">50 miles</option>
-                <option value="200">100 miles</option>
-                <option value="200">300 miles</option>
-            </select>
+            <label for="distance">Distance: </label>
+            <?php
+                    $options = array(
+                        '10' => '10 miles',
+                        '30' => '30 miles',
+                        '50' => '50 miles',
+                        '100' => '100 miles',
+                        '300' => '300 miles'
+                    );
+            ?>
+
+            <?php echo form_dropdown('distance', $options, '30', 'id=distance data-mini="true"') ?>
+            <?php echo form_error('distance'); ?>
+
         </div>
 
 

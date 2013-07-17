@@ -33,10 +33,11 @@
 
             $( "#city" ).autocomplete({
                 source: "/search/get_cities",
-                minLength: 4
+                minLength: 5
             });
         });
     </script>
+
 
     <div style="min-height: 20px;"></div>
 <div class="content">
@@ -80,14 +81,19 @@
         </p>
 
         <p>
-            <label for="distance">Distance:</label>
-            <select name="distance">
-                <option value="10">10 miles</option>
-                <option value="30" selected>30 miles</option>
-                <option value="50">50 miles</option>
-                <option value="200">100 miles</option>
-                <option value="200">300 miles</option>
-            </select>
+            <label for="distance">Distance: </label>
+            <?php
+            $options = array(
+                '10' => '10 miles',
+                '30' => '30 miles',
+                '50' => '50 miles',
+                '100' => '100 miles',
+                '300' => '300 miles'
+            );
+            ?>
+
+            <?php echo form_dropdown('distance', $options, '30', 'id=distance data-mini="true"') ?>
+            <?php echo form_error('distance'); ?>
         </p>
 
         <p>

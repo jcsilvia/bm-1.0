@@ -54,54 +54,62 @@
     ?>
 
 
-    <?php foreach ($searches as $search): ?>
+    <?php
+
+    if (count($searches) > 0) {
+        foreach ($searches as $search):
+
+            echo '<div id="content">';
+            echo '<div class="col col-1"><a href="/profile/';
+            echo $search['address_id'];
+            echo '">';
+            echo $search['vendor'];
+            echo '</a></div>';
+            echo '<div class="col col-2">';
+
+                    if ($all_products_flag == 'Yes')
+                    {
+                    echo $search['product_name'];
+                    echo '@';
+                    }
 
 
-        <div id="content">
-            <div class="col col-1"><a href="/profile/<?php echo $search['address_id'] ?>"> <?php  echo $search['vendor'] ?></a></div>
-            <div class="col col-2">
-                <?php
-                if ($all_products_flag == 'Yes')
-                {
-                echo $search['product_name'];
-                echo '@';
-                }
-                ?>
-
-                $<?php  echo $search['price'] ?>/round</div>
-            <div class="col col-3"> <?php  echo $search['city'] ?> </div>
-            <div class="col col-4">
-
-                <?php
-                if ($search['last_updated'] > 23)
-                {
-                    echo round(($search['last_updated']/24),0);
-                    if (round(($search['last_updated']/24),0) == 1) {echo ' day ago by ';}
-                    else { echo ' days ago by '; }
-                    echo $search['user_name'];
-                    echo '</div>';
-                }
-                else
-                {
-                    echo $search['last_updated'];
-                    if ($search['last_updated'] == 1) {echo ' hour ago by ';}
-                    else { echo ' hours ago by '; }
-                    echo $search['user_name'];
-                    echo '</div>';
-                }
-                ?>
-
-                <?php
-                echo '<div class="col col-5"><a href="/search/flag_entry/';
-                echo $search['product_availability_id'];
-                echo '">Flag</a></div>';
-                ?>
+                    echo '$';  echo $search['price']; echo '/round</div>';
+                echo '<div class="col col-3">';  echo $search['city'];  echo '</div>';
+                echo '<div class="col col-4">';
 
 
-        </div>
+                    if ($search['last_updated'] > 23)
+                    {
+                        echo round(($search['last_updated']/24),0);
+                        if (round(($search['last_updated']/24),0) == 1) {echo ' day ago by ';}
+                        else { echo ' days ago by '; }
+                        echo $search['user_name'];
+                        echo '</div>';
+                    }
+                    else
+                    {
+                        echo $search['last_updated'];
+                        if ($search['last_updated'] == 1) {echo ' hour ago by ';}
+                        else { echo ' hours ago by '; }
+                        echo $search['user_name'];
+                        echo '</div>';
+                    }
 
 
-    <?php endforeach ?>
+
+                    echo '<div class="col col-5"><a href="/search/flag_entry/';
+                    echo $search['product_availability_id'];
+                    echo '">Flag</a></div>';
+
+
+
+            echo '</div>';
+
+
+         endforeach;
+    };
+    ?>
 
 
 </div>

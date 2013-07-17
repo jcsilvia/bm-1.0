@@ -23,8 +23,16 @@ class Search_model extends CI_Model {
             $sql = "SELECT CAST(latitude AS decimal(10,6)) as geolat, CAST(longitude AS decimal(10,6)) as geolng FROM zipcodes WHERE city = ? AND state = ? LIMIT 1;";
             $query = $this->db->query($sql, array($city,$state));
             $row = $query->row();
-            $geolat = $row->geolat;
-            $geolng = $row->geolng;
+
+            if ($query->num_rows() > 0)
+            {
+                $geolat = $row->geolat;
+                $geolng = $row->geolng;
+            }
+            else
+            {
+                return;
+            }
 
             if ($this->session->userdata('all_products') == 'Yes')
             {
@@ -158,8 +166,17 @@ class Search_model extends CI_Model {
         $sql = "SELECT CAST(latitude AS decimal(10,6)) as geolat, CAST(longitude AS decimal(10,6)) as geolng FROM zipcodes WHERE city = ? AND state = ? LIMIT 1;";
         $query = $this->db->query($sql, array($city,$state));
         $row = $query->row();
-        $geolat = $row->geolat;
-        $geolng = $row->geolng;
+
+        if ($query->num_rows() > 0)
+        {
+            $geolat = $row->geolat;
+            $geolng = $row->geolng;
+        }
+        else
+        {
+            return;
+        }
+
 
         if ($this->session->userdata('all_products') == 'Yes')
         {

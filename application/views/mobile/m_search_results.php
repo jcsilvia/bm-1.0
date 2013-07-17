@@ -44,24 +44,30 @@
 
 
 
-                <?php foreach ($searches as $search): ?>
+                <?php
 
-                    <li>
-                        <p><b>Ammo:</b>  <?php  echo $search['product_name'] ?></p>
-                        <p><b>Cost per round:</b>
+                if (count($searches) > 0) {
+                foreach ($searches as $search):
 
-                            <?php
+                  echo '<li>';
+                  echo '<p><b>Ammo:</b>';
+                  echo $search['product_name'];
+                  echo '</p>';
+                  echo '<p><b>Cost per round:</b>';
+
+
                             if ($all_products_flag == 'Yes')
                             {
                                 echo $search['product_name'];
                                 echo '@';
                             }
-                            ?>
 
-                            $<?php  echo $search['price'] ?>/round</p>
-                        <p><b>Vendor:</b> <a href="/profile/<?php echo $search['address_id'] ?>"> <?php  echo $search['vendor'] ?></a></p>
-                        <p><b>Last Updated:</b>
-                            <?php
+
+                            echo '$';  echo $search['price']; echo '/round</p>';
+                        echo '<p><b>Vendor:</b> <a href="/profile/';
+                        echo $search['address_id']; echo '">';  echo $search['vendor']; echo '</a></p>';
+                        echo '<p><b>Last Updated:</b>';
+
                             if ($search['last_updated'] > 23)
                             {
                                 echo round(($search['last_updated']/24),0);
@@ -82,17 +88,18 @@
                                 { echo ' hours ago by '; }
                                 echo $search['user_name'];
                             }
-                            ?>
-                        </p>
-                        <p>
-                        <?php
+
+                        echo '</p><p>';
+
+
                             echo '<a href="/search/flag_entry/';
                             echo $search['product_availability_id'];
                             echo '">Flag/Delete</a>';
-                        ?>
-                        </p>
-                    </li>
-                <?php endforeach ?>
+
+                        echo '</p></li>';
+                 endforeach;
+                };
+                ?>
 
 
 

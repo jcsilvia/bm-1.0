@@ -140,7 +140,7 @@
 
             <div data-role="fieldcontain">
                 <label for="price">Price: </label>
-                <input type="number" pattern="\d+\.\d\d" name="price" size="10" value="0.00" id="price" data-mini="true" title="Enter the price per box here in the format 20.95  or 10.00. If not in stock, leave as 0.00">
+                <input type="number" pattern="\d+\" name="price" size="10" value="0.00" id="price" data-mini="true" title="Enter the price per box here in the format 20.95  or 10.00. If not in stock, leave as 0.00">
             <?php echo form_error('price'); ?>
 
 
