@@ -81,7 +81,7 @@
         </p>
 
         <p>
-            <label for="distance">Distance: </label>
+            <label for="distance">Distance to Search: </label>
             <?php
             $options = array(
                 '10' => '10 miles',

@@ -23,7 +23,7 @@
 
         <div class="ui-grid-solo">
             <ul data-role="listview" data-theme="d" data-divider-theme="d">
-                <li  data-role="list-divider" style="text-align: center"><a href="/search/new_search">Perform another search</a></li>
+                <li  data-role="list-divider" style="text-align: center"><a rel="external" target="_parent" href="/search/new_search">Perform another search</a></li>
                 <li data-role="list-divider">In-stock Ammo Prices for
                 <span style="color:red;">
                         <?php
