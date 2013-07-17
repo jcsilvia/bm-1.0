@@ -9,7 +9,7 @@
 
     <div style="min-height: 25px;"></div>
 
-    <p>For Advertising Opportunities  with Bullet-Monkey, please contact us at <br><a href="mailto:sales@bullet-monkey.com">sales@bullet-monkey.com</a></p>
+
     </div>
 
 

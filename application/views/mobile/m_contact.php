@@ -27,7 +27,7 @@
 
 
 
-            <p>For Advertising Opportunities  with Bullet-Monkey, please contact us at <a href="mailto:sales@bullet-monkey.com">sales@bullet-monkey.com</a></p>
+            
 
 
         </div>
