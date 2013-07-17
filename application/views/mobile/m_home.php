@@ -25,7 +25,7 @@
 
         <div class="ui-grid-solo">
             <ul data-role="listview" data-theme="d" data-divider-theme="d">
-                <li data-role="list-divider">In-stock Ammo Prices for <?php echo $user_state; ?></li>
+                <li data-role="list-divider">In-stock Ammo Prices for <?php echo $user_state->state; ?></li>
                 <?php foreach ($cheap_ammo_prices as $cheap_prices): ?>
 
                     <li>
@@ -69,7 +69,7 @@
 
                 <?php if (count($cheap_ammo_prices) < 1) {
                     echo '<li><p>There is no current data for ';
-                    echo $user_state;
+                    echo $user_state->state;
                     echo '. </p><p>Please check back soon.</p></li>';
                 }
                 ?>

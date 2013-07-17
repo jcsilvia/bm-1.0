@@ -65,6 +65,34 @@
         </div>
 
         <div data-role="fieldcontain">
+            <label for="city">City:</label>
+            <?php
+
+            $data=array(
+                'name' => 'city',
+                'id' => 'city',
+                'value' => $user_state->city
+            );
+
+            echo form_input($data) ?>
+            <?php echo form_error('city'); ?>
+
+        </div>
+
+        <div data-role="fieldcontain">
+            <label for="distance">Distance:</label>
+            <select name="distance">
+                <option value="10">10 miles</option>
+                <option value="30" selected>30 miles</option>
+                <option value="50">50 miles</option>
+                <option value="200">100 miles</option>
+                <option value="200">300 miles</option>
+            </select>
+        </div>
+
+
+
+        <div data-role="fieldcontain">
 
             <label for="product_categories">Product Category:</label>
             <?php echo form_dropdown('product_categories', $product_categories, set_value('product_categories'), 'id="product_categories" data-mini="true"') ?>

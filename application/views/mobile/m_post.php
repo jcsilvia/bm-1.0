@@ -99,7 +99,7 @@
 
             <div data-role="fieldcontain">
                 <label for="state">State: </label>
-                <?php echo form_dropdown('state', $all_states, $user_state, 'id=state data-mini="true"') ?>
+                <?php echo form_dropdown('state', $all_states, $user_state->state, 'id=state data-mini="true"') ?>
                 <?php echo form_error('state'); ?>
             </div>
 

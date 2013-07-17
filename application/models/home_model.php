@@ -18,12 +18,14 @@ class Home_model extends CI_Model {
         $row = $query->row();
         $zipcode = $row->zipcode;
 
-        $query2 = $this->db->query("SELECT DISTINCT `state`  FROM `zipcodes` WHERE `zip` = '" .$zipcode. "'");
+        $query2 = $this->db->query("SELECT DISTINCT city, state  FROM zipcodes WHERE zip = '" .$zipcode. "'");
         $row = $query2->row();
-        $state = $row->state;
-        return $state;
+        //$state = $row->state;
+        //return $state;
+        return $row;
 
     }
+
 
 
     public function get_all_states()

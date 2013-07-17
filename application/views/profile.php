@@ -48,7 +48,7 @@
 
     </div>
 
-    <p style="font-size:10px; text-align: center;"><a href="/profile/geocode">Geocode address</a></p>
+    <!--<p style="font-size:10px; text-align: center;"><a href="/profile/geocode">Geocode</a></p>-->
 
 
 </div>

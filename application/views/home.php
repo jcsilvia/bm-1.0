@@ -11,7 +11,7 @@
 
     <?php
         echo '<div class="ammo_heading">Average Ammo Prices for ';
-        echo $user_state;
+        echo $user_state->state;
         echo '</div><div class="ammo_container">';
 
         if (count($state_ammo_prices) > 0) {
@@ -21,7 +21,7 @@
 
     <?php if (count($state_ammo_prices) < 1) {
         echo '<div style="font-weight: bold; text-align: center;font-family:helvetica,sans-serif;font-size:.9em;padding:10px;">There is no current data for ';
-        echo $user_state;
+        echo $user_state->state;
         echo '.</div>';
     }
     ?>
@@ -42,7 +42,7 @@
 
     <?php
         echo '<div class="ammo_heading">Cheapest In-stock Ammo Prices for ';
-        echo $user_state;
+        echo $user_state->state;
         echo '</div><div class="ammo_container">';
 
         if (count($cheap_ammo_prices) > 0) {
@@ -52,7 +52,7 @@
 
     <?php if (count($cheap_ammo_prices) < 1) {
         echo '<div style="font-weight: bold; text-align: center;font-family:helvetica,sans-serif;font-size:.9em;padding:10px;">There is no current data for ';
-        echo $user_state;
+        echo $user_state->state;
         echo '. Please check back soon.</div>';
     }
     ?>

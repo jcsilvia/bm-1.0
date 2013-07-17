@@ -1,3 +1,5 @@
+
+
 <?php $this->load->helper('form'); ?>
 
 <script type="text/javascript">
@@ -25,6 +27,17 @@
         }); //end change
     });
 </script>
+
+    <script type="text/javascript">
+        $(function() {
+
+            $( "#city" ).autocomplete({
+                source: "/search/get_cities",
+                minLength: 4
+            });
+        });
+    </script>
+
     <div style="min-height: 20px;"></div>
 <div class="content">
 
@@ -46,8 +59,35 @@
 
         <p>
             <label for="state">State:</label>
-            <?php echo form_dropdown('state', $all_states, $user_state, 'id=state') ?>
+            <?php echo form_dropdown('state', $all_states, $user_state->state, 'id=state') ?>
             <?php echo form_error('state'); ?>
+        </p>
+
+        <p>
+            <label for="city">City:</label>
+            <?php
+
+            $data=array(
+                'name' => 'city',
+                'id' => 'city',
+                'size' => '30',
+                'value' => $user_state->city
+            );
+
+            echo form_input($data) ?>
+            <?php echo form_error('city'); ?>
+
+        </p>
+
+        <p>
+            <label for="distance">Distance:</label>
+            <select name="distance">
+                <option value="10">10 miles</option>
+                <option value="30" selected>30 miles</option>
+                <option value="50">50 miles</option>
+                <option value="200">100 miles</option>
+                <option value="200">300 miles</option>
+            </select>
         </p>
 
         <p>

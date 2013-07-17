@@ -415,3 +415,8 @@ body {
     right:50px;
     font-family:"helvetica",sans-serif;
 }
+
+.ui-autocomplete-loading {
+    background: white url('/images/ui-anim_basic_16x16.gif') right center no-repeat;
+}
+

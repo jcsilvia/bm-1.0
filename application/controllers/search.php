@@ -21,7 +21,7 @@ public function index()
             {
 
                 //unset any prior session search parameters
-                $this->session->unset_userdata('search_state', 'search_product', 'search_product_id', 'offset', 'all_products','search_product_category');
+                $this->session->unset_userdata('search_state', 'search_distance', 'search_city', 'search_product', 'search_product_id', 'offset', 'all_products','search_product_category');
 
                 //config for pagination class
                 $config['base_url'] = base_url() . "search/results";
@@ -44,6 +44,7 @@ public function index()
 
                     $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
                     $this->form_validation->set_rules('state', 'State', 'trim|required|xss_clean');
+                    $this->form_validation->set_rules('city', 'City', 'trim|required|xss_clean');
                     $this->form_validation->set_rules('products', 'Product', 'trim|required|xss_clean');
 
                     $this->output->nocache(); // set http header to disable caching if user hits back button
@@ -76,12 +77,16 @@ public function index()
                     {
 
                                 $this->session->set_userdata('search_state', $this->input->post('state'));
+                                $this->session->set_userdata('search_city', $this->input->post('city'));
+                                $this->session->set_userdata('search_distance', $this->input->post('distance'));
                                 $this->session->set_userdata('search_product_id', $this->input->post('products'));
                                 $this->session->set_userdata('all_products', $this->input->post('all_products'));
                                 $this->session->set_userdata('search_product', $this->Search_model->get_product_name($this->input->post('products')));
                                 $this->session->set_userdata('search_product_category', $this->Search_model->get_product_category($this->input->post('products')));
                                 $data['product_name'] = $this->session->userdata('search_product');
                                 $data['search_state'] = $this->session->userdata('search_state');
+                                $data['search_city'] = $this->session->userdata('search_city');
+                                $data['search_distance'] = $this->session->userdata('search_distance');
                                 $data['product_category'] = $this->session->userdata('search_product_category');
                                 $data['all_products_flag'] = $this->session->userdata('all_products');
 
@@ -207,4 +212,12 @@ public function results()
     }
 
 
+    function get_cities(){
+
+        parse_str($_SERVER['QUERY_STRING'],$_GET);
+        $term = $_GET['term'];
+
+        header('Content-Type: application/x-json; charset=utf-8');
+        echo(json_encode($this->Search_model->get_cities($term)));
+    }
 }

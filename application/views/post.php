@@ -77,7 +77,7 @@
 
                 <p>
                     <label for="state">State:</label>
-                    <?php echo form_dropdown('state', $all_states, $user_state, 'id=state') ?>
+                    <?php echo form_dropdown('state', $all_states, $user_state->state, 'id=state') ?>
                     <?php echo form_error('state'); ?>
                 </p>
 
