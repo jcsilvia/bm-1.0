@@ -7,9 +7,9 @@
     <div style="padding:10px;border:solid;border-width: 1px;border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px;">
     <p>For General or Customer Support questions, please contact us at <br><a href="mailto:support@bullet-monkey.com">support@bullet-monkey.com</a></p>
 
-    <div style="min-height: 25px;"></div>
-
-
+        <div style="position:relative;left:50px;top:35px;">Follow and tweet us on Twitter <a target="_blank" href="http://www.twitter.com/bulletmonkeyusa">@bulletmonkeyusa</a></div>
+        <a target="_blank" href="http://www.twitter.com/bulletmonkeyusa"><img src="/images/twitter-bird-blue-on-white.jpg"></a>
+        <div style="min-height: 20px;"></div>
     </div>
 
 

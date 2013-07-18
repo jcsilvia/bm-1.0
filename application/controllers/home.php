@@ -153,7 +153,7 @@ public function privacy()
 
         {
 
-            $data['title'] = 'Contact';
+            $data['title'] = 'How to contact us for support or follow us on twitter';
             $data['user_rewards'] = $this->Home_model->get_rewards();
 
 

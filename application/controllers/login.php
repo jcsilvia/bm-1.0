@@ -23,7 +23,7 @@ public function index($msg = NULL)
 
                 $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
                 $this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
-                $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
+                $this->form_validation->set_rules('password', 'Password', 'trim|required');
 
 
                 if ($this->form_validation->run() === FALSE)

@@ -17,7 +17,11 @@
                             <a href="/home/"><img src="/images/bm-logo-7.gif"></a>
                        </div>
 
-
+                <div class="twitter" align="right" style="position:relative;top:55px;right:10px;">
+                    <a target="_blank" href="http://www.twitter.com/bulletmonkeyusa">
+                        <img src="/images/twitter-bird-white-on-blue.jpg">
+                    </a>
+                </div>
                 <?php if ($this->session->userdata('memberid') == TRUE )
                         {
                             echo '<div class="logout" align="right"><a href="/home/logout">Logout</a></div>';

@@ -23,11 +23,15 @@
             <h4>Contact Us</h4>
         </div>
         <div>
-            <p>For General or Customer Support questions, please contact us at <a href="mailto:support@bullet-monkey.com">support@bullet-monkey.com</a></p>
+            <p>
+                For General or Customer Support questions, please contact us at <a href="mailto:support@bullet-monkey.com">support@bullet-monkey.com</a>
+            </p>
+
+         <p>
+             Follow and tweet us on Twitter <a target="_blank" href="http://www.twitter.com/bulletmonkeyusa">@bulletmonkeyusa</a>
+         </p>
 
 
-
-            
 
 
         </div>
