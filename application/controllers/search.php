@@ -216,8 +216,9 @@ public function results()
 
         parse_str($_SERVER['QUERY_STRING'],$_GET);
         $term = $_GET['term'];
+        $state = $_GET['state'];
 
         header('Content-Type: application/x-json; charset=utf-8');
-        echo(json_encode($this->Search_model->get_cities($term)));
+        echo(json_encode($this->Search_model->get_cities($term, $state)));
     }
 }

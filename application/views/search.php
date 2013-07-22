@@ -28,15 +28,30 @@
     });
 </script>
 
-    <script type="text/javascript">
-        $(function() {
+<script type="text/javascript" >
 
-            $( "#city" ).autocomplete({
-                source: "/search/get_cities",
-                minLength: 5
-            });
+    jQuery(document).ready(function() {
+
+        jQuery('#city').autocomplete({
+            source: function(request, response) {
+                jQuery.ajax({
+                    url: '/search/get_cities',
+                    dataType: "json",
+                    data: {
+                        term : request.term,
+                        state : $('#state').val()
+                    },
+                    success: function(data) {
+                        response(data);
+                    }
+                });
+            },
+            minLength: 3
         });
-    </script>
+    });
+</script>
+
+
 
 
     <div style="min-height: 20px;"></div>

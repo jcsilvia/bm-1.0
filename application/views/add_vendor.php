@@ -3,11 +3,35 @@
 
 
     <script src="/js/jquery.maskedinput.js" type="text/javascript"></script>
+
     <script type="text/javascript">
         jQuery(function($){
 
             $("#phone_number").mask("(999) 999-9999");
 
+        });
+    </script>
+
+    <script type="text/javascript" >
+
+        jQuery(document).ready(function() {
+
+            $('#city').autocomplete({
+                source: function(request, response) {
+                    jQuery.ajax({
+                        url: '/post/get_cities',
+                        dataType: "json",
+                        data: {
+                            term : request.term,
+                            state : $('#state').val()
+                        },
+                        success: function(data) {
+                            response(data);
+                        }
+                    });
+                },
+                minLength: 3
+            });
         });
     </script>
 
@@ -46,17 +70,28 @@
         </p>
 
         <p>
-            <label for="city">City:</label>
-            <input type="text" name="city" size="30" value="<?php echo set_value('city'); ?>">
-        <?php echo form_error('city'); ?>
+            <label for="state">State:</label>
+            <?php echo form_dropdown('state', $all_states, $user_state->state, 'id=state') ?>
+            <?php echo form_error('state'); ?>
         </p>
 
 
         <p>
-                <label for="state">State:</label>
-                <?php echo form_dropdown('state', $all_states, $user_state->state) ?>
-        <?php echo form_error('state'); ?>
+            <label for="city">City:</label>
+            <?php
+
+            $data=array(
+                'name' => 'city',
+                'id' => 'city',
+                'size' => '30',
+                'value' => $user_state->city
+            );
+
+            echo form_input($data) ?>
+            <?php echo form_error('city'); ?>
+
         </p>
+
 
         <p>
             <label for="zipcode">Zipcode:</label>

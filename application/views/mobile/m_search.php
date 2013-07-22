@@ -50,16 +50,27 @@
         });
     </script>
 
+
     <script type="text/javascript">
         jQuery('#search').live('pageinit', function (event) {
             jQuery('#city').autocomplete({
-                source: "/search/get_cities",
-                minLength: 5,
-                select: function (event, ui) { }
+                source: function(request,response){
+                    jQuery.ajax({
+                        url: '/search/get_cities',
+                        dataType: "json",
+                        data: {
+                            term : request.term,
+                            state : $('#state').val()
+                        },
+                        success: function(data) {
+                        response(data);
+                    },
+                       minLength: 3
+                    });
+                }
             });
         });
     </script>
-
 
 
     <?php $this->load->view('mobile/m_header.php'); ?>

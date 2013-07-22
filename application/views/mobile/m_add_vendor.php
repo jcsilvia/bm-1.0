@@ -5,8 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bullet-Monkey Mobile Add Merchant</title>
 
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
     <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script type="text/javascript">
+        $(document).bind("mobileinit", function(){
+            $.mobile.ajaxEnabled = false;
+        });
+    </script>
     <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
     <script type="text/javascript" src="js/jquery-templ.js"></script>
     <script src="/js/jquery.maskedinput.js" type="text/javascript"></script>
@@ -18,10 +25,31 @@
         });
     </script>
 
+    <script type="text/javascript">
+        jQuery('#add_vendor').live('pageinit', function (event) {
+            jQuery('#city').autocomplete({
+                source: function(request,response){
+                    jQuery.ajax({
+                        url: '/post/get_cities',
+                        dataType: "json",
+                        data: {
+                            term : request.term,
+                            state : $('#state').val()
+                        },
+                        success: function(data) {
+                            response(data);
+                        },
+                        minLength: 3
+                    });
+                }
+            });
+        });
+    </script>
+
 </head>
 <body>
 <?php $this->load->view('analytics_tracking.php'); ?>
-<div data-role="page">
+<div data-role="page" id="add_vendor">
 
     <?php $this->load->view('mobile/m_header.php'); ?>
 
@@ -62,17 +90,30 @@
         </div>
 
         <div data-role="fieldcontain">
-            <label for="city">City:</label>
-            <input type="text" name="city" size="30" value="<?php echo set_value('city'); ?>" data-mini="true">
-            <?php echo form_error('city'); ?>
-        </div>
-
-
-        <div data-role="fieldcontain">
             <label for="state">State:</label>
             <?php echo form_dropdown('state', $all_states, $user_state->state,'id=state data-mini="true"') ?>
             <?php echo form_error('state'); ?>
         </div>
+
+
+
+        <div data-role="fieldcontain">
+            <label for="city">City:</label>
+            <?php
+
+            $data=array(
+                'name' => 'city',
+                'id' => 'city',
+                'data-mini' => "true",
+                'value' => $user_state->city
+            );
+
+            echo form_input($data) ?>
+            <?php echo form_error('city'); ?>
+
+        </div>
+
+
 
         <div data-role="fieldcontain">
             <label for="zipcode">Zipcode:</label>

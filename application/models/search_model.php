@@ -324,11 +324,12 @@ class Search_model extends CI_Model {
 
     }
 
-    public function get_cities($term)
+    public function get_cities($term, $state)
     {
         $this->db->select('city as value');
         $this->db->distinct();
         $this->db->from('zipcodes');
+        $this->db->where('zipcodes.state', $state);
         $this->db->like('city', $term);
         $query = $this->db->get();
         return $query->result_array();

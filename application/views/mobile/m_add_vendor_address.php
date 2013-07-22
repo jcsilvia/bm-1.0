@@ -5,8 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bullet-Monkey Mobile Add Merchant Address</title>
 
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
     <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script type="text/javascript">
+        $(document).bind("mobileinit", function(){
+            $.mobile.ajaxEnabled = false;
+        });
+    </script>
     <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
     <script type="text/javascript" src="js/jquery-templ.js"></script>
     <script src="/js/jquery.maskedinput.js" type="text/javascript"></script>
@@ -15,6 +22,27 @@
 
             $("#phone_number").mask("(999) 999-9999");
 
+        });
+    </script>
+
+    <script type="text/javascript">
+        jQuery('#add_address').live('pageinit', function (event) {
+            jQuery('#city').autocomplete({
+                source: function(request,response){
+                    jQuery.ajax({
+                        url: '/post/get_cities',
+                        dataType: "json",
+                        data: {
+                            term : request.term,
+                            state : $('#state').val()
+                        },
+                        success: function(data) {
+                            response(data);
+                        },
+                        minLength: 3
+                    });
+                }
+            });
         });
     </script>
 
@@ -96,8 +124,18 @@
 
         <div data-role="fieldcontain">
             <label for="city">City:</label>
-            <input type="text" name="city" size="30" value="<?php echo set_value('city'); ?>" data-mini="true">
+            <?php
+
+            $data=array(
+                'name' => 'city',
+                'id' => 'city',
+                'data-mini' => "true",
+                'value' => $user_state->city
+            );
+
+            echo form_input($data) ?>
             <?php echo form_error('city'); ?>
+
         </div>
 
 
