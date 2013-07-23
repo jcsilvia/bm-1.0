@@ -107,6 +107,7 @@ CREATE TABLE `vendors` (
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `is_active` int(1) NOT NULL DEFAULT '1',
   `is_paid` int(1) NOT NULL DEFAULT '0',
+  `is_online_only` int(1) NOT NULL DEFAULT '0',
   `url` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`vendor_id`),
   UNIQUE KEY `vendors_vname_idx` (`vendor_name`)
@@ -146,3 +147,29 @@ CREATE TABLE contests (
    created_date TIMESTAMP NOT NULL,
   PRIMARY KEY (contest_id)
 ) ENGINE = InnoDB ROW_FORMAT = DEFAULT;
+
+CREATE TABLE online_availability (
+   online_availability_id BIGINT AUTO_INCREMENT NOT NULL,
+   parser_id BIGINT(19),
+   product_category_id INT,
+   url VARCHAR(2000),
+   title VARCHAR(400),
+   price DECIMAL,
+   in_stock ENUM('Yes','No'),
+   vendor_id  BIGINT(19),
+   last_updated_date TIMESTAMP,
+  PRIMARY KEY (online_availability_id)
+) ENGINE = InnoDB ROW_FORMAT = DEFAULT;
+
+CREATE TABLE vendor_parser (
+  parser_id bigint(19) NOT NULL AUTO_INCREMENT,
+  product_category_id int(11) DEFAULT NULL,
+  url varchar(2000) DEFAULT NULL,
+  title_element varchar(400) DEFAULT NULL,
+  price_element varchar(400) DEFAULT NULL,
+  availability_element varchar(400) DEFAULT NULL,
+  vendor_id bigint(19),
+  quantity int(11) DEFAULT NULL,
+  created_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (parser_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
