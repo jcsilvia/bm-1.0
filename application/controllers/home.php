@@ -56,7 +56,7 @@ function index()
 				  
 				} else {
 	               $this->load->view('templates/homepage_header', $data);
-	               $this->load->view('home_not_logged_in');
+	               $this->load->view('home_not_logged_in', $data);
 	               $this->load->view('templates/footer');
 				}
            }
@@ -110,8 +110,8 @@ public function privacy()
             $data['description'] = 'Privacy statement - How Bullet-Monkey uses your data';
 
 
-            $this->load->view('templates/homepage_header');
-            $this->load->view('privacy.php');
+            $this->load->view('templates/homepage_header', $data);
+            $this->load->view('privacy.php', $data);
             $this->load->view('templates/footer');
 
         }
@@ -144,8 +144,8 @@ public function privacy()
             $data['keywords'] = 'Bullet-Monkey, Terms of Use';
             $data['description'] = 'Terms and conditions of use of Bullet-Monkey';
 
-            $this->load->view('templates/homepage_header');
-            $this->load->view('terms.php');
+            $this->load->view('templates/homepage_header', $data);
+            $this->load->view('terms.php', $data);
             $this->load->view('templates/footer');
 
         }
@@ -191,8 +191,8 @@ public function privacy()
             $data['keywords'] = 'Bullet-Monkey, Contact, Customer Support, Help';
             $data['description'] = 'How to contact us for support or follow us on twitter';
 
-            $this->load->view('templates/homepage_header');
-            $this->load->view('contact.php');
+            $this->load->view('templates/homepage_header', $data);
+            $this->load->view('contact.php', $data);
             $this->load->view('templates/footer');
 
         }
@@ -226,8 +226,8 @@ public function privacy()
             $data['keywords'] = 'Bullet-Monkey, About, Background, 2nd Amendment, Constitution, in-stock, cheap, ammunition';
             $data['description'] = 'About Bullet-Monkey, supporting the 2nd Amendment and how we got started helping you find cheap ammunition';
 
-            $this->load->view('templates/homepage_header');
-            $this->load->view('about.php');
+            $this->load->view('templates/homepage_header', $data);
+            $this->load->view('about.php', $data);
             $this->load->view('templates/footer');
 
         }
