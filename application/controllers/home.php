@@ -104,7 +104,7 @@ public function privacy()
 
         {
 
-
+            $data['nav'] = 'Privacy';
             $data['title'] = 'Bullet-Monkey - Privacy statement, how Bullet-Monkey uses your data';
             $data['keywords'] = 'Bullet-Monkey, Privacy statement';
             $data['description'] = 'Privacy statement - How Bullet-Monkey uses your data';
@@ -139,7 +139,7 @@ public function privacy()
 
         {
 
-
+            $data['nav'] = 'Terms';
             $data['title'] = 'Bullet-Monkey - Terms of Use';
             $data['keywords'] = 'Bullet-Monkey, Terms of Use';
             $data['description'] = 'Terms and conditions of use of Bullet-Monkey';
@@ -186,7 +186,7 @@ public function privacy()
 
         {
 
-
+            $data['nav'] = 'Contact';
             $data['title'] = 'Bullet-Monkey - How to contact us';
             $data['keywords'] = 'Bullet-Monkey, Contact, Customer Support, Help';
             $data['description'] = 'How to contact us for support or follow us on twitter';
@@ -221,7 +221,7 @@ public function privacy()
 
         {
 
-
+            $data['nav'] = 'About';
             $data['title'] = 'Bullet-Monkey - About us and why we want to help find cheap local ammunition';
             $data['keywords'] = 'Bullet-Monkey, About, Background, 2nd Amendment, Constitution, in-stock, cheap, ammunition';
             $data['description'] = 'About Bullet-Monkey, supporting the 2nd Amendment and how we got started helping you find cheap ammunition';
