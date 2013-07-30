@@ -97,11 +97,11 @@ body {
 }
 
 .footer-nav{
-    color:black;
+    color:white;
     font-family:"helvetica",sans-serif;
     font-size:0.9em;
     text-align: center;
-    background-color:darkkhaki;
+    background-color:black;
     width: 800px;
     margin:0 auto;
     border-left-width: 1px;
@@ -116,10 +116,10 @@ body {
 
 }
 
-.footer-nav a:link {text-decoration:none;color:black;}
-.footer-nav a:visited {text-decoration:none;color:black;}
+.footer-nav a:link {text-decoration:none;color:white;}
+.footer-nav a:visited {text-decoration:none;color:white;}
 .footer-nav a:hover {text-decoration:none;color:red;}
-.footer-nav a:active {text-decoration:none;color:black;}
+.footer-nav a:active {text-decoration:none;color:white;}
 
 .copyright {
     color:white;
@@ -357,6 +357,28 @@ body {
 
 }
 
+
+.three_col-1 {
+    float:left;
+    width:400px;
+    text-align: left;
+}
+.three_col-2 {
+    float:right;
+    width:350px;
+}
+
+.three_col-2-1 {
+    float:left;
+    width:125px;
+}
+
+.three_col-2-2 {
+    float:right;
+    width:225px;
+    text-align: right;
+}
+
 .contest_col {
     float:left;
     width:60%;
@@ -420,3 +442,8 @@ body {
     background: white url('/images/ui-anim_basic_16x16.gif') right center no-repeat;
 }
 
+.online_ammo_nav{
+    text-align: center;
+    font-family:"helvetica",sans-serif;
+    font-size: .85em;
+}

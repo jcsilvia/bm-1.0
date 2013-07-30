@@ -44,7 +44,7 @@ class Contest extends CI_Controller {
         else
         {
             //If no session, redirect to login page
-            redirect('home', 'location');
+            redirect('login', 'location');
         }
 
 
@@ -79,7 +79,7 @@ public function enter_contest()
         {
 
             //If no session, redirect to login page
-            redirect('home', 'location');
+            redirect('login', 'location');
 
         }
     }
@@ -105,7 +105,7 @@ public function contest_rules()
         {
 
         //If no session, redirect to login page
-            redirect('home', 'location');
+            redirect('login', 'location');
 
         }
 

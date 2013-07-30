@@ -23,7 +23,7 @@ class Parser extends CI_Controller {
 
             $this->parser($row->parser_id);
             //echo 'parsing '; echo $row->parser_id; echo '<br>';
-            sleep(10);
+            sleep(3);
         }
 
 
@@ -34,19 +34,24 @@ class Parser extends CI_Controller {
         $data['parse_info'] = $this->Parser_model->get_parse_info($parser_id);
         $html = file_get_html($data['parse_info']->url);
 
-            foreach($html->find($data['parse_info']->title_element) as $title);
-            $str_title = trim(preg_replace('/\r\n|\r|\n/m','',$title->plaintext));
+        $title = $html->find($data['parse_info']->title_element);
+        $str_title = trim(preg_replace('/\r\n|\r|\n/m','',$title[$data['parse_info']->title_position]->plaintext));
 
-            foreach($html->find($data['parse_info']->price_element) as $price);
-            $str_price = trim(preg_replace('/\$|\r\n|\r|\n/m','',$price->plaintext));
+        $price = $html->find($data['parse_info']->price_element);
+        $str_price = preg_replace('/-\s.*/', '', $price[$data['parse_info']->price_position]->plaintext);
+        $str_price = trim(preg_replace('/\$|\r\n|\r|\n/m','',$str_price));
 
-            foreach($html->find($data['parse_info']->availability_element) as $stock);
-            $str_stock = trim(preg_replace('/\r\n|\r|\n/m','',$stock->plaintext));
+        $stock = $html->find($data['parse_info']->availability_element);
+        $str_stock = trim(preg_replace('/\r\n|\r|\n|\:/m','',$stock[$data['parse_info']->availability_position]->plaintext));
 
 
+            if(is_numeric($str_price) == FALSE)
+            {
+                $str_price = 0;
+            }
 
 
-            if($str_stock == 'Available')
+            if($str_stock == 'Available' || $str_stock == 'Ships from warehouse')
             {
                 $str_stock = 'Yes';
             }
@@ -60,18 +65,54 @@ class Parser extends CI_Controller {
     }
 
 
+    public function parser_cheaper_than_dirt($parser_id)
+    {
+        $data['parse_info'] = $this->Parser_model->get_parse_info($parser_id);
+        $html = file_get_html($data['parse_info']->url);
+
+        $title = $html->find($data['parse_info']->title_element);
+        $str_title = trim(preg_replace('/\r\n|\r|\n/m','',$title[0]->plaintext));
+
+        $price = $html->find($data['parse_info']->price_element);
+        $str_price = trim(preg_replace('/\$|\r\n|\r|\n/m','',$price[2]->plaintext));
+
+        $stock = $html->find($data['parse_info']->availability_element);
+        $str_stock = trim(preg_replace('/\r\n|\r|\n|\:/m','',$stock[15]->plaintext));
+
+        if($str_stock == 'Ships from warehouse')
+            {
+                $str_stock = 'Yes';
+            }
+        else
+            {
+                $str_stock = 'No';
+            }
+
+        $this->Parser_model->set_online_availability($parser_id, $data['parse_info']->product_category_id, $data['parse_info']->url, $str_title, $str_price, $str_stock, $data['parse_info']->vendor_id );
+        //$this->Parser_model->set_online_availability($parser_id, $data['parse_info']->product_category_id, $data['parse_info']->url, $str_stock, $str_price, 'No', $data['parse_info']->vendor_id );
+    }
+
     public function test_parser()
     {
-        $html = file_get_html('http://www.midwayusa.com/product/816445/federal-ammunition-556x45mm-nato-55-grain-xm193-full-metal-jacket-boat-tail-box-of-20');
+        $html = file_get_html('http://www.midwayusa.com/product/953113793/federal-american-eagle-ammunition-556x45mm-nato-62-grain-m855-ss109-penetrator-full-metal-jacket?cm_vc=subv13361166808');
 
-        foreach($html->find('title') as $title);
-        echo $title->plaintext . '<br>';
+        $title = $html->find('title');
+        echo $title['0']->plaintext . '<br>';
 
-        foreach($html->find('div[id=currentPrice]') as $price)
-            echo $price->plaintext . '<br>';
+        //foreach($html->find('td.span') as $price)
+       // $price = $html->find('div[id=currentPrice]');
+        $price = $html->find('div[id=currentPrice] span');
+        $str_price = preg_replace('/-\s.*/', '', $price[0]->plaintext);
+        $str_price = trim(preg_replace('/\$|\r\n|\r|\n|\-/m','',$str_price));
+        echo $str_price . '<br>';
 
-        foreach($html->find('div[id=productStatus]') as $stock)
-            echo $stock->plaintext;
+
+        $stock = $html->find('div[id=productStatus]');
+        $str_stock = trim(preg_replace('/\r\n|\r|\n|\:/m','',$stock['0']->plaintext));
+        echo $str_stock;
+
+        //$this->parser_cheaper_than_dirt(31);
+        //$this->parser(32);
     }
 
 }

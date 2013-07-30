@@ -121,7 +121,7 @@ public function index()
         else
             {
 
-                redirect('home', 'location');
+                redirect('login', 'location');
 
             }
 
@@ -173,7 +173,7 @@ public function results()
         }
         else
         {
-            redirect('home', 'location');
+            redirect('login', 'location');
         }
     }
 

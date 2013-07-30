@@ -79,7 +79,7 @@ class Home_model extends CI_Model {
 
     public function get_latest_updates()
     {
-         $query = $this->db->query("SELECT pa.product_id, po.product_name, ad.vendor_id, ve.vendor_name, pa.address_id, ROUND((price/quantity), 2) as price_per_round, ROUND(time_to_sec(timediff(current_timestamp(), pa.created_date)) / 3600) as last_updated, pa.product_availability_id, m.user_name
+         $query = $this->db->query("SELECT pa.product_id, po.product_name, ad.vendor_id, ve.vendor_name, pa.address_id, ad.state, ROUND((price/quantity), 2) as price_per_round, ROUND(time_to_sec(timediff(current_timestamp(), pa.created_date)) / 3600) as last_updated, pa.product_availability_id, m.user_name
                                       FROM product_availability pa, products po, addresses ad, vendors ve, members m
                                         WHERE po.product_id = pa.product_id
                                           AND ad.vendor_id = ve.vendor_id

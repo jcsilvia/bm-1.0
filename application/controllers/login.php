@@ -17,8 +17,11 @@ public function index($msg = NULL)
         // user has not logged in
         if ($this->session->userdata('memberid') == false)
             {
-
+                $data['nav'] = 'Login';
                 $data['title'] = 'Login to Bullet-Monkey. Get access to local, in-stock ammo and enter to win prizes';
+                $data['keywords'] = 'Bullet-Monkey, login, in-stock, cheap, ammunition, ammo';
+                $data['description'] = 'Login to Bullet-Monkey. Get access to local, in-stock ammo and enter to win prizes';
+
                 $data['msg'] = $msg;
 
                 $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
@@ -34,7 +37,7 @@ public function index($msg = NULL)
 		               $this->load->view('mobile/m_login', $data);
 
 					} else {
-                    	$this->load->view('templates/header', $data);
+                    	$this->load->view('templates/homepage_header', $data);
                     	$this->load->view('login', $data);
                     	$this->load->view('templates/footer');
 					}
@@ -57,7 +60,7 @@ public function index($msg = NULL)
 			             $this->load->view('mobile/m_login', $data);
 
 					} else {
-                        	$this->load->view('templates/header', $data);
+                        	$this->load->view('templates/homepage_header', $data);
                         	$this->load->view('login', $data);
                         	$this->load->view('templates/footer');
 						}
@@ -79,7 +82,9 @@ public function index($msg = NULL)
         {
 
             $data['title'] = 'Login';
-
+            $data['nav'] = 'Login';
+            $data['keywords'] = 'Bullet-Monkey, login, forgot password';
+            $data['description'] = 'Reset your password if you forgot it.';
 
             $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
             $this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
@@ -93,7 +98,7 @@ public function index($msg = NULL)
                     $this->load->view('mobile/m_forgot_password', $data);
 
                 } else {
-                    $this->load->view('templates/header', $data);
+                    $this->load->view('templates/homepage_header', $data);
                     $this->load->view('forgot_password', $data);
                     $this->load->view('templates/footer');
                 }
@@ -137,7 +142,9 @@ public function index($msg = NULL)
                     $this->load->view('mobile/m_login', $data);
 
                 } else {
-                    $this->load->view('templates/header', $data);
+
+                    $data['nav'] = 'Login';
+                    $this->load->view('templates/homepage_header', $data);
                     $this->load->view('password_resent', $data);
                     $this->load->view('templates/footer');
                 }

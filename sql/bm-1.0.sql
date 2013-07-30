@@ -76,6 +76,7 @@ CREATE TABLE `product_categories` (
   `product_category_id` int(11) NOT NULL AUTO_INCREMENT,
   `category_name` varchar(255) DEFAULT NULL,
   `parent_category_id` int(11) DEFAULT NULL,
+  `url` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`product_category_id`),
   KEY `parent_product_category_idx` (`parent_category_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
@@ -161,15 +162,19 @@ CREATE TABLE online_availability (
   PRIMARY KEY (online_availability_id)
 ) ENGINE = InnoDB ROW_FORMAT = DEFAULT;
 
+
 CREATE TABLE vendor_parser (
-  parser_id bigint(19) NOT NULL AUTO_INCREMENT,
+  parser_id bigint(20) NOT NULL AUTO_INCREMENT,
   product_category_id int(11) DEFAULT NULL,
   url varchar(2000) DEFAULT NULL,
   title_element varchar(400) DEFAULT NULL,
+  title_position int(10) DEFAULT '0',
   price_element varchar(400) DEFAULT NULL,
+  price_position int(10) DEFAULT '0',
   availability_element varchar(400) DEFAULT NULL,
-  vendor_id bigint(19),
-  quantity int(11) DEFAULT NULL,
+  availability_position int(10) DEFAULT '0',
+  vendor_id bigint(19) DEFAULT NULL,
+  quantity int(10) DEFAULT NULL,
   created_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (parser_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

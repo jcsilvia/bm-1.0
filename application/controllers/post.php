@@ -71,7 +71,7 @@ class Post extends CI_Controller {
         else
         {
 
-            redirect('home', 'location');
+            redirect('login', 'location');
 
         }
 
@@ -134,7 +134,7 @@ class Post extends CI_Controller {
         else
         {
 
-            redirect('home', 'location');
+            redirect('login', 'location');
 
         }
     }
@@ -210,7 +210,7 @@ class Post extends CI_Controller {
         else
         {
 
-            redirect('home', 'location');
+            redirect('login', 'location');
 
         }
     }
@@ -274,7 +274,7 @@ class Post extends CI_Controller {
         else
         {
 
-            redirect('home', 'location');
+            redirect('login', 'location');
 
         }
 

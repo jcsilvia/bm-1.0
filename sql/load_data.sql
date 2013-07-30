@@ -77,4 +77,31 @@ insert into `addresses`(`address_id`,`vendor_id`,`address1`,`address2`,`city`,`s
 insert into `addresses`(`address_id`,`vendor_id`,`address1`,`address2`,`city`,`state`,`zipcode`,`country`,`address_type`,`phone_number`,`created_date`,`geolat`,`geolng`,`geolatbox`,`geolngbox`) values (7,7,'16-2 S Woodbound Rd','','Rindge','NH','03461','US','primary','6038998400','2013-06-13 11:46:25',null,null,null,null);
 
 
+update product_categories
+ set url = '556' where product_category_id = 4;
+update product_categories
+ set url = '762x39' where product_category_id = 5;
+update product_categories
+ set url = '22lr' where product_category_id = 6;
+update product_categories
+ set url = '9mm' where product_category_id = 7;
+update product_categories
+ set url = '308win' where product_category_id = 8;
+update product_categories
+ set url = '45acp' where product_category_id = 9;
+update product_categories
+ set url = '40sw' where product_category_id = 10;
+update product_categories
+ set url = '545x39' where product_category_id = 11;
+update product_categories
+ set url = '380acp' where product_category_id = 12;
+update product_categories
+ set url = '357mag' where product_category_id = 17;
+update product_categories
+ set url = '38spec' where product_category_id = 18;
+update product_categories
+ set url = '357sig' where product_category_id = 19;
+update product_categories
+ set url = '9x18mak' where product_category_id = 22;
+
 commit;

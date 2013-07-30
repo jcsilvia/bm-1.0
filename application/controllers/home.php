@@ -45,8 +45,10 @@ function index()
            {
 
              //If no session, redirect to home_not_logged_in page
-
-               //$data['title'] = 'Welcome to Bullet-Monkey';
+               $data['nav'] = 'Home';
+               $data['title'] = 'Bullet-Monkey - Crowd-sourcing ammo finder helps you search for local, in-stock ammo like 5.56, 9mm and 22lr.';
+               $data['keywords'] = 'Bullet Monkey,ammo,ammunition,firearms,in-stock,223,556,9mm,22lr,308,45ACP,ar15,glock,ak47,cheap ammo, ammo for sale, ammunition for sale, cheap ammunition, in stock, instock ammo, ammo finder, ammo locator, ammo search';
+               $data['description'] = 'Crowd-sourcing the search for local, in-stock ammunition like 5.56, 9mm, .45ACP, and .22lr.';
                $data['ammo_prices'] = $this->Home_model->get_latest_updates();
 			   include 'mobile.php';
 			   if(Mobile::is_mobile()) {
@@ -103,6 +105,9 @@ public function privacy()
         {
 
 
+            $data['title'] = 'Bullet-Monkey - Privacy statement, how Bullet-Monkey uses your data';
+            $data['keywords'] = 'Bullet-Monkey, Privacy statement';
+            $data['description'] = 'Privacy statement - How Bullet-Monkey uses your data';
 
 
             $this->load->view('templates/homepage_header');
@@ -135,7 +140,9 @@ public function privacy()
         {
 
 
-
+            $data['title'] = 'Bullet-Monkey - Terms of Use';
+            $data['keywords'] = 'Bullet-Monkey, Terms of Use';
+            $data['description'] = 'Terms and conditions of use of Bullet-Monkey';
 
             $this->load->view('templates/homepage_header');
             $this->load->view('terms.php');
@@ -180,7 +187,9 @@ public function privacy()
         {
 
 
-
+            $data['title'] = 'Bullet-Monkey - How to contact us';
+            $data['keywords'] = 'Bullet-Monkey, Contact, Customer Support, Help';
+            $data['description'] = 'How to contact us for support or follow us on twitter';
 
             $this->load->view('templates/homepage_header');
             $this->load->view('contact.php');
@@ -213,7 +222,9 @@ public function privacy()
         {
 
 
-
+            $data['title'] = 'Bullet-Monkey - About us and why we want to help find cheap local ammunition';
+            $data['keywords'] = 'Bullet-Monkey, About, Background, 2nd Amendment, Constitution, in-stock, cheap, ammunition';
+            $data['description'] = 'About Bullet-Monkey, supporting the 2nd Amendment and how we got started helping you find cheap ammunition';
 
             $this->load->view('templates/homepage_header');
             $this->load->view('about.php');

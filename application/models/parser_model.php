@@ -67,8 +67,9 @@ class Parser_model extends CI_Model {
 
     public function get_parser_ids()
     {
-
-        $sql = "SELECT parser_id FROM online_availability WHERE last_updated_date <= date_sub(current_timestamp(), interval 1 hour)";
+        //use this first time parser is run or when new screens are added to scrape
+        $sql = "SELECT parser_id FROM vendor_parser ORDER BY parser_id DESC";
+        //$sql = "SELECT parser_id FROM online_availability WHERE last_updated_date <= date_sub(current_timestamp(), interval 1 hour)";
         $query = $this->db->query($sql);
 
         return $query->result();

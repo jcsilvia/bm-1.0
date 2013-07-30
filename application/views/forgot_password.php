@@ -1,6 +1,6 @@
 <?php $this->load->helper('form'); ?>
 
-<div class="main-content">
+
 
     <div class="content">
 

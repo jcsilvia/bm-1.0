@@ -18,8 +18,10 @@ public function index()
     //test to see if a user is already logged in and reroute to home
     if ($this->session->userdata('memberid') == false)
         {
-
+            $data['nav'] = 'Signup';
             $data['title'] = 'Sign-up for Bullet-Monkey. Reap the rewards of being a member today.';
+            $data['keywords'] = 'Bullet-Monkey, Signup, Account, in-stock, cheap, ammunition';
+            $data['description'] = 'Sign-up for Bullet-Monkey. Reap the rewards of being a member today.';
 
             $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 
@@ -47,7 +49,7 @@ public function index()
 		               $this->load->view('mobile/m_signup');
 
 					} else {
-                    	$this->load->view('templates/header', $data);
+                    	$this->load->view('templates/homepage_header', $data);
                     	$this->load->view('signup');
                     	$this->load->view('templates/footer');
 					}

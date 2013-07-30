@@ -52,7 +52,7 @@
         <div style="width:800px;position:relative; ">
 
 
-            <div class="ammo_heading">Latest In-Stock Ammo Updates</div><div class="ammo_container">
+            <div class="ammo_heading">Latest Local In-Stock Ammo Updates</div><div class="ammo_container">
 
 
 
@@ -76,7 +76,7 @@
 
                 <div class="four_col col-1"> <?php  echo $latest_updates['product_name'] ?></div>
                 <div class="four_col col-2"> <?php if (count($ammo_prices) > 0){echo '$';}  echo $latest_updates['price_per_round']; if (count($ammo_prices) > 0){ echo '/round'; } ?></div>
-                <div class="four_col col-3"><a href="/profile/<?php echo $latest_updates['address_id'] ?>"> <?php  echo $latest_updates['vendor_name'] ?></a> </div>
+                <div class="four_col col-3"><a href="/profile/<?php echo $latest_updates['address_id'] ?>"> <?php  echo $latest_updates['vendor_name'] ?> in <?php  echo $latest_updates['state'] ?></a> </div>
                 <div class="four_col col-4">
                     <?php
                     if (count($ammo_prices) > 0) {
