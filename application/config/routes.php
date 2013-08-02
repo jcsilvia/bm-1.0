@@ -52,6 +52,7 @@ $route['profile/:num'] = "profile/index/$1";
 $route['home/flag_entry/:num'] = "home/flag_entry/$1";
 $route['ammo/:any'] = "ammo/index/$1";
 $route['ammo'] = "ammo";
+$route['sitemap\.xml'] = 'sitemap';
 
 //$route['home/message_detail/:num'] = "home/get_message_details/$1";
 
