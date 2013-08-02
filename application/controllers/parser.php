@@ -51,7 +51,7 @@ class Parser extends CI_Controller {
             }
 
 
-            if($str_stock == 'Available' || $str_stock == 'Ships from warehouse')
+            if($str_stock == 'Available' || $str_stock == 'Ships from warehouse' || $str_stock == 'In Stock' || $str_stock > 0)
             {
                 $str_stock = 'Yes';
             }
@@ -94,20 +94,20 @@ class Parser extends CI_Controller {
 
     public function test_parser()
     {
-        $html = file_get_html('http://www.midwayusa.com/product/953113793/federal-american-eagle-ammunition-556x45mm-nato-62-grain-m855-ss109-penetrator-full-metal-jacket?cm_vc=subv13361166808');
+        $html = file_get_html('http://www.bulkammo.com/bulk-22-lr-ammo-22lr40lrnremthb-500');
 
-        $title = $html->find('title');
+        $title = $html->find('h1[itemprop=name]');
         echo $title['0']->plaintext . '<br>';
 
         //foreach($html->find('td.span') as $price)
        // $price = $html->find('div[id=currentPrice]');
-        $price = $html->find('div[id=currentPrice] span');
-        $str_price = preg_replace('/-\s.*/', '', $price[0]->plaintext);
+        $price = $html->find('span[class=price]');
+        $str_price = preg_replace('/-\s.*/', '', $price['0']->plaintext);
         $str_price = trim(preg_replace('/\$|\r\n|\r|\n|\-/m','',$str_price));
         echo $str_price . '<br>';
 
 
-        $stock = $html->find('div[id=productStatus]');
+        $stock = $html->find('span[class=stock-qty]');
         $str_stock = trim(preg_replace('/\r\n|\r|\n|\:/m','',$stock['0']->plaintext));
         echo $str_stock;
 

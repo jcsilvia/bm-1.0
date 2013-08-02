@@ -30,7 +30,7 @@
     <div style="width:800px;position:relative; ">
 
 
-        <div class="ammo_heading">Latest In-Stock <?php echo $ammo_type ?> Ammo Available Online</div><div class="ammo_container">
+        <div class="ammo_heading"><h1 style="font-size: 1.25em;">Latest In-Stock <?php echo $ammo_type ?> Ammo Available Online</h1></div><div class="ammo_container">
 
 
 

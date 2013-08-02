@@ -46,7 +46,7 @@ function index()
 
              //If no session, redirect to home_not_logged_in page
                $data['nav'] = 'Home';
-               $data['title'] = 'Bullet-Monkey - Crowd-sourcing ammo finder helps you search for local, in-stock ammo like 5.56, 9mm and 22lr.';
+               $data['title'] = 'Bullet-Monkey - helps you search for local, in-stock ammo';
                $data['keywords'] = 'Bullet Monkey,ammo,ammunition,firearms,in-stock,223,556,9mm,22lr,308,45ACP,ar15,glock,ak47,cheap ammo, ammo for sale, ammunition for sale, cheap ammunition, in stock, instock ammo, ammo finder, ammo locator, ammo search';
                $data['description'] = 'Crowd-sourcing the search for local, in-stock ammunition like 5.56, 9mm, .45ACP, and .22lr.';
                $data['ammo_prices'] = $this->Home_model->get_latest_updates();
