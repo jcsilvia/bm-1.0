@@ -18,12 +18,12 @@ class Ammo_model extends CI_Model {
         $row = $query->row();
         $ammo_id = $row->product_category_id;
 
-        $query = $this->db->query("SELECT oa.url as product_url, oa.title, oa.price, ve.vendor_name, ve.url as vendor_url, ROUND(time_to_sec(timediff(current_timestamp(), oa.last_updated_date)) / 3600) as last_updated_date, round((oa.price / vp.quantity), 2) as price_per_round
+        $query = $this->db->query("SELECT oa.url as product_url, oa.title, oa.price, ve.vendor_name, ve.url as vendor_url, ROUND(time_to_sec(timediff(current_timestamp(), oa.last_updated_date)) / 60) as last_updated_date, round((oa.price / vp.quantity), 2) as price_per_round
                                     FROM online_availability oa, vendors ve, vendor_parser vp
                                     WHERE oa.in_stock = 'Yes'
                                         AND oa.vendor_id = ve.vendor_id
                                         AND oa.parser_id = vp.parser_id
-                                        AND oa.product_category_id = " . $ammo_id ." ORDER BY oa.price ASC");
+                                        AND oa.product_category_id = " . $ammo_id ." ORDER BY round((oa.price / vp.quantity), 2) ASC");
         return $query->result_array();
 
 

@@ -64,28 +64,12 @@
                 <div class="three_col-2-2">
                     <?php
                     if (count($online_ammo) > 0) {
-                        if ($latest_updates['last_updated_date'] > 23)
-                        {
-                            echo round(($latest_updates['last_updated_date']/24),0);
 
-                            if (round(($latest_updates['last_updated_date']/24),0) == 1)
-                            {echo ' day ago @';}
-                            else
-                            { echo ' days ago @'; }
+                            echo round(($latest_updates['last_updated_date']),0);
+                            echo ' minutes ago @';
                             echo $latest_updates['vendor_name'];
                             echo '</div>';
-                        }
-                        else
-                        {
-                            echo $latest_updates['last_updated_date'];
 
-                            if ($latest_updates['last_updated_date'] == 1)
-                            {echo ' hour ago @';}
-                            else
-                            { echo ' hours ago @'; }
-                            echo $latest_updates['vendor_name'];
-                            echo '</div>';
-                        }
                     }
 
                     ?>
