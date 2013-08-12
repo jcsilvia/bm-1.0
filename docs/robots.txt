@@ -1,3 +1,2 @@
 User-agent: *
-Disallow:
-Sitemap: <http://www.bullet-monkey.com/sitemap.xml>
+Sitemap: http://www.bullet-monkey.com/sitemap.xml
