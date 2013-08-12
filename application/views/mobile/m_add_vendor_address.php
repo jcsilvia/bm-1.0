@@ -143,7 +143,7 @@
 
         <div data-role="fieldcontain">
             <label for="zipcode">Zipcode:</label>
-            <input type="number" name="zipcode" size="10" value="<?php echo set_value('zipcode'); ?>" data-mini="true">
+            <input type="text" pattern="\d+\" name="zipcode" size="10" value="<?php echo set_value('zipcode'); ?>" data-mini="true">
             <?php echo form_error('zipcode'); ?>
         </div>
 
